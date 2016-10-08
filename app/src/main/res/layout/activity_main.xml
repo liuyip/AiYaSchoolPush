@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_title_view"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="51dp"
+        android:id="@+id/main_content"/>
 
-    <Button
+
+    <com.luseen.spacenavigation.SpaceNavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="显示网络加载对话框"
-        android:onClick="btnClick"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        app:space_item_icon_only_size="45dp"
+        android:id="@+id/main_tab"/>
+
+</FrameLayout>

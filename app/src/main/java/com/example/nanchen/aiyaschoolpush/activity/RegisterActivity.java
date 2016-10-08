@@ -1,6 +1,7 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -43,7 +44,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
     private EditText mEditPwd1;
     private EditText mEditPwd2;
     private EditText mEditVercode;
-    private Button mBtnRegist;
+    private Button mBtnVerify;
     private Button mBtnGetVercode;
     private Timer timer;
     private TimeCount timeCount;//用于倒计时任务
@@ -115,7 +116,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
                     startRegister();
                     break;
                 case VERIFY_FAILED:
-                    UIUtil.showToast(RegisterActivity.this,"注册失败，验证码不正确！");
+                    UIUtil.showToast(RegisterActivity.this,"你输入的验证码不正确！");
                     stopLoading();
                     break;
                 case GET_VERCODE_SUC:
@@ -135,8 +136,11 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
      * 检测完毕，开始注册
      */
     private void startRegister() {
-        UIUtil.showToast(RegisterActivity.this,"注册成功！");
         stopLoading();
+        Intent intent = new Intent(RegisterActivity.this,RegisterActivity2.class);
+        intent.putExtra("phone",mEditUsername.getText().toString().trim());
+        startActivity(intent);
+//        UIUtil.showToast(RegisterActivity.this,"注册成功！");
         RegisterActivity.this.finish();
     }
 
@@ -167,7 +171,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
         mEditPwd1 = (EditText) findViewById(R.id.register_edt_pwd1);
         mEditPwd2 = (EditText) findViewById(R.id.register_edt_pwd2);
         mEditVercode = (EditText) findViewById(R.id.register_edt_vercode);
-        mBtnRegist = (Button) findViewById(R.id.register_btn_register);
+        mBtnVerify = (Button) findViewById(R.id.register_btn_verify);
         mBtnGetVercode = (Button) findViewById(R.id.register_btn_getVercode);
 
         mInputUsername = (TextInputLayout) findViewById(R.id.register_layout_username);
@@ -179,9 +183,9 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
 
 
         mTitleBar.setLeftButtonAsFinish(this);
-        mTitleBar.setTitle("注册");
+        mTitleBar.setTitle("手机验证");
 
-        mBtnRegist.setOnClickListener(this);
+        mBtnVerify.setOnClickListener(this);
         mBtnGetVercode.setOnClickListener(this);
 
 
@@ -197,7 +201,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.register_btn_register:
+            case R.id.register_btn_verify:
                 Log.e(TAG,"你点击了注册按钮!");
                 getCode = true;
                 register();
@@ -214,7 +218,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
     }
 
     /**
-     * 点击注册后执行的方法
+     * 点击验证后执行的方法
      */
     private void register() {
         phone = mEditUsername.getText().toString().trim();
@@ -224,23 +228,30 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
 
         Log.e(TAG,"phone:"+phone+"pwd1:"+pwd1+"pwd2:"+pwd2+"verCode:"+verCode);
 
-        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(pwd1)
-                || TextUtils.isEmpty(pwd2) || TextUtils.isEmpty(verCode)){
+//        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(pwd1)
+//                || TextUtils.isEmpty(pwd2) || TextUtils.isEmpty(verCode)){
+//            UIUtil.showToast(this,"请输入必要信息！");
+//            return;
+//        }
+
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(verCode)){
             UIUtil.showToast(this,"请输入必要信息！");
             return;
         }
+
+
         if (!TextUtil.isMobile(phone)){
             UIUtil.showToast(this,"手机号格式不正确!");
             return;
         }
-        if (pwd1.length() < 6){
-            UIUtil.showToast(this,"密码长度不能小于6！");
-            return;
-        }
-        if (!pwd1.equals(pwd2)){
-            UIUtil.showToast(this,"两次的密码不一致，请检查！");
-            return;
-        }
+//        if (pwd1.length() < 6){
+//            UIUtil.showToast(this,"密码长度不能小于6！");
+//            return;
+//        }
+//        if (!pwd1.equals(pwd2)){
+//            UIUtil.showToast(this,"两次的密码不一致，请检查！");
+//            return;
+//        }
         
         showLoading(this);
         SMSSDK.submitVerificationCode(COUNTRY_CODE,phone,verCode);

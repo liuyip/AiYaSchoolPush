@@ -2,6 +2,7 @@ package com.example.nanchen.aiyaschoolpush.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,12 +67,28 @@ public class ViewHolder {
         return this;
     }
 
+    public ViewHolder setText(int viewId,CharSequence text){
+        TextView tv = getView(viewId);
+        tv.setText(text);
+        return this;
+    }
+
+
     /**
      * 设置图片
      */
     public ViewHolder setImageResource(int viewId,int drawableId){
         ImageView iv = getView(viewId);
         iv.setImageResource(drawableId);
+        return this;
+    }
+
+    /**
+     * 设置图片
+     */
+    public ViewHolder setImageDrawable(int viewId, Drawable drawable){
+        ImageView iv = getView(viewId);
+        iv.setImageDrawable(drawable);
         return this;
     }
 

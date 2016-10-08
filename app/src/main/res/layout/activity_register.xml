@@ -87,7 +87,8 @@
                 android:layout_height="55dp"
                 android:layout_below="@+id/midle_line"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="21dp"
@@ -129,7 +130,8 @@
                 android:layout_below="@+id/linear_layout_pwd"
                 android:layout_marginLeft="30dp"
                 android:background="#cacaca"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
             </LinearLayout>
 
             <LinearLayout
@@ -138,7 +140,8 @@
                 android:layout_height="55dp"
                 android:layout_below="@+id/midle_line1"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="21dp"
@@ -183,7 +186,8 @@
                 android:layout_below="@+id/linear_layout_second_pwd"
                 android:layout_marginLeft="30dp"
                 android:background="#cacaca"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
             </LinearLayout>
 
 
@@ -194,7 +198,8 @@
                 android:layout_below="@+id/linear_layout_second_pwd"
                 android:layout_marginLeft="30dp"
                 android:background="#cacaca"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
             </LinearLayout>
 
             <LinearLayout
@@ -252,13 +257,13 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/register_btn_register"
+            android:id="@+id/register_btn_verify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_border_radius"
             android:elevation="5dp"
-            android:text="注   册"
+            android:text="验   证"
             android:textColor="#FFFFFF"/>
 
     </LinearLayout>

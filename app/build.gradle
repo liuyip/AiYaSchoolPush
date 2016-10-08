@@ -28,14 +28,35 @@ repositories{
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    // mob  message
     compile name: 'SMSSDK-2.1.1', ext: 'aar'
     compile files('libs/MobTools-2016.0714.1402.jar')
     compile files('libs/MobCommons-2016.0714.1402.jar')
-    compile 'com.android.support:design:24.1.1'
-    compile 'com.android.support:cardview-v7:24.1.1'
+    //mob api
     compile files('libs/MobTools-2016.0727.1113.jar')
     compile files('libs/MobCommons-2016.0727.1113.jar')
     compile files('libs/mobAPI-1.0.6.jar')
+    // material design
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:cardview-v7:24.2.1'
+    // photo
     compile 'com.squareup.picasso:picasso:2.5.2'
+    // rx
+    compile 'io.reactivex:rxjava:1.2.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    // bottom tab
+    compile 'com.github.armcha:SpaceNavigationView:1.3.2'
+
+    // 自带加载更多和下拉刷新的万能Adapter
+    compile 'me.xiaopan:assemblyadapter:2.2.0'
+
+    // 字母导航栏
+    compile 'com.bigkoo:quicksidebar:1.0.3'
 }

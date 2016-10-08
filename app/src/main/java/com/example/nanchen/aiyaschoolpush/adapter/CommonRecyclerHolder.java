@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,6 +66,12 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public CommonRecyclerHolder setTextColor(int viewId,int color){
+        TextView textView = getView(viewId);
+        textView.setTextColor(color);
+        return this;
+    }
+
     /**
      * 设置图片
      */
@@ -88,6 +95,14 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder {
      */
     public CommonRecyclerHolder setImageByUrl(int viewId, String url){
         Picasso.with(context).load(url).into((ImageView) getView(viewId));
+        return this;
+    }
+
+
+
+    public CommonRecyclerHolder setOnRecyclerItemClickListener(int viewId,OnClickListener listener){
+        View view = getView(viewId);
+        view.setOnClickListener(listener);
         return this;
     }
 
