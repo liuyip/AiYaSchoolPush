@@ -6,4 +6,21 @@
 
     <string name="play_loading">视频正在加载中,请稍候…</string>
     <string name="play_error">视频加载错误</string>
+    <string name="find_pwd">\ue916 密码找回</string>
+
+    <!-- 箭头 -->
+    <string name="text_arrow_down">\ue64b</string>
+    <string name="text_arrow_up">\ue64a</string>
+    <string name="text_arrow_right">\ue64c</string>
+    <string name="text_arrow_left">\ue64d</string>
+
+
+    <!--设置页新图标-->
+    <string name="mine_data">\ue621</string><!--设置 成长档案-->
+    <string name="l1">\ue61a</string><!--设置 爱心回忆-->
+    <string name="l2">\ue90f</string><!--设置 爱心问问-->
+    <string name="mine_my_baby">\ue606</string><!--设置 我的宝贝-->
+    <string name="l4">\ue628</string><!--设置 创建班级-->
+    <string name="l4_p">\ue601</string><!--设置 查找班级-->
+    <string name="mine_setting">\ue617</string><!--设置 设置-->
 </resources>

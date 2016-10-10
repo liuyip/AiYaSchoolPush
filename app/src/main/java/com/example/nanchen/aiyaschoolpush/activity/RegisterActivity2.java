@@ -58,6 +58,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
     private Uri mTempUri;
     //裁剪后返回的uri
     private Uri mZoomUri;
+    private EditText mEditBirthday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
         mBtnRegister.setOnClickListener(this);
         mHeadImage.setOnClickListener(this);
 
+
         if (mHeadImage != null){
             mHeadImage.setCircleWidth(20);
             mHeadImage.setLevel(4);
@@ -109,14 +111,16 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
         }
     }
 
+
+
     private final int PHOTO_PICKED_FROM_CAMERA = 1; // 用来标识头像来自系统拍照
-    private final int PHOTO_PICKED_WITH_DATA = 2; // 用来标识从相册获取头像
+    private final int PHOTO_PICKED_FROM_FILE = 2; // 用来标识从相册获取头像
     private final int CROP_FROM_CAMERA = 3;
 
     private void getIconFromPhoto(){
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
-        startActivityForResult(intent,PHOTO_PICKED_WITH_DATA);
+        startActivityForResult(intent, PHOTO_PICKED_FROM_FILE);
     }
 
     private void selectPhoto() {
@@ -239,14 +243,14 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != RESULT_OK){
+        if (resultCode != RESULT_OK){
             return;
         }
         switch (requestCode) {
             case PHOTO_PICKED_FROM_CAMERA:
                 doCrop();
                 break;
-            case PHOTO_PICKED_WITH_DATA:
+            case PHOTO_PICKED_FROM_FILE:
                 imgUri = data.getData();
                 doCrop();
                 break;

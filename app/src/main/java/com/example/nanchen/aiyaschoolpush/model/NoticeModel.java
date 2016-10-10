@@ -14,7 +14,6 @@ public class NoticeModel {
     public long time; // 发送时间
     public boolean isIPraised; // 我是否赞了该通知
     public int praiseCount; // 总赞数
-    public int commentCount; //
-
-
+    public int commentCount; //评论数
+    public int tag; // 发送类型   1——公告  2——作业
 }

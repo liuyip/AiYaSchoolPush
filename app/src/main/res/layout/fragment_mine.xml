@@ -1,18 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-        <com.example.nanchen.aiyaschoolpush.view.TitleView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mine_titleBar"/>
+    <com.example.nanchen.aiyaschoolpush.view.TitleView
+        android:id="@+id/mine_titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white1"
+        android:layout_marginTop="10dp">
+
+        <com.example.nanchen.aiyaschoolpush.view.RoundImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/default_avatar"
+            android:id="@+id/mine_image"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="我的"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@+id/mine_image"
+            android:layout_centerInParent="true"
+            android:text="测试者账号"
+            android:id="@+id/mine_name"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@+id/mine_name"
+            android:layout_centerInParent="true"
+            android:text="四川省成都市第七中学校"
+            android:textColor="@color/mine_city"
+            android:id="@+id/mine_city"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+
+    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+        android:id="@+id/mine_revise_data"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="15dp"
+        app:list_item_bottom_line_height_size="1"
+        app:list_item_bottom_line_width_size="0"
+        app:list_item_image_size="29"
+        app:list_item_line_show_model="listitem_show_top_line"
+        app:list_item_style="listitem_menu"
+        app:list_item_top_line_height_size="1"
+        app:list_item_top_line_width_size="0"
+        app:text_left="资料修改"
+        app:icon_lefttext="@string/mine_data"
+        app:text_left_fontcolor="@color/gray9"
+        app:text_right_fontcolor="@color/gray"
+        app:text_right_fontsize="16"/>
+
+    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+        android:id="@+id/mine_my_baby"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="2dp"
+        app:icon_lefttext="@string/mine_my_baby"
+        app:list_item_bottom_line_height_size="1"
+        app:list_item_bottom_line_width_size="0"
+        app:list_item_image_size="29"
+        app:list_item_line_show_model="listitem_show_top_line"
+        app:list_item_style="listitem_menu"
+        app:list_item_top_line_height_size="1"
+        app:list_item_top_line_width_size="0"
+        app:text_left="我的宝贝"
+        app:text_left_fontcolor="@color/gray9"
+        app:text_right_fontcolor="@color/gray"
+        app:text_right_fontsize="16"/>
+
+    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+        android:id="@+id/mine_my_room"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="2dp"
+        app:icon_lefttext="@string/mine_my_baby"
+        app:list_item_bottom_line_height_size="1"
+        app:list_item_bottom_line_width_size="0"
+        app:list_item_image_size="29"
+        app:list_item_line_show_model="listitem_show_top_line"
+        app:list_item_style="listitem_menu"
+        app:list_item_top_line_height_size="1"
+        app:list_item_top_line_width_size="0"
+        app:text_left="我的空间"
+        app:text_left_fontcolor="@color/gray9"
+        app:text_right_fontcolor="@color/gray"
+        app:text_right_fontsize="16"/>
+
+    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+        android:id="@+id/mine_setting"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="2dp"
+        app:icon_lefttext="@string/mine_setting"
+        app:list_item_bottom_line_height_size="1"
+        app:list_item_bottom_line_width_size="0"
+        app:list_item_image_size="29"
+        app:list_item_line_show_model="listitem_show_top_line"
+        app:list_item_style="listitem_menu"
+        app:list_item_top_line_height_size="1"
+        app:list_item_top_line_width_size="0"
+        app:text_left="设置"
+        app:text_left_fontcolor="@color/gray9"
+        app:text_right_fontcolor="@color/gray"
+        app:text_right_fontsize="16"/>
+
 
 </LinearLayout>

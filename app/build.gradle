@@ -58,5 +58,14 @@ dependencies {
     // 字母导航栏
     compile 'com.bigkoo:quicksidebar:1.0.3'
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
-    compile project(':easeui')
+    // 自动轮播
+    compile 'com.android.support:support-v4:+'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.slider:library:1.1.5@aar'
+    // 开源弹出式Toast
+    compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
+        // exclusion is not neccessary, but generally a good idea.
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
 }

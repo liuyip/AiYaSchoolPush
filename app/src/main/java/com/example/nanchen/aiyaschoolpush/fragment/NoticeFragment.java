@@ -29,7 +29,6 @@ import java.util.List;
  */
 
 public class NoticeFragment extends FragmentBase {
-
     private static final String TAG = "NoticeFragment";
     private RecyclerView mRecyclerView;
     private CommonRecyclerAdapter<NoticeModel> mAdapter;

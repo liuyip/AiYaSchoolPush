@@ -9,9 +9,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/discover_titleBar"/>
 
+        <com.daimajia.slider.library.SliderLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/discover_slider"/>
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="发现"/>
 

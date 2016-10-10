@@ -29,6 +29,7 @@ public class App extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        app = this;
 
         // 初始化短信验证SDK
         SMSSDK.initSDK(this, MSG_APP_KEY, MSG_APP_SECRET);
