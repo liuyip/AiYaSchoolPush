@@ -33,6 +33,8 @@
     <color name="white9">#FBFBFB</color>
     <color name="mine_city">#ababab</color>
 
+    <drawable name="grey6">#e5e5e5</drawable>
+
     <color name="color_item_border">#FFCACACA</color>
     <color name="gray">#808080</color>
     <color name="gray1">#dedcdc</color>

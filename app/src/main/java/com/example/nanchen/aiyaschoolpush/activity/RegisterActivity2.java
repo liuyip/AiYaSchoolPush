@@ -65,11 +65,11 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
 
-//        Intent intent = getIntent();
-//        phone = intent.getStringExtra("phone");
-//        if (TextUtils.isEmpty(phone)){
-//            finish();
-//        }
+        Intent intent = getIntent();
+        phone = intent.getStringExtra("phone");
+        if (TextUtils.isEmpty(phone)){
+            finish();
+        }
 
 
         bindView();

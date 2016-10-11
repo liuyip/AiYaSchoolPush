@@ -42,7 +42,7 @@
             android:textSize="18sp"
             android:layout_below="@+id/mine_name"
             android:layout_centerInParent="true"
-            android:text="四川省成都市第七中学校"
+            android:text="四川省成都市锦江区春熙路1号"
             android:textColor="@color/mine_city"
             android:id="@+id/mine_city"
             android:layout_marginTop="10dp"/>
@@ -62,7 +62,7 @@
         app:list_item_style="listitem_menu"
         app:list_item_top_line_height_size="1"
         app:list_item_top_line_width_size="0"
-        app:text_left="资料修改"
+        app:text_left="个人信息"
         app:icon_lefttext="@string/mine_data"
         app:text_left_fontcolor="@color/gray9"
         app:text_right_fontcolor="@color/gray"
@@ -91,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginTop="2dp"
-        app:icon_lefttext="@string/mine_my_baby"
+        app:icon_lefttext="@string/mine_my_room"
         app:list_item_bottom_line_height_size="1"
         app:list_item_bottom_line_width_size="0"
         app:list_item_image_size="29"
@@ -105,11 +105,11 @@
         app:text_right_fontsize="16"/>
 
     <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
-        android:id="@+id/mine_setting"
+        android:id="@+id/mine_about"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_marginTop="2dp"
-        app:icon_lefttext="@string/mine_setting"
+        app:icon_lefttext="@string/mine_about"
         app:list_item_bottom_line_height_size="1"
         app:list_item_bottom_line_width_size="0"
         app:list_item_image_size="29"
@@ -117,10 +117,22 @@
         app:list_item_style="listitem_menu"
         app:list_item_top_line_height_size="1"
         app:list_item_top_line_width_size="0"
-        app:text_left="设置"
+        app:text_left="关于我们"
         app:text_left_fontcolor="@color/gray9"
         app:text_right_fontcolor="@color/gray"
         app:text_right_fontsize="16"/>
+
+    <Button
+        android:id="@+id/exit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/exit_btn_new"
+        android:text="退出登录"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
 
 
 </LinearLayout>

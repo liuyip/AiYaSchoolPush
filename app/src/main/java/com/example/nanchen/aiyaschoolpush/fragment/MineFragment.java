@@ -23,9 +23,12 @@ import android.widget.AdapterView;
 
 import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.activity.AboutActivity;
 import com.example.nanchen.aiyaschoolpush.activity.ActivityBase;
+import com.example.nanchen.aiyaschoolpush.activity.ChildInfoActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
 import com.example.nanchen.aiyaschoolpush.view.OnLinearLayoutListItemClickListener;
@@ -58,7 +61,7 @@ public class MineFragment extends FragmentBase{
     private LinearLayoutListItemView mMenuReviseData;
     private LinearLayoutListItemView mMenuMyRoom;
     private LinearLayoutListItemView mMenuMyBaby;
-    private LinearLayoutListItemView mMenuSetting;
+    private LinearLayoutListItemView mMenuAbout;
 
     @Nullable
     @Override
@@ -84,14 +87,37 @@ public class MineFragment extends FragmentBase{
         mMenuReviseData = (LinearLayoutListItemView) view.findViewById(R.id.mine_revise_data);
         mMenuMyRoom = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_room);
         mMenuMyBaby = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_baby);
-        mMenuSetting = (LinearLayoutListItemView) view.findViewById(R.id.mine_setting);
+        mMenuAbout = (LinearLayoutListItemView) view.findViewById(R.id.mine_about);
 
         mMenuReviseData.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-                Crouton.makeText(getActivity(),"你点击了资料修改", Style.ALERT).show();
+                Crouton.makeText(getActivity(),"你点击了个人信息", Style.ALERT).show();
             }
         });
+
+        mMenuMyRoom.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+                Crouton.makeText(getActivity(),"你点击了我的空间", Style.ALERT).show();
+            }
+        });
+
+        mMenuMyBaby.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+                Crouton.makeText(getActivity(),"你点击了我的宝贝", Style.ALERT).show();
+                IntentUtil.newIntent(getActivity(), ChildInfoActivity.class);
+            }
+        });
+
+        mMenuAbout.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+                IntentUtil.newIntent(getActivity(), AboutActivity.class);
+            }
+        });
+
     }
 
 

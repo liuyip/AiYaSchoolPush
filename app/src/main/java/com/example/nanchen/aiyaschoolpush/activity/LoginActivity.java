@@ -18,7 +18,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener{
     private EditText mEditUserName;
     private EditText mEditPwd;
     private Button mBtnLogin;
-    private LinearLayout mLinearRegist;
+    private LinearLayout mLinearRegister;
     private IcomoonTextView mTextFindPwd;
 
     @Override
@@ -32,7 +32,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener{
 
     private void setListener() {
         mBtnLogin.setOnClickListener(this);
-        mLinearRegist.setOnClickListener(this);
+        mLinearRegister.setOnClickListener(this);
         mTextFindPwd.setOnClickListener(this);
     }
 
@@ -40,7 +40,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener{
         mEditUserName = (EditText) findViewById(R.id.login_edt_username);
         mEditPwd = (EditText) findViewById(R.id.login_edt_pwd);
         mBtnLogin = (Button) findViewById(R.id.login_btn_login);
-        mLinearRegist = (LinearLayout) findViewById(R.id.linear_layout_btn_register);
+        mLinearRegister = (LinearLayout) findViewById(R.id.linear_layout_btn_register);
 
         mTextFindPwd = (IcomoonTextView) findViewById(R.id.login_find_pwd);
     }
@@ -56,7 +56,12 @@ public class LoginActivity extends ActivityBase implements OnClickListener{
                 IntentUtil.newIntent(this,RegisterActivity.class);
                 break;
             case R.id.login_find_pwd:
-                UIUtil.showToast(this,"你点击了找回密码！");
+//                UIUtil.showToast(this,"你点击了找回密码！");
+
+                String phone = mEditUserName.getText().toString().trim();
+                Intent intent = new Intent(this,ResetPwdActivity.class);
+                intent.putExtra("phone",phone);
+                startActivity(intent);
                 break;
         }
     }

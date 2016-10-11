@@ -210,7 +210,6 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
                 break;
             case R.id.register_btn_getVercode:
                 Log.e(TAG,"你点击了获取验证码按钮!");
-
                 getVerCode();// 获取验证码
 
                 break;
