@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="candialog-1.0.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.canyinghao/candialog/1.0.5/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.canyinghao/candialog/1.0.5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.canyinghao/candialog/1.0.5/fe2a31191ba4376d2b9b979410baa91a3ea4cc1d/candialog-1.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

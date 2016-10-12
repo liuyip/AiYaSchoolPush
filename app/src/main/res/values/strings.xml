@@ -25,6 +25,8 @@
     <string name="mine_setting">\ue617</string><!--设置 设置-->
     <string name="mine_about">\ue640</string><!--关于我们-->
 
+    <string name="discover_weather">\ue915</string><!--爱吖天气-->
+
     <!-- VIP 字体图标 -->
     <string name="vip">\ue90d</string>
     <string name="svip">\ue90c</string>

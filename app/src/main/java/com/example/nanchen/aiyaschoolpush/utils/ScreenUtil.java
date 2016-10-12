@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
 
 
@@ -37,6 +38,11 @@ public class ScreenUtil {
 
     public static int dp2px(Context context, int dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return (int) ((dp * displayMetrics.density) + 0.5);
+    }
+
+    public static int dp2px(int dp) {
+        DisplayMetrics displayMetrics = App.getAppContext().getResources().getDisplayMetrics();
         return (int) ((dp * displayMetrics.density) + 0.5);
     }
 

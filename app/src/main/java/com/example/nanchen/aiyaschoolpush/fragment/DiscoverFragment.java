@@ -14,7 +14,10 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView.OnSliderClickListe
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.model.ActivityModel;
+import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
+import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
+import com.example.nanchen.aiyaschoolpush.view.WavyLineView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,8 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
     private TitleView mTitleBar;
     private SliderLayout mSliderLayout;
     private List<ActivityModel> mActivityModels;
+    private WavyLineView mWavyLine;
+    private LinearLayoutListItemView mItemWeather;
 
     @Nullable
     @Override
@@ -76,6 +81,18 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
 
 
         mSliderLayout = (SliderLayout) view.findViewById(R.id.discover_slider);
+        mWavyLine = (WavyLineView) view.findViewById(R.id.discover_wavyLine);
+
+        int initStrokeWidth = 2;
+        int initAmplitude = 10;
+        float initPeriod = (float)(2 * Math.PI / 120);
+        mWavyLine.setPeriod(initPeriod);
+        mWavyLine.setAmplitude(initAmplitude);
+        mWavyLine.setStrokeWidth(ScreenUtil.dp2px(initStrokeWidth));
+
+        mItemWeather = (LinearLayoutListItemView) view.findViewById(R.id.discover_item_weather);
+
+
 
     }
 
@@ -83,4 +100,5 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
     public void onSliderClick(BaseSliderView slider) {
         Toast.makeText(getActivity(),"你点击了参加一个活动",Toast.LENGTH_SHORT).show();
     }
+
 }

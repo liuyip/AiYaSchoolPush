@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="c86e9d6920478df4ddfb8aa6b660b3b85d16cbe5">
+        sha1="7abe48e9f899f46b49dabe26afa06b5ed117b765">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_51df9e5cc3ebd2696baed1333160f95802c846d8\classes.dex" />
     </item>
     <item
@@ -48,6 +48,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.canyinghao\cananimation\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="a530f1b60f49a4e4325bf3a33a89891f100d2696">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.canyinghao-cananimation-1.0.3_7c26be54a4dfebe5f1ef8f88efba9d1f9b015336\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.0\42bfaf64c94f3848ebf5cf1c2ea4ec9d1b3ac6c8\rxjava-1.2.0.jar"
         jumboMode="true"
         optimize="true"
@@ -81,6 +90,15 @@
         revision="24.0.2"
         sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_a3a718343956c6e4d917a53a4fdd4a4dc134cda5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.elyeproj.libraries\loaderviewlibrary\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7beae08fbf0c3b6c88c75d3fefd2a0b921cd3daf">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.elyeproj.libraries-loaderviewlibrary-1.2.1_ac2429f447365d5f75a08a7807e07552832c9641\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -300,6 +318,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.canyinghao\caneffect\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e8775fcfbc32d91dd39fbae6882407219ea545d">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.canyinghao-caneffect-1.0.3_bd910081c9fdffd5bce3e5001c3b88ebed7bdfb8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\libs\MobCommons-2016.0727.1113.jar"
         jumboMode="true"
         optimize="true"
@@ -354,6 +381,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.canyinghao\candialog\1.0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="833cf77c59bf25255b3adb146c1090a7a0c554e9">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.canyinghao-candialog-1.0.5_5b8948ac4ae085314dae1ad918c8e2a4debc99d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -376,7 +412,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="c2cc94aec9373d43d6fe0c4fc9cf774229063bfa">
+        sha1="91f1362090a188643dc97cac1ce4a7537b0d7551">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c653f946809fb21755e272db6a2b105140071869\classes.dex" />
     </item>
 

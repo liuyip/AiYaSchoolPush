@@ -1,15 +1,21 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.TestActivity;
 import com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.HomeFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MineFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MsgFragment;
+import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -27,6 +33,7 @@ public class MainActivity extends ActivityBase {
     private Fragment mFragment;
     private final int CONTENT_ID = R.id.main_content;
     private FragmentManager fg;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +150,17 @@ public class MainActivity extends ActivityBase {
 
     private void bindView() {
         mTab = (SpaceNavigationView) findViewById(R.id.main_tab);
+
+        mFab = (FloatingActionButton) findViewById(R.id.main_fab);
+
+        mFab.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
+                CircularAnimUtil.startActivity(MainActivity.this, intent, mFab,
+                        R.color.colorAccent);
+            }
+        });
     }
 
 

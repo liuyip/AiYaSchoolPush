@@ -27,10 +27,14 @@ public class SplashActivity extends ActivityBase {
             switch (msg.what){
                 case GO_GUIDE:
                     IntentUtil.newIntent(SplashActivity.this,GuideActivity.class);
+                    //activity切换的淡入淡出效果
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
                 case GO_LOGIN:
                     IntentUtil.newIntent(SplashActivity.this,LoginActivity.class);
+                    //activity切换的淡入淡出效果
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     finish();
                     break;
             }

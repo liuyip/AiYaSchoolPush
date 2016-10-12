@@ -64,6 +64,7 @@
         widget:text_right_fontcolor="@color/gray3"
         widget:text_right_fontsize="18"/>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

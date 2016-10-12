@@ -14,8 +14,10 @@ import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 
 import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
@@ -23,11 +25,14 @@ import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
+import com.example.nanchen.aiyaschoolpush.view.OnLinearLayoutListItemClickListener;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.example.nanchen.aiyaschoolpush.view.UserInfoView;
 import com.example.nanchen.aiyaschoolpush.view.UserInfoView.OnItemClickListener;
+import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -78,6 +83,76 @@ public class ChildInfoActivity extends ActivityBase {
 
         mItemName.setRightText("测试者孩子");
         mItemClass.setRightText("成都七中");
+
+        mItemName.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+
+                View view = LayoutInflater.from(ChildInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
+                final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
+
+                final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(ChildInfoActivity.this);
+                dialogBuilder.withTitle("设置孩子名字")                                  //.withTitle(null)  no title
+                        .withTitleColor("#FFFFFF")                                  //def
+                        .withMessage(null)
+                        .withDividerColor("#11000000")                              //def
+                        .withDialogColor(getResources().getColor(R.color.main_bg_color1))                               //def  | withDialogColor(int resid)                               //def
+                        .withIcon(getResources().getDrawable(R.mipmap.icon))
+                        .isCancelableOnTouchOutside(true)                           //def    | isCancelable(true)
+                        .withDuration(700)                                          //def
+                        .withEffect(Effectstype.Shake)                                         //def Effectstype.Slidetop
+                        .withButton1Text("确定")                                      //def gone
+                        .withButton2Text("取消")                                  //def gone
+                        .setCustomView(view,mItemName.getContext())         //.setCustomView(View or ResId,context)
+                        .setButton1Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                showCrouton("保存成功");
+                                mItemName.setRightText(mEditText.getText().toString().trim());
+                                dialogBuilder.dismiss();
+                            }
+                        })
+                        .setButton2Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialogBuilder.dismiss();
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        mItemClass.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+                View view = LayoutInflater.from(ChildInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
+                final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
+
+                final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(ChildInfoActivity.this);
+                dialogBuilder.withTitle("设置孩子班级")                                  //.withTitle(null)  no title
+                        .withMessage(null)
+                        .withDialogColor(getResources().getColor(R.color.main_bg_color1))                               //def  | withDialogColor(int resid)                               //def
+                        .withIcon(getResources().getDrawable(R.mipmap.icon))
+                        .withButton1Text("确定")                                      //def gone
+                        .withButton2Text("取消")                                  //def gone
+                        .setCustomView(view,mItemName.getContext())         //.setCustomView(View or ResId,context)
+                        .setButton1Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                showCrouton("保存成功");
+                                mItemClass.setRightText(mEditText.getText().toString().trim());
+                                dialogBuilder.dismiss();
+                            }
+                        })
+                        .setButton2Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialogBuilder.dismiss();
+                            }
+                        })
+                        .show();
+            }
+        });
 
     }
 

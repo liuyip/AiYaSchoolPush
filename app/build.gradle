@@ -71,11 +71,15 @@ dependencies {
     //炫酷的dialog
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
-
     // 例子动画
     compile 'me.wangyuwei:ParticleView:1.0.5'
-    // 波浪线
+    // 闪动加载
     compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.1'
+    // 炫酷Dialog
+    compile 'com.canyinghao:candialog:1.0.5'
+    // 另一种方式的Dialog弹出方式
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
 }
 repositories {
     maven {

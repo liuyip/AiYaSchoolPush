@@ -42,12 +42,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
 
-             <!--<intent-filter>-->
-             <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-             <!--</intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <!-- SMSSDK所必须的Activity申明 -->
@@ -88,6 +88,8 @@
         <activity android:name=".activity.ResetPwdActivity">
         </activity>
         <activity android:name=".activity.ChildInfoActivity">
+        </activity>
+        <activity android:name=".TestActivity">
         </activity>
     </application>
 
