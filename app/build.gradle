@@ -9,14 +9,44 @@ android {
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
-        versionName "2.0"
+        versionName "2.0.1"
     }
     buildTypes {
+
+
+
         release {
+            // 是否进行dex优化
+            zipAlignEnabled true
+
+//            // 指定签名
+//            signingConfig signingConfigs.release
+
+            // 是否移除无用的resource文件
+//             shrinkResources true
+
+
+            // 是否进行混淆
             minifyEnabled false
+            // 混淆文件位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors{
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                output.outputFile = new File("AiYa-SchoolPush" +  "-v" +
+                        defaultConfig.versionName  + ".apk" );
+            }
+        }
+
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 repositories{
@@ -75,11 +105,18 @@ dependencies {
     compile 'me.wangyuwei:ParticleView:1.0.5'
     // 闪动加载
     compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.1'
-    // 炫酷Dialog
-    compile 'com.canyinghao:candialog:1.0.5'
     // 另一种方式的Dialog弹出方式
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+    // 带记忆功能的搜索框
+    compile 'com.github.mancj:MaterialSearchBar:0.3.1'
+    // 奇特的RecyclerView
+    compile 'com.marshalchen.ultimaterecyclerview:library:0.7.0'
+    // 进度条水平方向
+    compile 'com.daimajia.numberprogressbar:library:1.2@aar'
+    // Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:support-v4:19.1.0'
 }
 repositories {
     maven {

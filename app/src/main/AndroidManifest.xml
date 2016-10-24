@@ -83,13 +83,34 @@
         <!-- 注册页2 -->
         <activity android:name=".activity.RegisterActivity2">
         </activity>
+
+        <!--关于我们-->
         <activity android:name=".activity.AboutActivity">
         </activity>
+
+        <!--重置密码、忘记密码-->
         <activity android:name=".activity.ResetPwdActivity">
         </activity>
+
+        <!--孩子信息-->
         <activity android:name=".activity.ChildInfoActivity">
         </activity>
-        <activity android:name=".TestActivity">
+
+        <!--发布信息专用-->
+        <activity android:name=".activity.ReleaseActivity">
+        </activity>
+
+        <!--个人信息及修改-->
+        <activity android:name=".activity.PersonalInfoActivity">
+        </activity>
+
+        <!--专为装网页的Activity-->
+        <activity android:name=".activity.WebActivity">
+        </activity>
+
+        <!--查看详情页-->
+        <activity android:name=".activity.LookDetailActivity"
+                  android:windowSoftInputMode="adjustResize">
         </activity>
     </application>
 

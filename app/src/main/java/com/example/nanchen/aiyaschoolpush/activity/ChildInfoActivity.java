@@ -44,6 +44,9 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 
+/**
+ * 我的宝贝
+ */
 public class ChildInfoActivity extends ActivityBase {
 
     private TitleView mTitleBar;
@@ -87,10 +90,8 @@ public class ChildInfoActivity extends ActivityBase {
         mItemName.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-
                 View view = LayoutInflater.from(ChildInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
-
                 final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(ChildInfoActivity.this);
                 dialogBuilder.withTitle("设置孩子名字")                                  //.withTitle(null)  no title
                         .withTitleColor("#FFFFFF")                                  //def
@@ -127,7 +128,6 @@ public class ChildInfoActivity extends ActivityBase {
             public void onLinearLayoutListItemClick(Object object) {
                 View view = LayoutInflater.from(ChildInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
-
                 final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(ChildInfoActivity.this);
                 dialogBuilder.withTitle("设置孩子班级")                                  //.withTitle(null)  no title
                         .withMessage(null)
@@ -342,4 +342,5 @@ public class ChildInfoActivity extends ActivityBase {
             }
         }
     }
+
 }

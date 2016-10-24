@@ -26,6 +26,7 @@ import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.activity.AboutActivity;
 import com.example.nanchen.aiyaschoolpush.activity.ActivityBase;
 import com.example.nanchen.aiyaschoolpush.activity.ChildInfoActivity;
+import com.example.nanchen.aiyaschoolpush.activity.PersonalInfoActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
@@ -93,6 +94,7 @@ public class MineFragment extends FragmentBase{
             @Override
             public void onLinearLayoutListItemClick(Object object) {
                 Crouton.makeText(getActivity(),"你点击了个人信息", Style.ALERT).show();
+                IntentUtil.newIntent(getActivity(), PersonalInfoActivity.class);
             }
         });
 

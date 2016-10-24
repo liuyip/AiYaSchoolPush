@@ -87,6 +87,7 @@
 
 
     <color name="tab_bg">#aa3d629d</color>
+    <color name="srs_name_text">#009696</color>
 
 
 </resources>

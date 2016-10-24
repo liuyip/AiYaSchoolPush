@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.activity.LookDetailActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerHolder;
 import com.example.nanchen.aiyaschoolpush.model.NoticeModel;
@@ -54,7 +55,7 @@ public class NoticeFragment extends FragmentBase {
 
         mAdapter = new CommonRecyclerAdapter<NoticeModel>(getActivity(), mNoticeModelList, R.layout.layout_notice_item) {
             @Override
-            public void convert(final CommonRecyclerHolder holder, final NoticeModel item, int position, boolean isScrolling) {
+            public void convert(final CommonRecyclerHolder holder, final NoticeModel item, final int position, boolean isScrolling) {
                 if (item.user.icon == null){
                     holder.setImageResource(R.id.notice_item_avatar,R.drawable.default_avatar);
                 }else {
@@ -72,11 +73,11 @@ public class NoticeFragment extends FragmentBase {
                         int praiseCount = item.praiseCount;
                         if (item.isIPraised){
 //                            praiseCount--;
-                            holder.setTextColor(R.id.notice_item_like,R.color.gray);
+                            holder.setTextColor(R.id.notice_item_like,getResources().getColor(R.color.gray));
                             item.isIPraised = false;
                         }else {
                             praiseCount++;
-                            holder.setTextColor(R.id.notice_item_like,R.color.red);
+                            holder.setTextColor(R.id.notice_item_like,getResources().getColor(R.color.red));
                             item.isIPraised = true;
                         }
                         holder.setText(R.id.notice_item_like,"赞 "+praiseCount);
@@ -87,6 +88,8 @@ public class NoticeFragment extends FragmentBase {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getActivity(),"你点击了评论，将进入详情页面！",Toast.LENGTH_SHORT).show();
+
+                        LookDetailActivity.start(getActivity(),mNoticeModelList.get(position));
                     }
                 });
             }
@@ -138,6 +141,18 @@ public class NoticeFragment extends FragmentBase {
         mNoticeModelList.add(model2);
 
         Log.e(TAG,model.toString());
+
+        mNoticeModelList.add(model);
+        mNoticeModelList.add(model2);
+        mNoticeModelList.add(model3);
+
+        mNoticeModelList.add(model);
+        mNoticeModelList.add(model2);
+        mNoticeModelList.add(model3);
+
+        mNoticeModelList.add(model);
+        mNoticeModelList.add(model2);
+        mNoticeModelList.add(model3);
 
     }
 

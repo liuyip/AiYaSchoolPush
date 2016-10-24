@@ -1,5 +1,9 @@
 package com.example.nanchen.aiyaschoolpush.model;
 
+import com.example.nanchen.aiyaschoolpush.json.IJsonModel;
+
+import java.io.Serializable;
+
 /**
  * @author nanchen
  * @fileName AiYaSchoolPush
@@ -7,7 +11,7 @@ package com.example.nanchen.aiyaschoolpush.model;
  * @date 2016/10/08  11:54
  */
 
-public class NoticeModel {
+public class NoticeModel implements IJsonModel,Serializable{
     public long id; // 通知id
     public String content; // 内容
     public User user; // 发送人
@@ -16,4 +20,19 @@ public class NoticeModel {
     public int praiseCount; // 总赞数
     public int commentCount; //评论数
     public int tag; // 发送类型   1——公告  2——作业
+
+
+    @Override
+    public String toString() {
+        return "NoticeModel{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", user=" + user +
+                ", time=" + time +
+                ", isIPraised=" + isIPraised +
+                ", praiseCount=" + praiseCount +
+                ", commentCount=" + commentCount +
+                ", tag=" + tag +
+                '}';
+    }
 }

@@ -81,6 +81,7 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
 
 
         mSliderLayout = (SliderLayout) view.findViewById(R.id.discover_slider);
+
         mWavyLine = (WavyLineView) view.findViewById(R.id.discover_wavyLine);
 
         int initStrokeWidth = 2;

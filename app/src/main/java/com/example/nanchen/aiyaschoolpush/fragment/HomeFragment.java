@@ -1,16 +1,24 @@
 package com.example.nanchen.aiyaschoolpush.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.activity.ReleaseActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.MyPagerAdapter;
+import com.example.nanchen.aiyaschoolpush.config.AddConfig;
+import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
 
 import java.util.ArrayList;
@@ -27,9 +35,13 @@ import java.util.List;
 
 public class HomeFragment extends FragmentBase {
 
+    private static final String TAG = "HomeFragment";
+    private FloatingActionButton mFab;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private TitleView mTitleBar;
+    private String mName = AddConfig.NOTICE;
+
 
     @Nullable
     @Override
@@ -46,6 +58,19 @@ public class HomeFragment extends FragmentBase {
         mTabLayout = (TabLayout) view.findViewById(R.id.home_tabLayout);
         mViewPager = (ViewPager) view.findViewById(R.id.home_vp);
 
+        mFab = (FloatingActionButton) view.findViewById(R.id.home_fab);
+
+        mFab.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ReleaseActivity.class);
+                intent.putExtra("name", mName);
+                Log.e(TAG,mName);
+                CircularAnimUtil.startActivity(getActivity(), intent, mFab,
+                        R.color.main_bg_color1);
+            }
+        });
+
         List<String> nameList = new ArrayList<>();
         nameList.add("公告");
         nameList.add("作业");
@@ -58,5 +83,48 @@ public class HomeFragment extends FragmentBase {
 
         mViewPager.setAdapter(new MyPagerAdapter(getActivity().getSupportFragmentManager(),nameList,list));
         mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0){
+                    mFab.setVisibility(View.VISIBLE);
+                    mName = AddConfig.NOTICE;
+                }
+                if (position == 1){
+                    mFab.setVisibility(View.VISIBLE);
+                    mName = AddConfig.HOMEWORK;
+                }
+                if (position == 2){
+                    mFab.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+//        MyBehavior behavior = MyBehavior.from(mFab);
+//        behavior.setOnStateChangedListener(mOnStateChangedListener);
+
+
     }
+
+//    private OnStateChangedListener mOnStateChangedListener = new OnStateChangedListener() {
+//        @Override
+//        public void onChanged(boolean isShow) {
+//            Log.e(TAG,isShow+"");
+//            if (isShow){
+//                mTitleBar.setVisibility(View.VISIBLE);
+//            }else {
+//                mTitleBar.setVisibility(View.GONE);
+//            }
+//        }
+//    };
 }

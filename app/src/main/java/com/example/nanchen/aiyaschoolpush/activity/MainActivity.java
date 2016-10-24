@@ -1,27 +1,24 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.view.View.OnClickListener;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.TestActivity;
 import com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.HomeFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MineFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MsgFragment;
-import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
 
 public class MainActivity extends ActivityBase {
 
+    private static final String TAG = "MainActivity";
     private String []tabNames = {"主页","消息","发现","我的"};
     private int []tabIcons = {R.drawable.tab_home,R.drawable.tab_msg
     ,R.drawable.tab_discover,R.drawable.tab_mine};
@@ -33,7 +30,7 @@ public class MainActivity extends ActivityBase {
     private Fragment mFragment;
     private final int CONTENT_ID = R.id.main_content;
     private FragmentManager fg;
-    private FloatingActionButton mFab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,19 +148,27 @@ public class MainActivity extends ActivityBase {
     private void bindView() {
         mTab = (SpaceNavigationView) findViewById(R.id.main_tab);
 
-        mFab = (FloatingActionButton) findViewById(R.id.main_fab);
 
-        mFab.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TestActivity.class);
-                CircularAnimUtil.startActivity(MainActivity.this, intent, mFab,
-                        R.color.colorAccent);
-            }
-        });
     }
 
+    // 保存用户按返回键的时间
+    private long mExitTime = 0;
 
+    /**
+     * 重写onBackPressed方法用于提示用户是否再次退出
+     */
+    @Override
+    public void onBackPressed() {
+        Log.e(TAG,System.currentTimeMillis()+"");
+        Log.e(TAG,mExitTime+"");
 
-
+        if ((System.currentTimeMillis() - mExitTime) > 2000) {
+            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT)
+                    .show();
+            mExitTime = System.currentTimeMillis();
+        } else {
+            finish();
+            // System.exit(0);
+        }
+    }
 }

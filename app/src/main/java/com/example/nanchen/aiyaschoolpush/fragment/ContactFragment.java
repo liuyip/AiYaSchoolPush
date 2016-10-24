@@ -1,34 +1,34 @@
 package com.example.nanchen.aiyaschoolpush.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.quicksidebar.QuickSideBarTipsView;
 import com.bigkoo.quicksidebar.QuickSideBarView;
 import com.bigkoo.quicksidebar.listener.OnQuickSideBarTouchListener;
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.contact.CityListAdapter;
+import com.example.nanchen.aiyaschoolpush.contact.ContactListWithHeadersAdapter;
+import com.example.nanchen.aiyaschoolpush.contact.ContactListWithHeadersAdapter.OnItemClickListener;
 import com.example.nanchen.aiyaschoolpush.contact.DividerDecoration;
 import com.example.nanchen.aiyaschoolpush.contact.constants.DataConstants;
-import com.example.nanchen.aiyaschoolpush.contact.model.City;
+import com.example.nanchen.aiyaschoolpush.contact.model.People;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
+import com.mancj.materialsearchbar.MaterialSearchBar;
+import com.mancj.materialsearchbar.MaterialSearchBar.OnSearchActionListener;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.lang.reflect.Type;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author nanchen
@@ -37,12 +37,14 @@ import java.util.LinkedList;
  * @date 2016/10/08  08:57
  */
 
-public class ContactFragment extends FragmentBase implements OnQuickSideBarTouchListener{
+public class ContactFragment extends FragmentBase implements OnQuickSideBarTouchListener,OnSearchActionListener{
 
     private RecyclerView mRecyclerView;
     private QuickSideBarView mQuickSideBar;
     private QuickSideBarTipsView mQuickSideBarTips;
     private HashMap<String,Integer> letters = new HashMap<>();
+    private MaterialSearchBar mSearchBar;
+    private List<String> lastSerches;
 
     @Nullable
     @Override
@@ -53,6 +55,12 @@ public class ContactFragment extends FragmentBase implements OnQuickSideBarTouch
     }
 
     private void bindView(View view) {
+
+        // 搜索框
+        mSearchBar = (MaterialSearchBar) view.findViewById(R.id.contact_searchBar);
+        mSearchBar.setHint("Custom hint");
+        mSearchBar.setOnSearchActionListener(this);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mQuickSideBar = (QuickSideBarView) view.findViewById(R.id.quickSideBarView);
         mQuickSideBarTips = (QuickSideBarTipsView) view.findViewById(R.id.quickSideBarTipsView);
@@ -68,18 +76,18 @@ public class ContactFragment extends FragmentBase implements OnQuickSideBarTouch
         mRecyclerView.setLayoutManager(layoutManager);
 
         // Add the sticky headers decoration
-        CityListWithHeadersAdapter adapter = new CityListWithHeadersAdapter();
+        ContactListWithHeadersAdapter adapter = new ContactListWithHeadersAdapter();
 
         //GSON解释出来
-        Type listType = new TypeToken<LinkedList<City>>(){}.getType();
+        Type listType = new TypeToken<LinkedList<People>>(){}.getType();
         Gson gson = new Gson();
-        LinkedList<City> cities = gson.fromJson(DataConstants.cityDataList, listType);
+        final LinkedList<People> names = gson.fromJson(DataConstants.peopleDataList, listType);
 
         ArrayList<String> customLetters = new ArrayList<>();
 
         int position = 0;
-        for(City city: cities){
-            String letter = city.getFirstLetter();
+        for(People people : names){
+            String letter = people.getFirstLetter();
             //如果没有这个key则加入并把位置也加入
             if(!letters.containsKey(letter)){
                 letters.put(letter,position);
@@ -90,7 +98,7 @@ public class ContactFragment extends FragmentBase implements OnQuickSideBarTouch
 
         //不自定义则默认26个字母
         mQuickSideBar.setLetters(customLetters);
-        adapter.addAll(cities);
+        adapter.addAll(names);
         mRecyclerView.setAdapter(adapter);
 
         final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(adapter);
@@ -98,6 +106,14 @@ public class ContactFragment extends FragmentBase implements OnQuickSideBarTouch
 
         // Add decoration for dividers between list items
         mRecyclerView.addItemDecoration(new DividerDecoration(getActivity()));
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerView parent, View view, int position) {
+                Toast.makeText(getActivity(),"你点击了"+names.get(position).getPeopleName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
@@ -117,47 +133,19 @@ public class ContactFragment extends FragmentBase implements OnQuickSideBarTouch
         mQuickSideBarTips.setVisibility(touching? View.VISIBLE:View.INVISIBLE);
     }
 
-    private class CityListWithHeadersAdapter extends CityListAdapter<ViewHolder>
-            implements StickyRecyclerHeadersAdapter<ViewHolder> {
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.view_item, parent, false);
-            return new RecyclerView.ViewHolder(view) {};
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            TextView textView = (TextView) holder.itemView.findViewById(R.id.contact_name);
-            textView.setText(getItem(position).getCityName());
-        }
-
-        @Override
-        public long getHeaderId(int position) {
-            return getItem(position).getFirstLetter().charAt(0);
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.view_header, parent, false);
-            return new RecyclerView.ViewHolder(view) {
-            };
-        }
-
-        @Override
-        public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
-            TextView textView = (TextView) holder.itemView;
-            textView.setText(String.valueOf(getItem(position).getFirstLetter()));
-            holder.itemView.setBackgroundColor(getRandomColor());
-        }
-
-        private int getRandomColor() {
-            SecureRandom rgen = new SecureRandom();
-            return Color.HSVToColor(150, new float[]{
-                    rgen.nextInt(359), 1, 1
-            });
-        }
+    @Override
+    public void onSearchStateChanged(boolean b) {
 
     }
+
+    @Override
+    public void onSearchConfirmed(CharSequence charSequence) {
+
+    }
+
+    @Override
+    public void onButtonClicked(int i) {
+
+    }
+
 }
