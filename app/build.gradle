@@ -119,6 +119,8 @@ dependencies {
     compile 'com.android.support:support-v4:19.1.0'
     // 弹起式日期控件
     compile 'com.philliphsu:bottomsheetpickers:2.0.0'
+    // 支持下拉刷新和上拉加载的RecyclerView
+    compile 'com.jcodecraeer:xrecyclerview:1.2.7'
 }
 repositories {
     maven {

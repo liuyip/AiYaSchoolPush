@@ -109,6 +109,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.armcha/SpaceNavigationView/1.3.2/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.mancj/MaterialSearchBar/0.3.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.sd6352051.niftydialogeffects/niftydialogeffects/1.0.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jcodecraeer/xrecyclerview/1.2.7/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.marshalchen.ultimaterecyclerview/library/0.7.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.philliphsu/bottomsheetpickers/2.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.timehop.stickyheadersrecyclerview/library/0.4.3/jars" />
@@ -174,6 +175,7 @@
     <orderEntry type="library" exported="" name="niftydialogeffects-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="library-0.4.3" level="project" />
+    <orderEntry type="library" exported="" name="xrecyclerview-1.2.7" level="project" />
     <orderEntry type="library" exported="" name="mobAPI-1.0.6" level="project" />
     <orderEntry type="library" exported="" name="MobCommons-2016.0727.1113" level="project" />
     <orderEntry type="library" exported="" name="glide-3.7.0" level="project" />

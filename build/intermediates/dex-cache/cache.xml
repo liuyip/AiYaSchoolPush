@@ -389,6 +389,15 @@
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\2\MobTools-2016.0727.1113_2579f8b93e2c19b0ff09e209db21b937f7b1a5fd\classes.dex" />
     </item>
     <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.jcodecraeer\xrecyclerview\1.2.7\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0724e4d93c85866c8953b74776fa320efa122205">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jcodecraeer-xrecyclerview-1.2.7_7a79340bbb7e6ae732bbf2c22a3faff71da986d5\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="false"
