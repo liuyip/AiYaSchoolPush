@@ -41,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LookDetailActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LookDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="168" column="80" selection-start-line="168" selection-start-column="80" selection-end-line="168" selection-end-column="80" />
+            <state relative-caret-position="19">
+              <caret line="196" column="28" selection-start-line="196" selection-start-column="28" selection-end-line="196" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,84 +53,101 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HomeworkFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterActivity2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="200" column="22" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateFormat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk1/Sdk/sources/android-24/android/text/format/DateFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="120" column="53" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_register2.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register2.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="220" column="51" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="night_biz_pc_account_username_icon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/night_biz_pc_account_username_icon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CommonAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/adapter/CommonAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="323">
               <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_wavy_line.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_wavy_line.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-282">
-              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_comment_support.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_comment_support.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_detail_header.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_detail_header.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_detail_comment.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_detail_comment.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiscoverFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -336,6 +353,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="mergeDebugShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:gridlayout-v7:24.2.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportGridlayoutV72421Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -797,6 +819,11 @@
                 <option name="name" value="prepareComGithubMancjMaterialSearchBar031Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.philliphsu:bottomsheetpickers:2.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComPhilliphsuBottomsheetpickers200Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Runs lint on the Release build." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="lintRelease" />
@@ -1095,6 +1122,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="mergeDebugShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:gridlayout-v7:24.2.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComAndroidSupportGridlayoutV72421Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1551,6 +1583,11 @@
                 <option name="name" value="prepareComGithubMancjMaterialSearchBar031Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.philliphsu:bottomsheetpickers:2.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComPhilliphsuBottomsheetpickers200Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Runs lint on the Release build." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="lintRelease" />
@@ -1705,7 +1742,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4421387472538" />
-        <entry key="F:\nanchen\AiYaSchoolPush" value="4429947910468" />
+        <entry key="F:\nanchen\AiYaSchoolPush" value="4430024366885" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2288,8 +2325,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_header.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/contact/CityListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/contact/model/City.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/contact/model/People.java" />
@@ -2307,7 +2342,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_contact_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/contact/ContactListWithHeadersAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/adapter/CommonRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notice.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs_userinfoview.xml" />
@@ -2318,10 +2352,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/WebActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/config/WeatherConfig.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/utils/UIUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/utils/SoftInputMethodUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/json/IJsonModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/Topic.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java" />
@@ -2339,6 +2371,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_wavy_line.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_detail_header.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2373,11 +2410,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2385,37 +2421,9 @@
               <option name="myItemId" value="AiYaSchoolPush" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2458,76 +2466,11 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="aiyaschoolpush" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aiyaschoolpush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aiyaschoolpush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aiyaschoolpush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -2542,7 +2485,7 @@
     <property name="device.picker.selection" value="7074ace57d03" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="disc&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;dis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;Disc&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;time&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.TimeUtils&#10;Dis&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment&#10;noti&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Home&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;Cont&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;C&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;Conta&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;msg&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MyMsgFragment&#10;home&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;layout_c&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/layout_crop_selector.xml&#10;Ui&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.UIUtil&#10;view_dial&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/view_dialog_item.xml&#10;view_dia&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/view_dialog_select.xml&#10;Image&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.view.RoundImageView&#10;per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;Per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;min&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MineFragment&#10;regi&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;conta&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;Hom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/HomeworkModel.java&#10;M&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_main.xml&#10;main&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/MainActivity.java&#10;chi&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ChildInfoActivity.java&#10;Login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Log&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;regist&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity.java&#10;re&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ResetPwdActivity.java&#10;rese&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_reset_pwd.xml&#10;Sp&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/SplashActivity.java&#10;Lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;Regis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_register.xml&#10;Regi&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.RegisterActivity&#10;Main&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.MainActivity" />
+    <property name="SearchEverywhereHistoryKey" value="loo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java&#10;home&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java&#10;Loo&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.LookDetailActivity&#10;disc&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;dis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;Disc&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java&#10;time&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.TimeUtils&#10;Dis&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment&#10;noti&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Home&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;Cont&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;C&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;Conta&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;msg&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MyMsgFragment&#10;layout_c&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/layout_crop_selector.xml&#10;Ui&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.UIUtil&#10;view_dial&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/view_dialog_item.xml&#10;view_dia&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/view_dialog_select.xml&#10;Image&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.view.RoundImageView&#10;per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;Per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;min&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MineFragment&#10;regi&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;conta&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/ContactFragment.java&#10;Hom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/HomeworkModel.java&#10;M&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_main.xml&#10;main&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/MainActivity.java&#10;chi&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ChildInfoActivity.java&#10;Login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Log&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;regist&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity.java&#10;re&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ResetPwdActivity.java&#10;rese&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_reset_pwd.xml&#10;Sp&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/SplashActivity.java&#10;Lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;Regis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/activity_register.xml&#10;Regi&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.RegisterActivity&#10;Main&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.MainActivity" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPropertiesWindowManager-NlEditorPanel.WIDTH" value="120" />
     <property name="ExportApk.ApkPath" value="F:\nanchen\AiYaSchoolPush\app" />
     <property name="ExportApk.Flavors" value="" />
@@ -2950,13 +2893,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.048920862" sideWeight="0.5086331" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.4913669" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23021583" sideWeight="0.4913669" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -3041,24 +2984,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/eye2eyeclose.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/svg_animated_eye2eyeclose.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/mobapi_errors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3072,9 +2997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3082,7 +3004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3115,31 +3036,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/image.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/config/WeatherConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3158,7 +3062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3166,14 +3069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -3192,18 +3087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3211,7 +3094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3219,9 +3101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3229,7 +3108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3237,7 +3115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="79" column="54" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3245,7 +3122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3254,16 +3130,8 @@
         <state relative-caret-position="266">
           <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="52" column="110" selection-start-line="52" selection-start-column="110" selection-end-line="52" selection-end-column="110" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3271,7 +3139,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3279,7 +3146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3287,7 +3153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="821">
           <caret line="6939" column="24" selection-start-line="6939" selection-start-column="24" selection-end-line="6939" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3296,7 +3161,7 @@
         <state relative-caret-position="304">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3306,7 +3171,7 @@
         <state relative-caret-position="287">
           <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3315,7 +3180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3326,7 +3190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3372,15 +3235,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/DiscoverFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="1216">
           <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3397,7 +3261,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="1045">
           <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding />
         </state>
@@ -3408,7 +3272,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="418">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
@@ -3416,7 +3280,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-282">
+        <state relative-caret-position="722">
           <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
           <folding />
         </state>
@@ -3446,19 +3310,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/adapter/CommonAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="323">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/night_biz_pc_account_username_icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="120" column="53" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk1/Sdk/sources/android-24/android/text/format/DateFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="168" column="80" selection-start-line="168" selection-start-column="80" selection-end-line="168" selection-end-column="80" />
+        <state relative-caret-position="19">
+          <caret line="196" column="28" selection-start-line="196" selection-start-column="28" selection-end-line="196" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register2.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="220" column="51" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="200" column="22" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

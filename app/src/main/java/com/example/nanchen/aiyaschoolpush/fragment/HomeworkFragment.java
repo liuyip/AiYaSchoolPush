@@ -52,7 +52,7 @@ public class HomeworkFragment extends FragmentBase {
 
         mAdapter = new CommonRecyclerAdapter<HomeworkModel>(getActivity(), mHomeworkModelList, R.layout.layout_notice_item) {
             @Override
-            public void convert(final CommonRecyclerHolder holder, final HomeworkModel item, int position, boolean isScrolling) {
+            public void convert(final CommonRecyclerHolder holder, final HomeworkModel item, final int position, boolean isScrolling) {
                 if (item.user.icon == null){
                     holder.setImageResource(R.id.notice_item_avatar,R.drawable.default_avatar);
                 }else {

@@ -198,6 +198,55 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/register2_line3"
+                android:layout_below="@+id/linear_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:background="@color/text_hint"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/register2_line3"
+                android:id="@+id/linear_layout_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/biz_pc_main_night"/>
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/register2_layout_birthday"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--app:errorEnabled="true"-->
+                    <!--app:errorTextAppearance="@style/ErrorAppearance">-->
+
+                    <EditText
+                        android:id="@+id/register2_edt_birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:background="@null"
+                        android:hint="生日"
+                        android:inputType="textAutoComplete"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="15dp"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="15sp"/>
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+            </LinearLayout>
+
         </RelativeLayout>
 
 

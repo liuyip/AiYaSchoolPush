@@ -151,10 +151,10 @@ public class LookDetailActivity extends ActivityBase {
 
 
         View topView = getHeaderView();
-        mListView.addHeaderView(topView);
+        mListView.addHeaderView(topView,null,false);
 
         View lineView = getLineView();
-        mListView.addHeaderView(lineView);
+        mListView.addHeaderView(lineView,null,false);
 
 
         mListView.setAdapter(mAdapter);
@@ -226,6 +226,7 @@ public class LookDetailActivity extends ActivityBase {
         tv_content.setText(mNoticeModel.content);
         tv_like.setText(String.format(Locale.CHINA, "赞 %d", mNoticeModel.praiseCount));
         tv_comment.setText(String.format(Locale.CHINA, "评论 %d", mNoticeModel.commentCount));
+
         return view;
     }
 

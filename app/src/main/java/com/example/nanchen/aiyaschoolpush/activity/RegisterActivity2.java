@@ -15,7 +15,9 @@ import android.provider.MediaStore.Images.Media;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -26,21 +28,28 @@ import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.utils.SoftInputMethodUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.RoundImageView;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
+import com.philliphsu.bottomsheetpickers.date.BottomSheetDatePickerDialog;
+import com.philliphsu.bottomsheetpickers.date.DatePickerDialog;
+import com.philliphsu.bottomsheetpickers.date.DatePickerDialog.OnDateSetListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-public class RegisterActivity2 extends ActivityBase implements OnClickListener{
+public class RegisterActivity2 extends ActivityBase implements OnClickListener,OnDateSetListener{
 
+    private static final String TAG = "RegisterActivity2";
     private String phone;
     private RoundImageView mHeadImage;
     private TextInputLayout mLayoutPwd1;
@@ -67,9 +76,9 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
 
         Intent intent = getIntent();
         phone = intent.getStringExtra("phone");
-        if (TextUtils.isEmpty(phone)){
-            finish();
-        }
+//        if (TextUtils.isEmpty(phone)){
+//            finish();
+//        }
 
 
         bindView();
@@ -89,8 +98,14 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
         mEditName = (EditText) findViewById(R.id.register2_edt_name);
         mBtnRegister = (Button) findViewById(R.id.register2_btn_register);
 
+        mEditBirthday = (EditText) findViewById(R.id.register2_edt_birthday);
+
+        mEditBirthday.setKeyListener(null);//禁止输入内容
+        mEditBirthday.setInputType(InputType.TYPE_NULL);//禁止手机软键盘
+
         mBtnRegister.setOnClickListener(this);
         mHeadImage.setOnClickListener(this);
+        mEditBirthday.setOnClickListener(this);
 
 
         if (mHeadImage != null){
@@ -108,9 +123,26 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
             case R.id.register2_btn_register:
                 register();
                 break;
+            case R.id.register2_edt_birthday:
+                selectBirthday();
+                break;
         }
     }
 
+    /**
+     * 选择生日
+     */
+    private void selectBirthday() {
+        SoftInputMethodUtil.HideSoftInput(mEditBirthday.getWindowToken());//禁止弹出软键盘
+
+        Calendar calendar = Calendar.getInstance();
+        BottomSheetDatePickerDialog dialog = BottomSheetDatePickerDialog.newInstance(
+                RegisterActivity2.this,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        dialog.show(getSupportFragmentManager(),TAG);
+    }
 
 
     private final int PHOTO_PICKED_FROM_CAMERA = 1; // 用来标识头像来自系统拍照
@@ -328,4 +360,12 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener{
     }
 
 
+    @Override
+    public void onDateSet(DatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth) {
+        Calendar cal = new GregorianCalendar();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, monthOfYear);
+        cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        mEditBirthday.setText(DateFormat.getDateFormat(this).format(cal.getTime()));
+    }
 }

@@ -448,7 +448,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="5633d825059d1072e2e6832a4889d7808cb2c81b">
+        sha1="8eefc47ce6880cff12e3a5ea7a488e53cc6af34c">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c653f946809fb21755e272db6a2b105140071869\classes.dex" />
     </item>
     <item
@@ -459,6 +459,15 @@
         revision="24.0.2"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c6c2f8b38f6ae39afe43beead81ad3417937bdcf.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.philliphsu\bottomsheetpickers\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3a3bb5fa51971e903909faaa73d302d7333f045c">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.philliphsu-bottomsheetpickers-2.0.0_7541e52a15d05375b2f1fc8ba5ac566be48d305e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -549,6 +558,15 @@
         revision="24.0.2"
         sha1="327f68d58bb39fb8b585150596b313541f8fdb87">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\pre-dexed\debug\com.android.support-support-v13-24.1.1_076901acf1117f5f980d2ec29f0732423dbd88f8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4e6470fe5081bd76bb727ea9d0d9de373ac5940b">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-gridlayout-v7-24.2.1_d07c19b9559759c95bd0d8920a8500219ad7b522\classes.dex" />
     </item>
     <item
         is-multidex="true"

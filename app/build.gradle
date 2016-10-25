@@ -117,6 +117,8 @@ dependencies {
     // Glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:support-v4:19.1.0'
+    // 弹起式日期控件
+    compile 'com.philliphsu:bottomsheetpickers:2.0.0'
 }
 repositories {
     maven {
