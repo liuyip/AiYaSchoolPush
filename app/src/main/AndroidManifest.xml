@@ -27,6 +27,26 @@
     <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <!-- 环信开始 -->
+    <!-- Required -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <!-- 环信结束 -->
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -35,18 +55,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="15680802251#aiyaschoolpush"/>
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"/>
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 百度地图所需的service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
         <!-- 闪屏页面 -->
         <activity
             android:name=".activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-
-
-            <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <!-- SMSSDK所必须的Activity申明 -->
@@ -55,69 +101,172 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".activity.PlayVideoActivity">
+        <activity
+            android:name=".activity.PlayVideoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- 主页面 -->
-        <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <!-- 引导页 -->
-        <activity android:name=".activity.GuideActivity">
+        <activity
+            android:name=".activity.GuideActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- 登录页 -->
-        <activity android:name=".activity.LoginActivity">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- 注册页1 -->
-        <activity android:name=".activity.RegisterActivity">
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- 注册页2 -->
         <activity
-            android:name=".activity.RegisterActivity2">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
+            android:name=".activity.RegisterActivity2"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
 
-        <!--关于我们-->
-        <activity android:name=".activity.AboutActivity">
+        <!-- 关于我们 -->
+        <activity
+            android:name=".activity.AboutActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--重置密码、忘记密码-->
-        <activity android:name=".activity.ResetPwdActivity">
+        <!-- 重置密码、忘记密码 -->
+        <activity
+            android:name=".activity.ResetPwdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--孩子信息-->
-        <activity android:name=".activity.ChildInfoActivity">
+        <!-- 孩子信息 -->
+        <activity
+            android:name=".activity.ChildInfoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--发布信息专用-->
-        <activity android:name=".activity.ReleaseActivity">
+        <!-- 发布信息专用 -->
+        <activity
+            android:name=".activity.ReleaseActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--个人信息及修改-->
-        <activity android:name=".activity.PersonalInfoActivity">
+        <!-- 个人信息及修改 -->
+        <activity
+            android:name=".activity.PersonalInfoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--专为装网页的Activity-->
-        <activity android:name=".activity.WebActivity">
+        <!-- 专为装网页的Activity -->
+        <activity
+            android:name=".activity.WebActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
 
-        <!--查看详情页-->
+        <!-- 查看详情页 -->
         <activity
             android:name=".activity.LookDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
+        <activity android:name=".activity.ReleaseCommunityActivity">
+        </activity>
+        <activity android:name=".activity.ChatActivity">
+        </activity>
+        <activity android:name=".activity.VideoCallActivity">
+        </activity>
+        <activity android:name=".activity.VoiceCallActivity">
+        </activity>
+        <activity android:name=".activity.NewFriendsMsgActivity">
+        </activity>
+        <activity android:name=".activity.GroupsActivity">
+        </activity>
+        <activity android:name=".activity.PublicChatRoomsActivity">
+        </activity>
+        <activity android:name=".activity.AddContactActivity">
+        </activity>
+        <activity android:name=".activity.PickAtUserActivity">
+        </activity>
+        <activity android:name=".activity.ContextMenuActivity">
+        </activity>
+        <activity android:name=".activity.GroupDetailsActivity">
+        </activity>
+        <activity android:name=".activity.ExitGroupDialogActivity">
+        </activity>
+        <activity android:name=".activity.GroupBlacklistActivity">
+        </activity>
+        <activity android:name=".activity.EditActivity">
+        </activity>
+        <activity android:name=".activity.GroupSearchMessageActivity">
+        </activity>
+        <activity android:name=".activity.GroupPickContactsActivity">
+        </activity>
+        <activity android:name=".activity.UserProfileActivity">
+        </activity>
+        <activity android:name=".activity.ImageGridActivity">
+        </activity>
+        <activity android:name=".activity.RecorderVideoActivity">
+        </activity>
+        <activity android:name=".activity.NewGroupActivity">
+        </activity>
+        <activity android:name=".activity.PublicGroupsActivity">
+        </activity>
+        <activity android:name=".activity.GroupSimpleDetailActivity">
+        </activity>
+        <activity android:name=".activity.PublicGroupsSearchActivity">
+        </activity>
+
+        <!--下载大图-->
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"/>
+
+        <!-- 下载文件 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"/>
+
+        <!-- 地图 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"/>
     </application>
 
 </manifest>

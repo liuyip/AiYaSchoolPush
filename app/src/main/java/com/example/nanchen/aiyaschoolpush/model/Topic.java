@@ -3,6 +3,7 @@ package com.example.nanchen.aiyaschoolpush.model;
 import com.example.nanchen.aiyaschoolpush.json.IJsonModel;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author nanchen
@@ -32,6 +33,11 @@ public class Topic implements IJsonModel,Serializable {
      * 话题发起时间戳
      */
     public long createTs;
+
+    /**
+     * 图片Url
+     */
+    public List<String> imgUrls;
 
 
     /**

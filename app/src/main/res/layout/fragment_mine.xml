@@ -123,7 +123,7 @@
         app:text_right_fontsize="16"/>
 
     <Button
-        android:id="@+id/exit_btn"
+        android:id="@+id/mine_exit_btn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"

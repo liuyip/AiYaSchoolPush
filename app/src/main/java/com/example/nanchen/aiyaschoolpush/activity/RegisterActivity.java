@@ -21,6 +21,7 @@ import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -129,7 +130,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
             }
         }
     };
-
+    private MaterialEditText mEditPhone;
 
 
     /**
@@ -194,6 +195,30 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
         mEditPwd1.addTextChangedListener(new MyTextWatcher(this,TAG_PWD1));
         mEditPwd2.addTextChangedListener(new MyTextWatcher(this,TAG_PWD2));
         mEditVercode.addTextChangedListener(new MyTextWatcher(this,TAG_VERCODE));
+
+
+        mEditPhone = (MaterialEditText) findViewById(R.id.register_edt_username1);
+        mEditPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!TextUtil.isMobile(mEditPhone.getText().toString().trim())){
+                    mEditPhone.setHelperTextAlwaysShown(true);
+                    mEditPhone.setHelperText("手机号格式不正确");
+                }else {
+                    mEditPhone.setHelperTextAlwaysShown(false);
+                }
+            }
+        });
 
 
     }

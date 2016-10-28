@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import com.example.nanchen.aiyaschoolpush.view.Loading;
 import com.example.nanchen.aiyaschoolpush.view.Loading.OnReturnListener;
@@ -124,6 +126,16 @@ public class ActivityBase extends AppCompatActivity {
         }
         mLastClickTime = time;
         return false;
+    }
+
+    protected InputMethodManager inputMethodManager;
+
+    protected void hideSoftKeyboard() {
+        if (getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+            if (getCurrentFocus() != null)
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
 

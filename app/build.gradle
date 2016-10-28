@@ -14,7 +14,6 @@ android {
     buildTypes {
 
 
-
         release {
             // 是否进行dex优化
             zipAlignEnabled true
@@ -25,7 +24,6 @@ android {
             // 是否移除无用的resource文件
 //             shrinkResources true
 
-
             // 是否进行混淆
             minifyEnabled false
             // 混淆文件位置
@@ -33,11 +31,11 @@ android {
         }
     }
 
-    productFlavors{
+    productFlavors {
         android.applicationVariants.all { variant ->
             variant.outputs.each { output ->
-                output.outputFile = new File("AiYa-SchoolPush" +  "-v" +
-                        defaultConfig.versionName  + ".apk" );
+                output.outputFile = new File("AiYa-SchoolPush" + "-v" +
+                        defaultConfig.versionName + ".apk");
             }
         }
 
@@ -49,11 +47,14 @@ android {
 
 }
 
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs' //就是你放aar的目录地址
     }
 }
+
+
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -121,6 +122,17 @@ dependencies {
     compile 'com.philliphsu:bottomsheetpickers:2.0.0'
     // 支持下拉刷新和上拉加载的RecyclerView
     compile 'com.jcodecraeer:xrecyclerview:1.2.7'
+    // Material Design风格的输入框开源
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    // 环信集成相关
+    compile project(':easeui')
+    compile files('libs/hyphenatechat_3.2.0.jar')
+    compile files('libs/parse-android-1.13.0.jar')
+    compile files('libs/bolts-tasks-1.4.0.jar')
+    // LeakCanary
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 repositories {
     maven {

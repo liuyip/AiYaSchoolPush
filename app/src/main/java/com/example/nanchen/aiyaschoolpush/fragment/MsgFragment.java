@@ -26,6 +26,7 @@ public class MsgFragment extends FragmentBase {
     private SegmentView mSegmentView;
     private MyMsgFragment mMyMsgFragment;
     private ContactFragment mContactFragment;
+    private ContactListFragment mContactListFragment;
     private FragmentManager fm;
 
     @Nullable
@@ -69,18 +70,24 @@ public class MsgFragment extends FragmentBase {
                 switch (position){
                     case 0:
                         if (mMyMsgFragment == null){
-                            mMyMsgFragment = new MyMsgFragment();
                             fm.beginTransaction().add(R.id.msg_content,mMyMsgFragment).commit();
+                            mMyMsgFragment = new MyMsgFragment();
                         }else {
                             fm.beginTransaction().show(mMyMsgFragment).commit();
                         }
                         break;
                     case 1:
-                        if (mContactFragment == null){
-                            mContactFragment = new ContactFragment();
-                            fm.beginTransaction().add(R.id.msg_content,mContactFragment).commit();
+//                        if (mContactFragment == null){
+//                            mContactFragment = new ContactFragment();
+//                            fm.beginTransaction().add(R.id.msg_content,mContactFragment).commit();
+//                        }else {
+//                            fm.beginTransaction().show(mContactFragment).commit();
+//                        }
+                        if (mContactListFragment == null){
+                            mContactListFragment = new ContactListFragment();
+                            fm.beginTransaction().add(R.id.msg_content,mContactListFragment).commit();
                         }else {
-                            fm.beginTransaction().show(mContactFragment).commit();
+                            fm.beginTransaction().show(mContactListFragment).commit();
                         }
                         break;
                 }
@@ -95,8 +102,11 @@ public class MsgFragment extends FragmentBase {
         if (mMyMsgFragment != null){
             fm.beginTransaction().hide(mMyMsgFragment).commit();
         }
-        if (mContactFragment != null){
-            fm.beginTransaction().hide(mContactFragment).commit();
+//        if (mContactFragment != null){
+//            fm.beginTransaction().hide(mContactFragment).commit();
+//        }
+        if (mContactListFragment != null){
+            fm.beginTransaction().hide(mContactListFragment).commit();
         }
     }
 

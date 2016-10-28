@@ -1,17 +1,22 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.fragment.CommunityFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.HomeFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MineFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MsgFragment;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMConversation.EMConversationType;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -27,6 +32,7 @@ public class MainActivity extends ActivityBase {
     private MsgFragment mMsgFragment;
     private DiscoverFragment mDiscoverFragment;
     private MineFragment mMineFragment;
+    private CommunityFragment mCommunityFragment;
     private Fragment mFragment;
     private final int CONTENT_ID = R.id.main_content;
     private FragmentManager fg;
@@ -57,7 +63,8 @@ public class MainActivity extends ActivityBase {
         mTab.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-                Toast.makeText(MainActivity.this,"点击了中间的按钮",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,"点击了中间的按钮",Toast.LENGTH_SHORT).show();
+                gotoCenterFragment();
             }
 
             @Override
@@ -75,6 +82,8 @@ public class MainActivity extends ActivityBase {
 
     }
 
+
+
     private void swithFragment(Fragment fragment){
         if (mFragment != fragment){
             if (!fragment.isAdded()){
@@ -84,6 +93,19 @@ public class MainActivity extends ActivityBase {
                 fg.beginTransaction().hide(mFragment).show(fragment).commit();
             }
             mFragment = fragment;
+        }
+    }
+
+    /**
+     * 进入中间的Fragment社区
+     */
+    private void gotoCenterFragment() {
+        hideFragment();
+        if (mCommunityFragment == null){
+            mCommunityFragment = new CommunityFragment();
+            fg.beginTransaction().add(CONTENT_ID,mCommunityFragment).commit();
+        }else {
+            fg.beginTransaction().show(mCommunityFragment).commit();
         }
     }
 
@@ -171,4 +193,36 @@ public class MainActivity extends ActivityBase {
             // System.exit(0);
         }
     }
+
+    /**
+     * get unread message count
+     *
+     * @return
+     */
+    public int getUnreadMsgCountTotal() {
+        int unreadMsgCountTotal = 0;
+        int chatroomUnreadMsgCount = 0;
+        unreadMsgCountTotal = EMClient.getInstance().chatManager().getUnreadMsgsCount();
+        for(EMConversation conversation:EMClient.getInstance().chatManager().getAllConversations().values()){
+            if(conversation.getType() == EMConversationType.ChatRoom)
+                chatroomUnreadMsgCount=chatroomUnreadMsgCount+conversation.getUnreadMsgCount();
+        }
+        return unreadMsgCountTotal-chatroomUnreadMsgCount;
+    }
+
+    /**
+     * update unread message count
+     */
+    public void updateUnreadLabel() {
+        int count = getUnreadMsgCountTotal();
+        if (count > 0) {
+            unreadLabel.setText(String.valueOf(count));
+            unreadLabel.setVisibility(View.VISIBLE);
+        } else {
+            unreadLabel.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private TextView unreadLabel;
+
 }

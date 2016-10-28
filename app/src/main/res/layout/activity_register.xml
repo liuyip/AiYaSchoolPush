@@ -31,6 +31,31 @@
             android:paddingRight="10dp"
             android:paddingTop="20dp">
 
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:visibility="gone"
+                android:id="@+id/register_edt_username1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:hint="手机号码"
+                android:inputType="textAutoComplete"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="15dp"
+                android:textColorHint="#b3b3b0"
+                android:textSize="15sp"
+                app:met_maxCharacters="11"
+                app:met_minCharacters="11"
+                app:met_floatingLabel="highlight"
+                app:met_singleLineEllipsis="true"
+                app:met_floatingLabelText="手机号码"
+                app:met_iconLeft = "@mipmap/night_biz_pc_account_username_icon"/>
+
+
             <LinearLayout
                 android:id="@+id/linear_layout_user_name"
                 android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package com.example.nanchen.aiyaschoolpush;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.mob.mobapi.MobAPI;
 
 import cn.smssdk.SMSSDK;
@@ -21,7 +22,7 @@ public class App extends Application{
 
     private static App app;
 
-    private static App getInstance(){
+    public static App getInstance(){
         return app;
     }
 
@@ -31,11 +32,22 @@ public class App extends Application{
         super.onCreate();
         app = this;
 
+        // LeakCanary
+        // if (LeakCanary.isInAnalyzerProcess(this)) {
+            // // This process is dedicated to LeakCanary for heap analysis.
+            // // You should not init your app in this process.
+            // return;
+        // }
+        // LeakCanary.install(this);
+
         // 初始化短信验证SDK
         SMSSDK.initSDK(this, MSG_APP_KEY, MSG_APP_SECRET);
 
         // 初始化MobApiSDK
         MobAPI.initSDK(getApplicationContext(), MOB_APP_KEY);
+
+        //init demo helper
+        DemoHelper.getInstance().init(App.getAppContext());
     }
 
     /**
@@ -44,4 +56,6 @@ public class App extends Application{
     public static Context getAppContext() {
         return app != null ? app.getApplicationContext() : null;
     }
+
+    public static String currentUserNick = "";
 }

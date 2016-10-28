@@ -20,15 +20,20 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.activity.AboutActivity;
 import com.example.nanchen.aiyaschoolpush.activity.ActivityBase;
 import com.example.nanchen.aiyaschoolpush.activity.ChildInfoActivity;
+import com.example.nanchen.aiyaschoolpush.activity.LoginActivity;
+import com.example.nanchen.aiyaschoolpush.activity.MainActivity;
 import com.example.nanchen.aiyaschoolpush.activity.PersonalInfoActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
@@ -37,6 +42,7 @@ import com.example.nanchen.aiyaschoolpush.view.RoundImageView;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
+import com.hyphenate.EMCallBack;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -63,6 +69,7 @@ public class MineFragment extends FragmentBase{
     private LinearLayoutListItemView mMenuMyRoom;
     private LinearLayoutListItemView mMenuMyBaby;
     private LinearLayoutListItemView mMenuAbout;
+    private Button mBtnExit;
 
     @Nullable
     @Override
@@ -89,6 +96,14 @@ public class MineFragment extends FragmentBase{
         mMenuMyRoom = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_room);
         mMenuMyBaby = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_baby);
         mMenuAbout = (LinearLayoutListItemView) view.findViewById(R.id.mine_about);
+        mBtnExit = (Button) view.findViewById(R.id.mine_exit_btn);
+
+        mBtnExit.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
 
         mMenuReviseData.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
@@ -120,6 +135,43 @@ public class MineFragment extends FragmentBase{
             }
         });
 
+    }
+
+    private void logout() {
+        showLoading(getActivity());
+        DemoHelper.getInstance().logout(false,new EMCallBack() {
+
+            @Override
+            public void onSuccess() {
+                getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        stopLoading();
+                        // show login screen
+                        ((MainActivity) getActivity()).finish();
+                        startActivity(new Intent(getActivity(), LoginActivity.class));
+
+                    }
+                });
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                getActivity().runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        stopLoading();
+                        Toast.makeText(getActivity(), "unbind devicetokens failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
 

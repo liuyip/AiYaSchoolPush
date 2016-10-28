@@ -107,7 +107,6 @@
                 android:textSize="18sp"
                 android:layout_alignParentRight="true"/>
 
-
         </RelativeLayout>
     </LinearLayout>
 
