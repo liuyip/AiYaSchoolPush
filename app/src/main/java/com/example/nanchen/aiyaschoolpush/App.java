@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.mob.mobapi.MobAPI;
+import com.squareup.leakcanary.LeakCanary;
 
 import cn.smssdk.SMSSDK;
 
@@ -33,12 +34,12 @@ public class App extends Application{
         app = this;
 
         // LeakCanary
-        // if (LeakCanary.isInAnalyzerProcess(this)) {
-            // // This process is dedicated to LeakCanary for heap analysis.
-            // // You should not init your app in this process.
-            // return;
-        // }
-        // LeakCanary.install(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
 
         // 初始化短信验证SDK
         SMSSDK.initSDK(this, MSG_APP_KEY, MSG_APP_SECRET);

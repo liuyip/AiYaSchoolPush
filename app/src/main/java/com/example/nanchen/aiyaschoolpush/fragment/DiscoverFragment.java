@@ -92,9 +92,6 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
         mWavyLine.setStrokeWidth(ScreenUtil.dp2px(initStrokeWidth));
 
         mItemWeather = (LinearLayoutListItemView) view.findViewById(R.id.discover_item_weather);
-
-
-
     }
 
     @Override
@@ -102,4 +99,10 @@ public class DiscoverFragment extends FragmentBase implements OnSliderClickListe
         Toast.makeText(getActivity(),"你点击了参加一个活动",Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mSliderLayout.removeAllSliders();
+        mSliderLayout = null;
+    }
 }

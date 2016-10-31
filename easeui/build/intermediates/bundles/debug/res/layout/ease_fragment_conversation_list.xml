@@ -31,7 +31,6 @@
         android:background="@android:color/transparent"
         android:cacheColorHint="#00000000"
         android:divider="@null"
-        hyphenate:cvsListPrimaryTextSize="16sp"
-         />
+        hyphenate:cvsListPrimaryTextSize="16sp"/>
 
 </LinearLayout>

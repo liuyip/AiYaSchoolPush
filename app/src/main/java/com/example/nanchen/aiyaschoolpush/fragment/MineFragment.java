@@ -97,6 +97,7 @@ public class MineFragment extends FragmentBase{
         mMenuMyBaby = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_baby);
         mMenuAbout = (LinearLayoutListItemView) view.findViewById(R.id.mine_about);
         mBtnExit = (Button) view.findViewById(R.id.mine_exit_btn);
+        mBtnExit.setText("退出登录("+DemoHelper.getInstance().getCurrentUsernName()+")");
 
         mBtnExit.setOnClickListener(new OnClickListener() {
             @Override

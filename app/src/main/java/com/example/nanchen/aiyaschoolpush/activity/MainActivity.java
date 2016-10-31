@@ -170,7 +170,7 @@ public class MainActivity extends ActivityBase {
     private void bindView() {
         mTab = (SpaceNavigationView) findViewById(R.id.main_tab);
 
-
+        unreadLabel = (TextView) findViewById(R.id.main_msg_number);
     }
 
     // 保存用户按返回键的时间

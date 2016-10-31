@@ -45,8 +45,16 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
     <!-- 环信结束 -->
+
+
+    <!--华为推送开始-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--华为推送结束-->
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -82,6 +90,27 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
+
+        <!--&lt;!&ndash;华为推送 Start &ndash;&gt;-->
+        <!--<receiver android:name="com.huawei.push.receiver.MyPushReceiver" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.huawei.android.push.intent.REGISTRATION" />-->
+                <!--<action android:name="com.huawei.android.push.intent.RECEIVE" />-->
+                <!--<action android:name="com.huawei.android.push.intent.CLICK" />-->
+                <!--<action android:name="com.huawei.intent.action.PUSH_STATE" />-->
+            <!--</intent-filter>-->
+            <!--<meta-data-->
+                <!--android:name="CS_cloud_ablitity"-->
+                <!--android:value="@string/hwpush_ability_value" />-->
+        <!--</receiver>-->
+        <!--<receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.huawei.intent.action.PUSH" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--&lt;!&ndash;华为推送 End &ndash;&gt;-->
+
+
 
         <!-- 闪屏页面 -->
         <activity
