@@ -50,6 +50,7 @@ public class CommunityFragment extends FragmentBase {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_community,null);
+//        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_test,null);
         bindView(view);
         return view;
     }

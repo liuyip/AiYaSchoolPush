@@ -188,7 +188,6 @@ public class DemoHelper {
         //you need apply & set your own id if you want to use Mi push notification
 
 
-        // 在这里不使用小米推送
         options.setMipushConfig("2882303761517426801", "5381742660801");
 
         //you need apply & set your own id if you want to use Huawei push notification

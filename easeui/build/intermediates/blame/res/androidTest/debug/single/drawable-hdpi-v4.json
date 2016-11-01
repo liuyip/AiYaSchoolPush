@@ -200,12 +200,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_01.png"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_34.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_34.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_34.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_34.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_mm_listitem_simple.9.png",

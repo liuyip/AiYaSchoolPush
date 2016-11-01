@@ -139,17 +139,17 @@ public class MineFragment extends FragmentBase{
     }
 
     private void logout() {
-        showLoading(getActivity());
+//        showLoading(getActivity());
         DemoHelper.getInstance().logout(false,new EMCallBack() {
 
             @Override
             public void onSuccess() {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        stopLoading();
+//                        stopLoading();
                         // show login screen
-                        ((MainActivity) getActivity()).finish();
                         startActivity(new Intent(getActivity(), LoginActivity.class));
+                        ((MainActivity) getActivity()).finish();
 
                     }
                 });

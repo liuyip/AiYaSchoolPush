@@ -1,10 +1,10 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +36,7 @@ public class MainActivity extends ActivityBase {
     private Fragment mFragment;
     private final int CONTENT_ID = R.id.main_content;
     private FragmentManager fg;
+//    private DataFragment mDataFragment;
 
 
     @Override
@@ -54,8 +55,6 @@ public class MainActivity extends ActivityBase {
 
 
         // 下面是开源底部导航栏
-        mTab.initWithSaveInstanceState(savedInstanceState);
-
         for (int i = 0; i < tabNames.length; i++) {
             mTab.addSpaceItem(new SpaceItem(tabNames[i],tabIcons[i]));
         }
@@ -69,20 +68,25 @@ public class MainActivity extends ActivityBase {
 
             @Override
             public void onItemClick(int itemIndex, String itemName) {
-//                Toast.makeText(MainActivity.this,"你点击了"+itemName,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,"你点击了"+itemName+"("+itemIndex+")",Toast.LENGTH_SHORT).show();
                 gotoOtherFragment(itemName);
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
 //                Toast.makeText(MainActivity.this,"重复点击",Toast.LENGTH_SHORT).show();
+                gotoOtherFragment(itemName);
             }
         });
 
 
     }
 
-
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        mTab.onSaveInstanceState(outState);
+    }
 
     private void swithFragment(Fragment fragment){
         if (mFragment != fragment){
@@ -107,6 +111,12 @@ public class MainActivity extends ActivityBase {
         }else {
             fg.beginTransaction().show(mCommunityFragment).commit();
         }
+//        if (mDataFragment == null){
+//            mDataFragment = new DataFragment();
+//            fg.beginTransaction().add(CONTENT_ID,mDataFragment).commit();
+//        }else {
+//            fg.beginTransaction().show(mDataFragment).commit();
+//        }
     }
 
     private void gotoOtherFragment(String itemName) {
@@ -165,12 +175,18 @@ public class MainActivity extends ActivityBase {
         if (mMineFragment != null){
             fg.beginTransaction().hide(mMineFragment).commit();
         }
+        if (mCommunityFragment != null){
+            fg.beginTransaction().hide(mCommunityFragment).commit();
+        }
+//        if (mDataFragment != null){
+//            fg.beginTransaction().hide(mDataFragment).commit();
+//        }
     }
 
     private void bindView() {
         mTab = (SpaceNavigationView) findViewById(R.id.main_tab);
 
-        unreadLabel = (TextView) findViewById(R.id.main_msg_number);
+//        unreadLabel = (TextView) findViewById(R.id.main_msg_number);
     }
 
     // 保存用户按返回键的时间
@@ -216,10 +232,11 @@ public class MainActivity extends ActivityBase {
     public void updateUnreadLabel() {
         int count = getUnreadMsgCountTotal();
         if (count > 0) {
-            unreadLabel.setText(String.valueOf(count));
-            unreadLabel.setVisibility(View.VISIBLE);
+//            unreadLabel.setText(String.valueOf(count));
+//            unreadLabel.setVisibility(View.VISIBLE);
+            mTab.showBadgeAtIndex(1,count,getResources().getColor(R.color.red));
         } else {
-            unreadLabel.setVisibility(View.INVISIBLE);
+//            unreadLabel.setVisibility(View.INVISIBLE);
         }
     }
 

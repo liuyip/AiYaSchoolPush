@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="c6a13ba87d15611a3142749f21e4c6f59523cfdb">
+        sha1="a0dadbdf8d36b83e1c2a02be4a56c6d5f5ccdc01">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_51df9e5cc3ebd2696baed1333160f95802c846d8\classes.dex" />
     </item>
     <item
@@ -165,21 +165,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\libs\parse-android-1.13.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="58a7d54b6a4f28be11f0cecec93097eddf473e6f">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\2\parse-android-1.13.0_4515c5f93c9f181f78d21e114c731820c9c0999c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.github.sd6352051.niftydialogeffects\niftydialogeffects\1.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="f6e011916db951e72f3a2be65cfb864bf5408035">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.sd6352051.niftydialogeffects-niftydialogeffects-1.0.0_d8de5ef941af9350d9e35e7604e2df1962c43213\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\libs\parse-android-1.13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="58a7d54b6a4f28be11f0cecec93097eddf473e6f">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\2\parse-android-1.13.0_4515c5f93c9f181f78d21e114c731820c9c0999c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -216,6 +216,15 @@
         revision="24.0.2"
         sha1="9d083cc10f1861e10da1f74e0940e03bcf3bdf99">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.bigkoo-quicksidebar-1.0.3_ef9f36559accbb5aeeaa1d2981b8a95aa1876db7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.squareup.leakcanary\leakcanary-android\1.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c7a2672b3122b897a0751f327929ae405ea02bf7">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.squareup.leakcanary-leakcanary-android-1.5_e90dad753e66b4c10d640541361b2b41f663adbd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -291,6 +300,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-watcher\1.5\288101b16513158c2923ad3fb6161d1452b65e73\leakcanary-watcher-1.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\leakcanary-watcher-1.5_34a203fec755c3a4cf8b68e6158267ab4379fd5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -315,6 +333,15 @@
         revision="24.0.2"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\libs\android-support-multidex.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9a9d5c95d823ccda38f185a5f80ace6bfd61c0d5">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\2\android-support-multidex_3a6e4a64fff098e424fd6f8f7bb0c4b460878b26\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -354,15 +381,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a6fd68644fc20a055c03ce531b3898d5f9ba297b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\de.keyboardsurfer.android.widget\crouton\1.8.5\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -372,12 +390,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a6fd68644fc20a055c03ce531b3898d5f9ba297b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\libs\bolts-tasks-1.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\2\bolts-tasks-1.4.0_6a1a0a53e8ee035abddbda616adfb16df340f036\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_8cd9b356f67c6ea9af9c599bf75614db08055232\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -417,15 +453,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.github.armcha\SpaceNavigationView\1.3.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0e986d17660cccb1a2941cf8e1e33c41b69a7a6b">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.armcha-SpaceNavigationView-1.3.2_a5b71725f1358667a2e972f8de782181fe10d246\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
         jumboMode="true"
         optimize="true"
@@ -450,6 +477,15 @@
         revision="24.0.2"
         sha1="d8cef207fe3523818f332926c75686e1e9e373fa">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.wangyuwei-ParticleView-1.0.5_4ae89dcc85783878dcc540643b6bdee7b4a10901\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.haha\haha\2.0.3\640a438d2d415c056ca6a673ac26b183b044e160\haha-2.0.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="640a438d2d415c056ca6a673ac26b183b044e160">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\haha-2.0.3_02c885a6c8edb0ef36625a4d869b76ce170a5c46\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -552,6 +588,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-analyzer\1.5\3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f\leakcanary-analyzer-1.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\leakcanary-analyzer-1.5_1c9538df116ffddb5272c7355d65a1d2955ff7ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.daimajia.numberprogressbar\library\1.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -579,11 +624,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.github.armcha\SpaceNavigationView\1.4.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="3c08fc2912032c7c00bcfe166434fab4011e2406">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.armcha-SpaceNavigationView-1.4.1_9351bb892307d68864eee855d8314c4edecaedfb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="a66945383af09a93c005c1885464643adb14162b">
+        sha1="00a7fb170a4829924ecdb1d2eb7ae63cc9073329">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c653f946809fb21755e272db6a2b105140071869\classes.dex" />
     </item>
     <item

@@ -21,6 +21,7 @@ public class AboutActivity extends ActivityBase {
         mTitleBar.setTitle("关于我们");
         mTitleBar.setLeftButtonAsFinish(this);
 
+
 //        mParticleView = (ParticleView) findViewById(R.id.about_particle);
 //        mParticleView.startAnim();
     }

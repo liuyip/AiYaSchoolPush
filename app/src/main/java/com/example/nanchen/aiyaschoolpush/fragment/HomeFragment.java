@@ -75,11 +75,13 @@ public class HomeFragment extends FragmentBase {
         nameList.add("公告");
         nameList.add("作业");
         nameList.add("课表");
+//        nameList.add("社区");
 
         List<Fragment> list = new ArrayList<>();
         list.add(new NoticeFragment());
         list.add(new HomeworkFragment());
         list.add(new TimeTableFragment());
+//        list.add(new CommunityFragment());
 
         mViewPager.setAdapter(new MyPagerAdapter(getActivity().getSupportFragmentManager(),nameList,list));
         mTabLayout.setupWithViewPager(mViewPager);

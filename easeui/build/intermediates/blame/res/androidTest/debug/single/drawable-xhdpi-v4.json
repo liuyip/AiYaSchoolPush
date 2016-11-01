@@ -1,11 +1,11 @@
 [
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_dot_emojicon_unselected.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_dot_emojicon_unselected.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_open_icon.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_open_icon.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_dot_emojicon_unselected.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ease_dot_emojicon_unselected.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ease_chat_video_call_receive.png",
