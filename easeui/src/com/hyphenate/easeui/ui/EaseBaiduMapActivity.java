@@ -194,6 +194,7 @@ public class EaseBaiduMapActivity extends EaseBaseActivity {
 			mLocClient.stop();
 		mMapView.onDestroy();
 		unregisterReceiver(mBaiduReceiver);
+		instance = null;
 		super.onDestroy();
 	}
 	private void initMapView() {

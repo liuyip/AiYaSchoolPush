@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.fragment.NewChatFragment;
+import com.example.nanchen.aiyaschoolpush.fragment.ChatFragment;
 import com.example.nanchen.aiyaschoolpush.im.PermissionsManager;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.util.EasyUtils;
@@ -22,9 +22,9 @@ public class ChatActivity extends ActivityBase {
         //get user id or group id
         toChatUsername = getIntent().getExtras().getString("userId");
         //use EaseChatFratFragment
-//        chatFragment = new ChatFragment();
+        chatFragment = new ChatFragment();
 //        chatFragment = new EaseChatFragment();
-        chatFragment = new NewChatFragment();
+//        chatFragment = new NewChatFragment();
         //pass parameters to chat fragment
         chatFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction().add(R.id.container, chatFragment).commit();

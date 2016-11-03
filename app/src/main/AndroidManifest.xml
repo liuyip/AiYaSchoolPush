@@ -341,55 +341,83 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".activity.ReleaseCommunityActivity">
+
+        <activity android:name=".activity.ReleaseCommunityActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ChatActivity">
+
+        <activity android:name=".activity.ChatActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.VideoCallActivity">
+        <activity android:name=".activity.VideoCallActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
-        <activity android:name=".activity.VoiceCallActivity">
+        <activity android:name=".activity.VoiceCallActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
-        <activity android:name=".activity.NewFriendsMsgActivity">
+        <activity android:name=".activity.NewFriendsMsgActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupsActivity">
+        <activity android:name=".activity.GroupsActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.PublicChatRoomsActivity">
+        <activity android:name=".activity.PublicChatRoomsActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.AddContactActivity">
+        <activity android:name=".activity.AddContactActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.PickAtUserActivity">
+        <activity android:name=".activity.PickAtUserActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ContextMenuActivity">
+        <activity android:name=".activity.ContextMenuActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupDetailsActivity">
+        <activity android:name=".activity.GroupDetailsActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ExitGroupDialogActivity">
+        <activity android:name=".activity.ExitGroupDialogActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupBlacklistActivity">
+        <activity android:name=".activity.GroupBlacklistActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.EditActivity">
+        <activity android:name=".activity.EditActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupSearchMessageActivity">
+        <activity android:name=".activity.GroupSearchMessageActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupPickContactsActivity">
+        <activity android:name=".activity.GroupPickContactsActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.UserProfileActivity">
+        <activity android:name=".activity.UserProfileActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ImageGridActivity">
+        <activity android:name=".activity.ImageGridActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.RecorderVideoActivity">
+        <activity android:name=".activity.RecorderVideoActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.NewGroupActivity">
+        <activity android:name=".activity.NewGroupActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.PublicGroupsActivity">
+        <activity android:name=".activity.PublicGroupsActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.GroupSimpleDetailActivity">
+        <activity android:name=".activity.GroupSimpleDetailActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.PublicGroupsSearchActivity">
+        <activity android:name=".activity.PublicGroupsSearchActivity"
+                  android:screenOrientation="portrait">
         </activity>
 
         <!--下载大图-->
-        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"/>
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+                  android:screenOrientation="portrait"/>
 
         <!-- 下载文件 -->
         <activity
@@ -402,6 +430,14 @@
             android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"/>
+
+        <!--看视频-->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowVideoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
     </application>
 
 </manifest>

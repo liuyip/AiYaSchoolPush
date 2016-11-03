@@ -168,6 +168,8 @@ public class DemoHelper {
 
             // 初始化easeUI
             easeUI.init(App.getAppContext(),options);
+
+            EMClient.getInstance().callManager().getCallOptions().setIsSendPushIfOffline(true);// 设置离线推送为真
         }
     }
 

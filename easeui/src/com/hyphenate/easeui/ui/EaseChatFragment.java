@@ -574,11 +574,11 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             }
         }
     }
-
     @Override
     public void onCmdMessageReceived(List<EMMessage> messages) {
 
     }
+
 
     @Override
     public void onMessageReadAckReceived(List<EMMessage> messages) {

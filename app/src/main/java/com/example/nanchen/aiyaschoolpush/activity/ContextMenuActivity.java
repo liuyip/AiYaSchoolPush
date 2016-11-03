@@ -1,7 +1,6 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -9,7 +8,7 @@ import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.im.Constant;
 import com.hyphenate.chat.EMMessage;
 
-public class ContextMenuActivity extends AppCompatActivity {
+public class ContextMenuActivity extends ActivityBase {
 
 
     public static final int RESULT_CODE_COPY = 1;
