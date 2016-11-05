@@ -43,6 +43,8 @@ import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.hyphenate.EMCallBack;
+import com.qiyukf.unicorn.api.ConsultSource;
+import com.qiyukf.unicorn.api.Unicorn;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -70,6 +72,7 @@ public class MineFragment extends FragmentBase{
     private LinearLayoutListItemView mMenuMyBaby;
     private LinearLayoutListItemView mMenuAbout;
     private Button mBtnExit;
+    private LinearLayoutListItemView mItemServer;
 
     @Nullable
     @Override
@@ -97,7 +100,7 @@ public class MineFragment extends FragmentBase{
         mMenuMyBaby = (LinearLayoutListItemView) view.findViewById(R.id.mine_my_baby);
         mMenuAbout = (LinearLayoutListItemView) view.findViewById(R.id.mine_about);
         mBtnExit = (Button) view.findViewById(R.id.mine_exit_btn);
-        mBtnExit.setText("退出登录("+DemoHelper.getInstance().getCurrentUsernName()+")");
+        mBtnExit.setText("退出登录("+DemoHelper.getInstance().getCurrentUserName()+")");
 
         mBtnExit.setOnClickListener(new OnClickListener() {
             @Override
@@ -136,6 +139,19 @@ public class MineFragment extends FragmentBase{
             }
         });
 
+
+        mItemServer = (LinearLayoutListItemView) view.findViewById(R.id.mine_cloud_server);
+        mItemServer.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
+            @Override
+            public void onLinearLayoutListItemClick(Object object) {
+                // 跳转到七鱼云客服
+                ConsultSource source = new ConsultSource(null, null, null);
+                if(!Unicorn.isServiceAvailable()){
+                    UIUtil.showToast("客服接口有问题，请稍后再试");
+                }
+                Unicorn.openServiceActivity(getActivity(), "爱吖客服", source);
+            }
+        });
     }
 
     private void logout() {

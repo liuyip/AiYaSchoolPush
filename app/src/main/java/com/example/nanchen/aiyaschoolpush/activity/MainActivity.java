@@ -14,6 +14,7 @@ import com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.HomeFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MineFragment;
 import com.example.nanchen.aiyaschoolpush.fragment.MsgFragment;
+import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMConversation.EMConversationType;
@@ -43,6 +44,9 @@ public class MainActivity extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /** 设置七鱼客服用户信息 **/
+        QiYuCloudServerHelper.setUserInfo(true);
 
         fg = getSupportFragmentManager();
 

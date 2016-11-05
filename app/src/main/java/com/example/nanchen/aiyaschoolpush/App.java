@@ -9,6 +9,7 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
+import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.mob.mobapi.MobAPI;
 import com.squareup.leakcanary.LeakCanary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
@@ -71,6 +72,9 @@ public class App extends Application {
 
         //init demo helper
         DemoHelper.getInstance().init(App.getAppContext());
+
+        // 七鱼客服初始化
+        QiYuCloudServerHelper.initCloudServer(this);
     }
 
     /**

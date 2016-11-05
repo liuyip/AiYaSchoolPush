@@ -16,6 +16,7 @@ import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.db.DemoDBManager;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
+import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.IcomoonTextView;
@@ -33,6 +34,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
     private boolean autoLogin = false;
     private static final String TAG = "LoginActivity";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
         bindView();
         setListener();
     }
+
+
 
     private void setListener() {
         mBtnLogin.setOnClickListener(this);
@@ -78,8 +82,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
 
             }
         });
-        if (DemoHelper.getInstance().getCurrentUsernName() != null) {
-            mEditUserName.setText(DemoHelper.getInstance().getCurrentUsernName());
+        if (DemoHelper.getInstance().getCurrentUserName() != null) {
+            mEditUserName.setText(DemoHelper.getInstance().getCurrentUserName());
         }
     }
 
@@ -182,6 +186,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
+        // 未登录状态下，清空用户信息
+        QiYuCloudServerHelper.setUserInfo(false);
         if (autoLogin){
             return;
         }

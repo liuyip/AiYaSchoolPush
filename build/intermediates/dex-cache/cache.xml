@@ -138,6 +138,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.qiyukf.unicorn\unicorn\2.9.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="06b0365c9e178d0c406524c08cecd17212c801d3">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.qiyukf.unicorn-unicorn-2.9.0_29f498e31b0b183a39b8ecbe75f8119f95afffa6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
         jumboMode="true"
         optimize="true"
@@ -304,7 +313,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="a493e3265e69c1805ea55dc5f3f66dee316fa84f">
+        sha1="7530e50159f9dbf1488554bb8f710268d824a91c">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c653f946809fb21755e272db6a2b105140071869\classes.dex" />
     </item>
     <item
@@ -331,7 +340,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="5966b29f4ccedd6d53cb5f8bba3ca74b2b921d34">
+        sha1="2cba61a5633141d17540a71e30cc90f1b8afb792">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_51df9e5cc3ebd2696baed1333160f95802c846d8\classes.dex" />
     </item>
     <item
@@ -585,6 +594,15 @@
         revision="24.0.2"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_caa947f9dab534d5c7d5511050bf6a0c9e33be23\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.alibaba\fastjson\1.2.20\8d1796b13513f1c16287848a0792241fe10b56b0\fastjson-1.2.20.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8d1796b13513f1c16287848a0792241fe10b56b0">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\fastjson-1.2.20_eb117b0d73f17fd3c5cf9dbd5c72ccd6e2c620d2\classes.dex" />
     </item>
     <item
         is-multidex="true"

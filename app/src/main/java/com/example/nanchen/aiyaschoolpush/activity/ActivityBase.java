@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -13,8 +14,12 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.example.nanchen.aiyaschoolpush.view.Loading;
 import com.example.nanchen.aiyaschoolpush.view.Loading.OnReturnListener;
+import com.qiyukf.nimlib.sdk.NimIntent;
+import com.qiyukf.unicorn.api.ConsultSource;
+import com.qiyukf.unicorn.api.Unicorn;
 
 
 /**
@@ -49,13 +54,19 @@ public class ActivityBase extends AppCompatActivity {
     protected void onResume() {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.cancelAll();
+        // 禁用通知
+        QiYuCloudServerHelper.disableNotify();
         super.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        // 启用通知
+        QiYuCloudServerHelper.enableNotify(this);
     }
+
+
 
     @Override
     protected void onStop() {
@@ -138,5 +149,26 @@ public class ActivityBase extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        parseIntent();
+    }
+
+    private void parseIntent() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(NimIntent.EXTRA_NOTIFY_CONTENT)) {
+            consultService();
+            // 最好将intent清掉，以免从堆栈恢复时又打开客服窗口
+            setIntent(new Intent());
+        }
+    }
+
+    private void consultService() {
+        // 启动聊天界面
+        ConsultSource source = new ConsultSource(null, null, null);
+        Unicorn.openServiceActivity(this, "爱吖客服", source);
+    }
 
 }

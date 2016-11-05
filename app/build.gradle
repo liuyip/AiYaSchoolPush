@@ -143,6 +143,9 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     // multidex
     compile files('libs/android-support-multidex.jar')
+    // 网易七鱼客服
+    compile 'com.qiyukf.unicorn:unicorn:2.9.0'
+    compile 'com.alibaba:fastjson:1.2.20'
 }
 repositories {
     maven {

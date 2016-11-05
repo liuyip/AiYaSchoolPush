@@ -27,7 +27,6 @@ import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.EaseUser;
-import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.utils.EaseUserUtils;
 
 import java.io.ByteArrayOutputStream;
@@ -70,6 +69,9 @@ public class UserProfileActivity extends ActivityBase implements OnClickListener
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
         boolean enableUpdate = intent.getBooleanExtra("setting", false);
+        if (username.equals(DemoHelper.getInstance().getCurrentUserName())){
+            enableUpdate = true;
+        }
         if (enableUpdate) {
             headPhotoUpdate.setVisibility(View.VISIBLE);
             iconRightArrow.setVisibility(View.VISIBLE);
