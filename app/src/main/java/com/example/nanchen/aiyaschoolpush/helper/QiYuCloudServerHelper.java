@@ -15,9 +15,7 @@ import com.qiyukf.nimlib.sdk.NIMClient;
 import com.qiyukf.nimlib.sdk.msg.MsgService;
 import com.qiyukf.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.qiyukf.unicorn.api.ImageLoaderListener;
-import com.qiyukf.unicorn.api.SavePowerConfig;
 import com.qiyukf.unicorn.api.StatusBarNotificationConfig;
-import com.qiyukf.unicorn.api.UICustomization;
 import com.qiyukf.unicorn.api.Unicorn;
 import com.qiyukf.unicorn.api.UnicornImageLoader;
 import com.qiyukf.unicorn.api.YSFOptions;
@@ -65,21 +63,21 @@ public class QiYuCloudServerHelper {
             // 通知栏提醒
             options.statusBarNotificationConfig = new StatusBarNotificationConfig();
             options.statusBarNotificationConfig.notificationSmallIconId = R.mipmap.icon_notify;
-            // UI定制
-            UICustomization customization = new UICustomization();
-            customization.msgBackgroundColor = mContext.getResources().getColor(R.color.main_bg_color);
-            customization.tipsTextColor = mContext.getResources().getColor(R.color.gray3);
-            customization.msgListViewDividerHeight = 40;
-            customization.leftAvatar = "drawable://" + R.mipmap.service;
-            customization.tipsTextSize = 12;
-            customization.msgItemBackgroundLeft = R.drawable.qiyu_message_item_selector;
-//             customization.msgItemBackgroundRight = R.drawable.qiyu_message_item_selector;
-            customization.textMsgColorLeft = mContext.getResources().getColor(R.color.srs_text);
-            customization.textMsgColorRight = mContext.getResources().getColor(R.color.srs_text);
-            customization.titleBackgroundColor = mContext.getResources().getColor(R.color.main_bg_color1);
-            customization.textMsgSize = 18;
-            options.uiCustomization = customization;
-            options.savePowerConfig = new SavePowerConfig();//省电策略
+            // UI定制  头像版本更新，不再支持drawable://格式
+//            UICustomization customization = new UICustomization();
+//            customization.msgBackgroundColor = mContext.getResources().getColor(R.color.main_bg_color);
+//            customization.tipsTextColor = mContext.getResources().getColor(R.color.gray3);
+//            customization.msgListViewDividerHeight = 40;
+//            customization.leftAvatar = "drawable://" + R.drawable.service;
+//            customization.tipsTextSize = 12;
+//            customization.msgItemBackgroundLeft = R.drawable.qiyu_message_item_selector;
+//            customization.msgItemBackgroundRight = R.drawable.qiyu_message_item_selector;
+//            customization.textMsgColorLeft = mContext.getResources().getColor(R.color.srs_text);
+//            customization.textMsgColorRight = mContext.getResources().getColor(R.color.srs_text);
+//            customization.titleBackgroundColor = mContext.getResources().getColor(R.color.main_bg_color1);
+//            customization.textMsgSize = 18;
+//            options.uiCustomization = customization;
+//            options.savePowerConfig = new SavePowerConfig();//省电策略
             mOptins = options;
         }
         return mOptins;

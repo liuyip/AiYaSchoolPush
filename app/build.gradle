@@ -27,6 +27,8 @@ android {
 
             // 是否进行混淆
             minifyEnabled false
+            // 支持删除一些没有用的资源
+            shrinkResources true
             // 混淆文件位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
