@@ -1,13 +1,9 @@
 package com.example.nanchen.aiyaschoolpush.fragment;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-
-import com.example.nanchen.aiyaschoolpush.view.Loading;
-import com.example.nanchen.aiyaschoolpush.view.Loading.OnReturnListener;
 
 /**
  * @author nanchen
@@ -16,9 +12,9 @@ import com.example.nanchen.aiyaschoolpush.view.Loading.OnReturnListener;
  * @date 2016/10/08  09:00
  */
 
-public class FragmentBase extends Fragment {
+public class FragmentBase extends Fragment{
 
-    private Dialog mDialog;
+//    private Dialog mDialog;
 
     @Override
     public void onAttach(Context context) {
@@ -32,23 +28,26 @@ public class FragmentBase extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public void showLoading(Context context, String text, OnReturnListener listener){
-        Loading loading = new Loading();
-        loading.showLoading(context,text,listener,Loading.LOGOSTYLE);
-    }
 
-    public void showLoading(Context context,String text){
-        Loading loading = new Loading();
-        loading.showLoading(context,text,null,Loading.LOGOSTYLE);
-    }
 
-    public void showLoading(Context context){
-        Loading loading = new Loading();
-        loading.showLoading(context,null,null,Loading.LOGOSTYLE);
-    }
-
-    public void stopLoading(){
-        Loading loading = new Loading();
-        loading.dialogDismiss(mDialog);
-    }
+    /* 以下方法的stopLoading 不起作用，以后都用强转到Activity做处理*/
+//    public void showLoading(Context context, String text, OnReturnListener listener){
+//        Loading loading = new Loading();
+//        loading.showLoading(context,text,listener,Loading.LOGOSTYLE);
+//    }
+//
+//    public void showLoading(Context context,String text){
+//        Loading loading = new Loading();
+//        loading.showLoading(context,text,null,Loading.LOGOSTYLE);
+//    }
+//
+//    public void showLoading(Context context){
+//        Loading loading = new Loading();
+//        loading.showLoading(context,null,null,Loading.LOGOSTYLE);
+//    }
+//
+//    public void stopLoading(){
+//        Loading loading = new Loading();
+//        loading.dialogDismiss(mDialog);
+//    }
 }

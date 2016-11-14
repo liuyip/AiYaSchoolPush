@@ -8,7 +8,6 @@
 
     <com.hyphenate.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         hyphenate:titleBarTitle="@string/address_book" />

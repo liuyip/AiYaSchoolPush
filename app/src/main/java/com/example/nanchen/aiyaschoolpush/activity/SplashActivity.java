@@ -51,6 +51,7 @@ public class SplashActivity extends ActivityBase {
         if (isFirstIn){
             handler.sendEmptyMessageDelayed(GO_GUIDE,DELAY_TIME);
         }else {
+
             handler.sendEmptyMessageDelayed(GO_LOGIN,DELAY_TIME);
         }
     }

@@ -28,12 +28,13 @@ import com.qiyukf.unicorn.api.Unicorn;
  * @packageName com.example.nanchen.aiyaschoolpush.activity
  * @date 2016/09/08  16:21
  */
-public class ActivityBase extends AppCompatActivity {
+public class ActivityBase extends AppCompatActivity{
 
     private Dialog mDialog;
     private static long mLastClickTime;
     private boolean isDestroyed = false;
     private static final String TAG = "ActivityBase";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {

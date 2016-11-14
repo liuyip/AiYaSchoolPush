@@ -18,6 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
@@ -29,6 +33,8 @@ import java.util.TimerTask;
 import cn.smssdk.EventHandler;
 import cn.smssdk.OnSendMessageHandler;
 import cn.smssdk.SMSSDK;
+import okhttp3.Call;
+import okhttp3.Response;
 
 public class RegisterActivity extends ActivityBase implements OnClickListener {
 
@@ -278,7 +284,22 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
 //        }
         
         showLoading(this);
-        SMSSDK.submitVerificationCode(COUNTRY_CODE,phone,verCode);
+
+        AppService.getInstance().isUsableMobileAsync(phone, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_OK){
+                    SMSSDK.submitVerificationCode(COUNTRY_CODE,phone,verCode);
+                    Log.e(TAG,userLslResponse.msg);
+                }else {
+                    UIUtil.showToast("错误："+userLslResponse.msg);
+                    Log.e(TAG,"错误："+userLslResponse.msg);
+                    stopLoading();
+                }
+            }
+        });
+
+
     }
 
     /**

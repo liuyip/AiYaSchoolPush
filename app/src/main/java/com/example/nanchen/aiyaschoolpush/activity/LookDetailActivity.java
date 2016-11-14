@@ -78,7 +78,7 @@ public class LookDetailActivity extends ActivityBase {
 
         CommentModel model = new CommentModel();
         User user = new User();
-        user.userName = "南尘";
+        user.username = "南尘";
         model.sender = user;
         model.content = "你好，这是一条评论测试！";
         model.createTs = 1477297421;
@@ -87,7 +87,7 @@ public class LookDetailActivity extends ActivityBase {
 
         CommentModel model1 = new CommentModel();
         User user1 = new User();
-        user1.userName = "南尘2";
+        user1.username = "南尘2";
         model1.sender = user1;
         model1.content = "你好，这是第二条评论测试！";
         model1.createTs = 1475899596;
@@ -96,7 +96,7 @@ public class LookDetailActivity extends ActivityBase {
 
         CommentModel model2 = new CommentModel();
         User user2 = new User();
-        user2.userName = "南尘3";
+        user2.username = "南尘3";
         model2.sender = user2;
         model2.content = "欢迎大家一起来测试爱吖校推校推~~~多有不足，谢谢指教！多有不足，谢谢指教！多有不足，谢谢指教！多有不足，谢谢指教！";
         model2.createTs = 1475899596;
@@ -143,7 +143,7 @@ public class LookDetailActivity extends ActivityBase {
                 } else {
                     holder.setImageByUrl(R.id.comment_image, item.sender.icon);
                 }
-                holder.setText(R.id.comment_name, item.sender.userName);
+                holder.setText(R.id.comment_name, item.sender.username);
                 holder.setText(R.id.comment_time, TimeUtils.longToDateTime(item.createTs));
                 holder.setText(R.id.comment_text, item.content);
             }
@@ -169,7 +169,7 @@ public class LookDetailActivity extends ActivityBase {
                 mTextSend.setTextColor(getResources().getColor(R.color.gray19));
                 mTextSend.setClickable(false);
 
-                String reply = "回复 " + mCommentModels.get(position-2).sender.userName + ":";
+                String reply = "回复 " + mCommentModels.get(position-2).sender.username + ":";
                 mEditText.setText(reply);
                 mEditText.requestFocus();
                 mEditText.setSelection(reply.length()); // 将光标移至文字末尾
@@ -221,7 +221,7 @@ public class LookDetailActivity extends ActivityBase {
         } else {
             Picasso.with(this).load(R.drawable.default_avatar).into(avatar);
         }
-        tv_name.setText(mNoticeModel.user.userName);
+        tv_name.setText(mNoticeModel.user.username);
         tv_time.setText(TimeUtils.longToDateTime(mNoticeModel.time));
         tv_content.setText(mNoticeModel.content);
         tv_like.setText(String.format(Locale.CHINA, "赞 %d", mNoticeModel.praiseCount));

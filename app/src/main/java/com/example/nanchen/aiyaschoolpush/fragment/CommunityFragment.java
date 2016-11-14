@@ -85,7 +85,7 @@ public class CommunityFragment extends FragmentBase {
                 }else {
                     holder.setImageByUrl(R.id.community_item_avatar,item.author.icon);
                 }
-                holder.setText(R.id.community_item_name,item.author.userName);
+                holder.setText(R.id.community_item_name,item.author.username);
                 holder.setText(R.id.community_item_time, TimeUtils.longToDateTime(item.createTs));
                 holder.setText(R.id.community_item_content,item.content);
                 holder.setText(R.id.community_item_like,"赞 "+item.praiseCount);
@@ -167,7 +167,7 @@ public class CommunityFragment extends FragmentBase {
     private void getSomeData() {
         Topic model = new Topic();
         User author = new User();
-        author.userName = "4班班主任";
+        author.username = "4班班主任";
         model.author = author;
         model.createTs = 1475899596;
         model.content = "这是一条测试作业~";
@@ -178,7 +178,7 @@ public class CommunityFragment extends FragmentBase {
 
         Topic model3 = new Topic();
         User author3 = new User();
-        author3.userName = "4班语文老师";
+        author3.username = "4班语文老师";
         model3.author = author3;
         model3.createTs = 1475906894;
         model3.content = "今天的作业是：\n" +
@@ -191,7 +191,7 @@ public class CommunityFragment extends FragmentBase {
 
         Topic model2 = new Topic();
         User author2 = new User();
-        author2.userName = "4班数学老师";
+        author2.username = "4班数学老师";
         model2.author = author2;
         model2.createTs = 1475906894;
         model2.content = "今天的数学作业是：\n" +

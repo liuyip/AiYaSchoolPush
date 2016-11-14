@@ -1,6 +1,8 @@
 package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -14,15 +16,22 @@ import android.widget.LinearLayout;
 
 import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
 import com.example.nanchen.aiyaschoolpush.db.DemoDBManager;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.IcomoonTextView;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 public class LoginActivity extends ActivityBase implements OnClickListener {
 
@@ -34,14 +43,32 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
     private boolean autoLogin = false;
     private static final String TAG = "LoginActivity";
 
+    private SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sp = getSharedPreferences("user.temp",MODE_PRIVATE);
         if (DemoHelper.getInstance().isLoggedIn()) {
             autoLogin = true;
-            IntentUtil.newIntent(this, MainActivity.class);
-            return;
+
+            String username =  sp.getString("username","");
+            String password = sp.getString("password","");
+
+            AppService.getInstance().loginAsync(username, password, new JsonCallback<LslResponse<User>>() {
+                @Override
+                public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                    if (userLslResponse.code == LslResponse.RESPONSE_OK){
+                        setUserInfo(userLslResponse.data);
+                        IntentUtil.newIntent(LoginActivity.this, MainActivity.class);
+                        LoginActivity.this.finish();
+                        return;
+                    }
+                    UIUtil.showToast("当前用户登录信息已过期，请重新登录！");
+                }
+            });
+
         }
         setContentView(R.layout.activity_login);
 
@@ -112,8 +139,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
             UIUtil.showToast("网络连接不可用，请检查！");
             return;
         }
-        String currentUsername = mEditUserName.getText().toString().trim();
-        String currentPassword = mEditPwd.getText().toString().trim();
+        final String currentUsername = mEditUserName.getText().toString().trim();
+        final String currentPassword = mEditPwd.getText().toString().trim();
 
         if (TextUtils.isEmpty(currentUsername)) {
             UIUtil.showToast("用户名不能为空!");
@@ -124,6 +151,52 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
             return;
         }
         showLoading(this);
+        AppService.getInstance().loginAsync(currentUsername, currentPassword, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_ERROR){
+                    UIUtil.showToast(userLslResponse.msg);
+                    stopLoading();
+                }else{
+                    setUserInfo(userLslResponse.data);
+                    loginXin(currentUsername,currentPassword);
+                }
+            }
+        });
+    }
+
+    /**
+     * 把信息存储起来
+     * @param data
+     */
+    private void setUserInfo(User data) {
+        Log.e(TAG,"username："+data.username);
+        Log.e(TAG,"password："+data.password);
+        Log.e(TAG,"birthday："+data.birthday);
+        Log.e(TAG,"nickname："+data.nickname);
+        Log.e(TAG,"type："+data.type);
+        Log.e(TAG,"classid："+data.classid);
+        Log.e(TAG,"address："+data.address);
+        Log.e(TAG,"avatar："+data.icon);
+        Log.e(TAG,"childName："+data.childName);
+        Log.e(TAG,"childAvatar："+data.childAvatar);
+
+        AppService.getInstance().setCurrentUser(data);
+
+
+        Editor editor = sp.edit();
+        editor.putString("username",data.username);
+        editor.putString("password",data.password);
+        editor.apply();
+    }
+
+
+    /**
+     * 登录环信即时通讯需要
+     * @param currentUsername   当前输入的用户名
+     * @param currentPassword   密码
+     */
+    private void loginXin(String currentUsername,String currentPassword){
         // After logout，the DemoDB may still be accessed due to async callback, so the DemoDB will be re-opened again.
         // close it before login to make sure DemoDB not overlap
         DemoDBManager.getInstance().closeDB();
@@ -150,6 +223,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
 
                 // get user's info (this should be get from App's server or 3rd party service)
                 DemoHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
+
+
 
                 runOnUiThread(new Runnable() {
                     @Override

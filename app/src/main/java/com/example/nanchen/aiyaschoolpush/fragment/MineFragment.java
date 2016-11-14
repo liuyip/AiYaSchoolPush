@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -15,6 +16,8 @@ import android.provider.MediaStore.Images.Media;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,18 +36,27 @@ import com.example.nanchen.aiyaschoolpush.activity.MainActivity;
 import com.example.nanchen.aiyaschoolpush.activity.PersonalInfoActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.receiver.AvatarReceiver;
+import com.example.nanchen.aiyaschoolpush.receiver.AvatarReceiver.AvatarCallback;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
 import com.example.nanchen.aiyaschoolpush.view.OnLinearLayoutListItemClickListener;
-import com.example.nanchen.aiyaschoolpush.view.RoundImageView;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.hyphenate.EMCallBack;
 import com.qiyukf.unicorn.api.ConsultSource;
 import com.qiyukf.unicorn.api.Unicorn;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -52,8 +64,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import okhttp3.Call;
+import okhttp3.Response;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -62,17 +77,22 @@ import static android.app.Activity.RESULT_OK;
  * @fileName AiYaSchoolPush
  * @packageName com.example.nanchen.aiyaschoolpush.fragment
  * @date 2016/10/08  08:57
+ *
+ * 我的页面
  */
 
 public class MineFragment extends FragmentBase{
     private TitleView mTitleBar;
-    private RoundImageView mHeadImage;
+    private CircleImageView mHeadImage;
     private LinearLayoutListItemView mMenuReviseData;
     private LinearLayoutListItemView mMenuMyRoom;
     private LinearLayoutListItemView mMenuMyBaby;
     private LinearLayoutListItemView mMenuAbout;
     private Button mBtnExit;
     private LinearLayoutListItemView mItemServer;
+    private static final String TAG = "MineFragment";
+    private AvatarReceiver mAvatarReceiver;
+    private IntentFilter mIntentFilter;
 
     @Nullable
     @Override
@@ -83,10 +103,27 @@ public class MineFragment extends FragmentBase{
     }
 
     private void bindView(View view) {
+
+
+
         mTitleBar = (TitleView) view.findViewById(R.id.mine_titleBar);
         mTitleBar.setTitle("我的");
 
-        mHeadImage = (RoundImageView) view.findViewById(R.id.mine_image);
+        mHeadImage = (CircleImageView) view.findViewById(R.id.mine_image);
+
+        if (AppService.getInstance().getCurrentUser() != null){
+            String iconUrl = AppService.getInstance().getCurrentUser().icon;
+            Log.e(TAG,iconUrl+"  ********** ");
+            if (!TextUtils.isEmpty(iconUrl) && !iconUrl.equals("null")){
+                // 设置picasso不允许缓存，以免头像更新后不能动态更新
+                Picasso.with(getActivity()).load(iconUrl)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE)
+                        .networkPolicy(NetworkPolicy.NO_CACHE)
+                        .into(mHeadImage);
+            }
+        }
+
+
         mHeadImage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +149,12 @@ public class MineFragment extends FragmentBase{
         mMenuReviseData.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-                Crouton.makeText(getActivity(),"你点击了个人信息", Style.ALERT).show();
+//                Crouton.makeText(getActivity(),"你点击了个人信息", Style.ALERT).show();
                 IntentUtil.newIntent(getActivity(), PersonalInfoActivity.class);
+
+                /* 由于在个人信息页面采取广播和Service方式都会报空指针异常，可行性有待考证
+                * 所以暂时采用打开个人信息页面的时候关闭主页面，返回的时候重新start主页面*/
+//                getActivity().finish();
             }
         });
 
@@ -152,10 +193,31 @@ public class MineFragment extends FragmentBase{
                 Unicorn.openServiceActivity(getActivity(), "爱吖客服", source);
             }
         });
+
+
+
+        // 注册广播，千万记得销毁的时候关闭广播，否则造成内存泄漏
+        mAvatarReceiver = new AvatarReceiver(new AvatarCallback() {
+            @Override
+            public void onAvatarChanged() {
+                String iconUrl = AppService.getInstance().getCurrentUser().icon;
+                Log.e(TAG,iconUrl+"  ********** ");
+                if (!TextUtils.isEmpty(iconUrl)){
+                    // 设置picasso不允许缓存，以免头像更新后不能动态更新
+                    Picasso.with(getActivity()).load(iconUrl)
+                            .memoryPolicy(MemoryPolicy.NO_CACHE)
+                            .networkPolicy(NetworkPolicy.NO_CACHE)
+                            .into(mHeadImage);
+                }
+            }
+        });
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(AvatarReceiver.AVATAR_ACTION);
+        getActivity().registerReceiver(mAvatarReceiver,mIntentFilter);
     }
 
     private void logout() {
-//        showLoading(getActivity());
+//        ((MainActivity)getActivity()).showLoading(getActivity());
         DemoHelper.getInstance().logout(false,new EMCallBack() {
 
             @Override
@@ -183,7 +245,7 @@ public class MineFragment extends FragmentBase{
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-                        stopLoading();
+//                        ((MainActivity)getActivity()).stopLoading();
                         Toast.makeText(getActivity(), "unbind devicetokens failed", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -349,8 +411,10 @@ public class MineFragment extends FragmentBase{
         if (bundle != null){
             Bitmap mBitmap = bundle.getParcelable("data");
             mHeadImage.setImageBitmap(mBitmap);
-            saveBitmap(Environment.getExternalStorageDirectory() + "/crop_"
-                    +System.currentTimeMillis() + ".png",mBitmap);
+            String fileName = Environment.getExternalStorageDirectory() + "/"
+                    +DemoHelper.getInstance().getCurrentUserName() + ".png";
+            saveBitmap(fileName,mBitmap);
+
         }
     }
 
@@ -362,12 +426,15 @@ public class MineFragment extends FragmentBase{
             fout = new FileOutputStream(file);
             bitmap.compress(CompressFormat.PNG,100,fout);
             fout.flush();
+            uploadAvatar(file);
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         } finally {
             try {
                 assert fout != null;
                 fout.close();
+                bitmap.recycle();
                 UIUtil.showToast(getActivity(),"保存成功！");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -375,4 +442,87 @@ public class MineFragment extends FragmentBase{
         }
     }
 
+
+    /**
+     * 上传头像
+     * @param file
+     */
+    private void uploadAvatar(File file) {
+        ((MainActivity)getActivity()).showLoading(getActivity());
+        AppService.getInstance().upLoadAvatarAsync(file, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_OK){// 头像上传成功，还应该把头像的url设置到数据库中去
+                    updateAvatarUrl();
+                    Log.e(TAG,"头像上传到本地成功！");
+                    return;
+                }
+                UIUtil.showToast(userLslResponse.msg);
+                Log.e(TAG,userLslResponse.msg);
+                ((MainActivity)getActivity()).stopLoading();
+            }
+        });
+
+        // 下面的方法仅仅是为了测试
+
+//        AppService.getInstance().upLoadAvatarAsync(file, new StringCallback() {
+//            @Override
+//            public void onSuccess(String s, Call call, Response response) {
+//                UIUtil.showToast(s);
+//                Log.e(TAG,s);
+//                ((MainActivity)getActivity()).stopLoading();
+//            }
+//        });
+    }
+
+    /**
+     * 把头像的url加到数据库中去
+     */
+    private void updateAvatarUrl() {
+        final User user = AppService.getInstance().getCurrentUser();
+        if (TextUtils.isEmpty(user.icon)){ // 如果当前头像地址为null,所以数据库还未存有,则把此url插入到数据库中
+            final String iconUrl = Consts.API_SERVICE_HOST+"/user/avatar/"+user.username+".png";
+            AppService.getInstance().updateAvatarUrlAsync(user.username, iconUrl, 0, new JsonCallback<LslResponse<User>>() {
+                @Override
+                public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                    UIUtil.showToast(userLslResponse.msg);
+                    user.icon = iconUrl;
+                    AppService.getInstance().setCurrentUser(user);
+                    ((MainActivity)getActivity()).stopLoading();
+                }
+            });
+//            AppService.getInstance().updateAvatarUrlAsync(user.username, iconUrl, 0, new StringCallback() {
+//                @Override
+//                public void onSuccess(String s, Call call, Response response) {
+//                    UIUtil.showToast(s);
+//                    Log.e(TAG,s);
+//                    ((MainActivity)getActivity()).stopLoading();
+//                }
+//            });
+        }else {// 否则不用插入，图片已经成功替换
+            UIUtil.showToast("图片替换成功！");
+            ((MainActivity)getActivity()).stopLoading();
+        }
+    }
+
+
+    /* 由于会报空指针异常，暂时不再采用广播方式及其Service方式*/
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        getActivity().registerReceiver(mAvatarReceiver,mIntentFilter);
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().registerReceiver(mAvatarReceiver,mIntentFilter);
+    }
 }

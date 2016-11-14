@@ -18,6 +18,7 @@ import android.support.v7.app.AlertDialog.Builder;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -28,10 +29,15 @@ import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.SoftInputMethodUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
+import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.example.nanchen.aiyaschoolpush.view.RoundImageView;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
@@ -47,11 +53,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class RegisterActivity2 extends ActivityBase implements OnClickListener,OnDateSetListener{
+import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.Call;
+import okhttp3.Response;
+
+public class RegisterActivity2 extends ActivityBase implements OnClickListener, OnDateSetListener {
 
     private static final String TAG = "RegisterActivity2";
     private String phone;
-    private RoundImageView mHeadImage;
+    private CircleImageView mHeadImage;
     private TextInputLayout mLayoutPwd1;
     private TextInputLayout mLayoutPwd2;
     private EditText mEditPwd1;
@@ -76,10 +86,11 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
 
         Intent intent = getIntent();
         phone = intent.getStringExtra("phone");
-//        if (TextUtils.isEmpty(phone)){
-//            finish();
-//        }
 
+//        phone = "18384988447";
+        if (TextUtils.isEmpty(phone)) {
+            finish();
+        }
 
         bindView();
     }
@@ -89,7 +100,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
         mTitleBar.setTitle("注册");
         mTitleBar.setLeftButtonAsFinish(this);
 
-        mHeadImage = (RoundImageView) findViewById(R.id.register2_head_image);
+        mHeadImage = (CircleImageView) findViewById(R.id.register2_head_image);
 
         mLayoutPwd1 = (TextInputLayout) findViewById(R.id.register2_layout_pwd1);
         mLayoutPwd2 = (TextInputLayout) findViewById(R.id.register2_layout_pwd2);
@@ -108,15 +119,15 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
         mEditBirthday.setOnClickListener(this);
 
 
-        if (mHeadImage != null){
-            mHeadImage.setCircleWidth(20);
-            mHeadImage.setLevel(4);
-        }
+//        if (mHeadImage != null){
+//            mHeadImage.setCircleWidth(20);
+//            mHeadImage.setLevel(4);
+//        }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.register2_head_image:
                 selectPhoto();
                 break;
@@ -134,14 +145,13 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
      */
     private void selectBirthday() {
         SoftInputMethodUtil.HideSoftInput(mEditBirthday.getWindowToken());//禁止弹出软键盘
-
         Calendar calendar = Calendar.getInstance();
         BottomSheetDatePickerDialog dialog = BottomSheetDatePickerDialog.newInstance(
                 RegisterActivity2.this,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
-        dialog.show(getSupportFragmentManager(),TAG);
+        dialog.show(getSupportFragmentManager(), TAG);
     }
 
 
@@ -149,7 +159,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
     private final int PHOTO_PICKED_FROM_FILE = 2; // 用来标识从相册获取头像
     private final int CROP_FROM_CAMERA = 3;
 
-    private void getIconFromPhoto(){
+    private void getIconFromPhoto() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
         startActivityForResult(intent, PHOTO_PICKED_FROM_FILE);
@@ -162,7 +172,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
         showDialog(new SelectDialogListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
 //                        mTempUri = PhotoUtil.camera(RegisterActivity2.this);
                         getIconFromCamera();
@@ -175,7 +185,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
                         break;
                 }
             }
-        },list);
+        }, list);
 
     }
 
@@ -187,15 +197,15 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
     private void getIconFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         imgUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
-        "avatar_"+String.valueOf(System.currentTimeMillis())+".png"));
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,imgUri);
-        startActivityForResult(intent,PHOTO_PICKED_FROM_CAMERA);
+                "avatar_" + String.valueOf(System.currentTimeMillis()) + ".png"));
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
+        startActivityForResult(intent, PHOTO_PICKED_FROM_CAMERA);
     }
 
-    private SelectDialog showDialog(SelectDialogListener listener,List<String> list){
+    private SelectDialog showDialog(SelectDialogListener listener, List<String> list) {
         SelectDialog dialog = new SelectDialog(this,
-                R.style.transparentFrameWindowStyle,listener,list);
-        if (canUpdateUI()){
+                R.style.transparentFrameWindowStyle, listener, list);
+        if (canUpdateUI()) {
             dialog.show();
         }
         return dialog;
@@ -205,46 +215,46 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
     /**
      * 尝试裁剪图片
      */
-    private void doCrop(){
+    private void doCrop() {
         final ArrayList<CropOption> cropOptions = new ArrayList<>();
         final Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setType("image/*");
-        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent,0);
+        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent, 0);
         int size = list.size();
-        if (size == 0){
-            UIUtil.showToast(this,"当前不支持裁剪图片!");
+        if (size == 0) {
+            UIUtil.showToast(this, "当前不支持裁剪图片!");
             return;
         }
         intent.setData(imgUri);
-        intent.putExtra("outputX",300);
-        intent.putExtra("outputY",300);
-        intent.putExtra("aspectX",1);
-        intent.putExtra("aspectY",1);
-        intent.putExtra("scale",true);
-        intent.putExtra("return-data",true);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", true);
 
         // only one
-        if (size == 1){
+        if (size == 1) {
             Intent intent1 = new Intent(intent);
             ResolveInfo res = list.get(0);
-            intent1.setComponent(new ComponentName(res.activityInfo.packageName,res.activityInfo.name));
-            startActivityForResult(intent1,CROP_FROM_CAMERA);
-        }else {
+            intent1.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+            startActivityForResult(intent1, CROP_FROM_CAMERA);
+        } else {
             // 很多可支持裁剪的app
             for (ResolveInfo res : list) {
                 CropOption co = new CropOption();
                 co.title = getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
                 co.icon = getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
                 co.appIntent = new Intent(intent);
-                co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName,res.activityInfo.name));
+                co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
                 cropOptions.add(co);
             }
 
-            CommonAdapter<CropOption> adapter = new CommonAdapter<CropOption>(this,cropOptions,R.layout.layout_crop_selector) {
+            CommonAdapter<CropOption> adapter = new CommonAdapter<CropOption>(this, cropOptions, R.layout.layout_crop_selector) {
                 @Override
                 public void convert(ViewHolder holder, CropOption item) {
-                    holder.setImageDrawable(R.id.iv_icon,item.icon);
-                    holder.setText(R.id.tv_name,item.title);
+                    holder.setImageDrawable(R.id.iv_icon, item.icon);
+                    holder.setText(R.id.tv_name, item.title);
                 }
             };
 
@@ -253,14 +263,14 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
             builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    startActivityForResult(cropOptions.get(which).appIntent,CROP_FROM_CAMERA);
+                    startActivityForResult(cropOptions.get(which).appIntent, CROP_FROM_CAMERA);
                 }
             });
             builder.setOnCancelListener(new OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
-                    if (imgUri != null){
-                        getContentResolver().delete(imgUri,null,null);
+                    if (imgUri != null) {
+                        getContentResolver().delete(imgUri, null, null);
                         imgUri = null;
                     }
                 }
@@ -275,7 +285,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK){
+        if (resultCode != RESULT_OK) {
             return;
         }
         switch (requestCode) {
@@ -287,7 +297,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
                 doCrop();
                 break;
             case CROP_FROM_CAMERA:
-                if (data != null){
+                if (data != null) {
                     setCropImg(data);
                 }
                 break;
@@ -296,35 +306,74 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
         }
     }
 
-    private void setCropImg(Intent picData){
+    private void setCropImg(Intent picData) {
         Bundle bundle = picData.getExtras();
-        if (bundle != null){
+        if (bundle != null) {
             Bitmap mBitmap = bundle.getParcelable("data");
             mHeadImage.setImageBitmap(mBitmap);
             saveBitmap(Environment.getExternalStorageDirectory() + "/crop_"
-            +System.currentTimeMillis() + ".png",mBitmap);
+                    + System.currentTimeMillis() + ".png", mBitmap);
         }
     }
 
-    private void saveBitmap(String fileName,Bitmap bitmap){
+    private void saveBitmap(String fileName, Bitmap bitmap) {
         File file = new File(fileName);
         FileOutputStream fout = null;
         try {
             file.createNewFile();
             fout = new FileOutputStream(file);
-            bitmap.compress(CompressFormat.PNG,100,fout);
+            bitmap.compress(CompressFormat.PNG, 100, fout);
             fout.flush();
+            uploadAvatar(file);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
                 assert fout != null;
                 fout.close();
-                UIUtil.showToast(RegisterActivity2.this,"保存成功！");
+                UIUtil.showToast(RegisterActivity2.this, "保存成功！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private String avatarUrl = "";
+
+    /**
+     * 上传头像
+     *
+     * @param file
+     */
+    private void uploadAvatar(File file) {
+        showLoading(this);
+        AppService.getInstance().upLoadAvatarAsync(file, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_OK) {
+                    UIUtil.showToast("头像设置成功");
+//                    updateAvatarUrl();
+                    avatarUrl = Consts.API_SERVICE_HOST + "/user/avatar/" + phone + ".png";;
+                } else {
+                    UIUtil.showToast("头像设置失败：" + userLslResponse.msg);
+                    stopLoading();
+                }
+            }
+        });
+    }
+
+    /**
+     * 把头像的url加到数据库中去
+     */
+    private void updateAvatarUrl() {
+        final String iconUrl = Consts.API_SERVICE_HOST + "/user/avatar/" + phone + ".png";
+        AppService.getInstance().updateAvatarUrlAsync(phone, iconUrl, 0, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                UIUtil.showToast(userLslResponse.msg);
+                stopLoading();
+            }
+        });
     }
 
     /**
@@ -334,29 +383,49 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener,O
         String pwd1 = mEditPwd1.getText().toString().trim();
         String pwd2 = mEditPwd2.getText().toString().trim();
         String name = mEditName.getText().toString().trim();
+        String birthday = mEditBirthday.getText().toString().trim();
 
-        if (TextUtils.isEmpty(pwd1) || TextUtils.isEmpty(pwd2) || TextUtils.isEmpty(name)){
-            UIUtil.showToast(this,"请填写必要信息！");
+        Log.e(TAG, phone + " *** " + pwd1 + " *** " + name + " *** " + birthday);
+        String longDate = TimeUtils.strToLongDate(birthday);
+
+        if (TextUtils.isEmpty(pwd1) || TextUtils.isEmpty(pwd2) || TextUtils.isEmpty(name)) {
+            UIUtil.showToast(this, "请填写必要信息！");
             return;
         }
-        if (pwd1.length() < 6){
-            UIUtil.showToast(this,"密码长度不能小于6！");
+        if (pwd1.length() < 6) {
+            UIUtil.showToast(this, "密码长度不能小于6！");
             mEditPwd1.requestFocus();
             return;
         }
-        if (!pwd1.equals(pwd2)){
-            UIUtil.showToast(this,"两次输入的密码不一致！");
+        if (!pwd1.equals(pwd2)) {
+            UIUtil.showToast(this, "两次输入的密码不一致！");
             mEditPwd1.requestFocus();
             return;
         }
-        if (!TextUtil.isChinese(name)){
-            UIUtil.showToast(this,"姓名必须为中文字符!");
+        if (!TextUtil.isChinese(name)) {
+            UIUtil.showToast(this, "姓名必须为中文字符!");
             mEditName.requestFocus();
             return;
         }
 
-        UIUtil.showToast(this,"正在尝试注册！");
+        Log.e(TAG, phone + " *** " + pwd1 + " *** " + name + " *** " + longDate  + " *** " + avatarUrl);
+
+//        UIUtil.showToast(this,"正在尝试注册！");
         // 此处开始注册
+        showLoading(this);
+        AppService.getInstance().registerAsync(phone, pwd1, name, longDate, avatarUrl, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_OK) {
+                    UIUtil.showToast("注册成功！");
+                    stopLoading();
+                    finish();
+                } else {
+                    UIUtil.showToast("注册失败" + userLslResponse.msg);
+                    stopLoading();
+                }
+            }
+        });
     }
 
 

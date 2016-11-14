@@ -24,6 +24,9 @@ import android.widget.TextView;
 import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 public class UserInfoView extends LinearLayout implements OnClickListener {
 	private static final int MODEL_MY_SELF = 0; // 我
@@ -526,6 +529,15 @@ public class UserInfoView extends LinearLayout implements OnClickListener {
 		if (mRIV_HeadImage != null) {
 			mRIV_HeadImage.setVisibility(View.VISIBLE);
 			mRIV_HeadImage.setImageBitmap(bitmap);
+		}
+	}
+
+	public void setHeadImage(String url) {
+		if (mRIV_HeadImage != null) {
+			mRIV_HeadImage.setVisibility(View.VISIBLE);
+//			mRIV_HeadImage.setImageBitmap(bitmap);
+			Picasso.with(App.getAppContext()).load(url).networkPolicy(NetworkPolicy.NO_CACHE)
+					.memoryPolicy(MemoryPolicy.NO_CACHE).into(mRIV_HeadImage);
 		}
 	}
 

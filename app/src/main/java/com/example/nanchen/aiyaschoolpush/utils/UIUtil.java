@@ -19,7 +19,6 @@ public final class UIUtil {
     private static Toast toast;
 
 
-
     /**
      * 显示一个短时间的Toast
      * @param context   上下文
@@ -58,7 +57,6 @@ public final class UIUtil {
      * @param desc      显示文本
      */
     public static void showToast(String desc){
-
         if (toast == null){
             toast = Toast.makeText(App.getAppContext(),desc,Toast.LENGTH_SHORT);
         }else {

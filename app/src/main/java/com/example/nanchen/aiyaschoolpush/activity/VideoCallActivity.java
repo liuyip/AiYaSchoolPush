@@ -83,11 +83,12 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
             this.yDelta = yDelta;
         }
 
+
         // data size is width*height*2
         // the first width*height is Y, second part is UV
         // the storage layout detailed please refer 2.x demo CameraHelper.onPreviewFrame
         @Override
-        public synchronized void onProcessData(byte[] data, Camera camera, int width, int height) {
+        public synchronized void onProcessData(byte[] data, Camera camera, final int width, final int height, final int rotateAngel) {
             int wh = width * height;
             for (int i = 0; i < wh; i++) {
                 int d = (data[i] & 0xFF) + yDelta;

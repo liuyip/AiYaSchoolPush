@@ -22,6 +22,9 @@ import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
 
+/**
+ * 主页面
+ */
 public class MainActivity extends ActivityBase {
 
     private static final String TAG = "MainActivity";

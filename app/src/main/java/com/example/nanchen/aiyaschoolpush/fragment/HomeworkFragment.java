@@ -65,7 +65,7 @@ public class HomeworkFragment extends FragmentBase {
                 }else {
                     holder.setImageByUrl(R.id.notice_item_avatar,item.user.icon);
                 }
-                holder.setText(R.id.notice_item_name,item.user.userName);
+                holder.setText(R.id.notice_item_name,item.user.username);
                 holder.setText(R.id.notice_item_time, TimeUtils.longToDateTime(item.time));
                 holder.setText(R.id.notice_item_content,item.content);
                 holder.setText(R.id.notice_item_like,"赞 "+item.praiseCount);
@@ -147,7 +147,7 @@ public class HomeworkFragment extends FragmentBase {
     private void getSomeData() {
         HomeworkModel model = new HomeworkModel();
         User user = new User();
-        user.userName = "4班班主任";
+        user.username = "4班班主任";
         model.user = user;
         model.time = 1475899596;
         model.content = "这是一条测试作业~";
@@ -158,7 +158,7 @@ public class HomeworkFragment extends FragmentBase {
 
         HomeworkModel model3 = new HomeworkModel();
         User user3 = new User();
-        user3.userName = "4班语文老师";
+        user3.username = "4班语文老师";
         model3.user = user3;
         model3.time = 1475906894;
         model3.content = "今天的作业是：\n" +
@@ -171,7 +171,7 @@ public class HomeworkFragment extends FragmentBase {
 
         HomeworkModel model2 = new HomeworkModel();
         User user2 = new User();
-        user2.userName = "4班数学老师";
+        user2.username = "4班数学老师";
         model2.user = user2;
         model2.time = 1475906894;
         model2.content = "今天的数学作业是：\n" +

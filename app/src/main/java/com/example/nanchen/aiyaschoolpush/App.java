@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
+import com.lzy.okgo.OkGo;
 import com.mob.mobapi.MobAPI;
 import com.squareup.leakcanary.LeakCanary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
@@ -75,6 +76,9 @@ public class App extends Application {
 
         // 七鱼客服初始化
         QiYuCloudServerHelper.initCloudServer(this);
+
+        // OkGo初始化
+        OkGo.init(this);
     }
 
     /**

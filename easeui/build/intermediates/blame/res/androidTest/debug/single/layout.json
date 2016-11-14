@@ -80,12 +80,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_title_bar.xml"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_chat_history.xml",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_chat_history.xml"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_conversation_item.xml",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_conversation_item.xml"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_chat_history.xml",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_chat_history.xml"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_fragment_conversation_list.xml",

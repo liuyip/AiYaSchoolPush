@@ -438,6 +438,14 @@
             android:theme="@style/horizontal_slide"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
+
+        <receiver android:name=".receiver.AvatarReceiver">
+            <intent-filter>
+                <action android:name="com.nanchen.android.AVATAR_ACTION"/>
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

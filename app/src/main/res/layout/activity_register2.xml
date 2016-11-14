@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.example.nanchen.aiyaschoolpush.view.RoundImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
@@ -230,10 +230,10 @@
                     <EditText
                         android:id="@+id/register2_edt_birthday"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:background="@null"
-                        android:hint="生日"
+                        android:hint="请选择生日"
                         android:inputType="textAutoComplete"
                         android:lines="1"
                         android:maxLines="1"

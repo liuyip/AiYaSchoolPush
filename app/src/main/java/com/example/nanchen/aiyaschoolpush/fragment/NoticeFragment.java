@@ -57,6 +57,8 @@ public class NoticeFragment extends FragmentBase {
         // 获取一些假数据
         getSomeData();
 
+        loadData();
+
 
         mAdapter = new CommonRecyclerAdapter<NoticeModel>(getActivity(), mNoticeModelList, R.layout.layout_notice_item) {
             @Override
@@ -66,7 +68,7 @@ public class NoticeFragment extends FragmentBase {
                 }else {
                     holder.setImageByUrl(R.id.notice_item_avatar,item.user.icon);
                 }
-                holder.setText(R.id.notice_item_name,item.user.userName);
+                holder.setText(R.id.notice_item_name,item.user.username);
                 holder.setText(R.id.notice_item_time, TimeUtils.longToDateTime(item.time));
                 holder.setText(R.id.notice_item_content,item.content);
                 holder.setText(R.id.notice_item_like,"赞 "+item.praiseCount);
@@ -131,6 +133,10 @@ public class NoticeFragment extends FragmentBase {
         mRecyclerView.setArrowImageView(R.mipmap.refresh_icon);
     }
 
+    private void loadData() {
+
+    }
+
     private Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -152,7 +158,7 @@ public class NoticeFragment extends FragmentBase {
 
         NoticeModel model = new NoticeModel();
         User user = new User();
-        user.userName = "测试者账号";
+        user.username = "测试者账号";
         model.user = user;
         model.time = 1475899596;
         model.content = "这是一条测试信息~";
@@ -163,7 +169,7 @@ public class NoticeFragment extends FragmentBase {
 
         NoticeModel model3 = new NoticeModel();
         User user3 = new User();
-        user3.userName = "测试者账号2";
+        user3.username = "测试者账号2";
         model3.user = user3;
         model3.time = 1475906894;
         model3.content = "你好，欢迎使用爱吖校推！你好，欢迎使用爱吖校推！" +
@@ -182,7 +188,7 @@ public class NoticeFragment extends FragmentBase {
 
         NoticeModel model2 = new NoticeModel();
         User user2 = new User();
-        user2.userName = "测试者账号2";
+        user2.username = "测试者账号2";
         model2.user = user2;
         model2.time = 1475906894;
         model2.content = "这是一条公告信息测试~";

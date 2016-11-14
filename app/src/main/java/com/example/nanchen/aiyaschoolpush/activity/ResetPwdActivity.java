@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.IcomoonTextView;
@@ -21,7 +25,12 @@ import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import okhttp3.Call;
+import okhttp3.Response;
 
+/**
+ * 重置密码页面
+ */
 public class ResetPwdActivity extends ActivityBase implements OnClickListener{
 
     private static final String TAG = "ResetPwdActivity";
@@ -56,12 +65,10 @@ public class ResetPwdActivity extends ActivityBase implements OnClickListener{
         mEditPwd1 = (EditText) findViewById(R.id.reset_pwd_pwd1);
         mEditPwd2 = (EditText) findViewById(R.id.reset_pwd_pwd2);
 
-
         String phone = getIntent().getStringExtra("phone");
         if (!TextUtils.isEmpty(phone)){
             mEditPhone.setText(phone);
         }
-
         mTitleBar.setTitle("重置密码");
         mTitleBar.setLeftButtonAsFinish(this);
 
@@ -84,10 +91,14 @@ public class ResetPwdActivity extends ActivityBase implements OnClickListener{
         }
     }
 
+    private String phone;
+    private String pwd1;
+
+
     private void submit() {
-        String phone = mEditPhone.getText().toString().trim();
-        String code = mEditVercode.getText().toString().trim();
-        String pwd1 = mEditPwd1.getText().toString().trim();
+        phone = mEditPhone.getText().toString().trim();
+        final String code = mEditVercode.getText().toString().trim();
+        pwd1 = mEditPwd1.getText().toString().trim();
         String pwd2 = mEditPwd2.getText().toString().trim();
 
         if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(code) || TextUtils.isEmpty(pwd1)
@@ -109,7 +120,20 @@ public class ResetPwdActivity extends ActivityBase implements OnClickListener{
         }
 
         showLoading(this);
-        SMSSDK.submitVerificationCode(COUNTRY_CODE,phone,code);//验证验证码  引发回调
+
+        AppService.getInstance().resetPwdAsync(phone, pwd1, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_ERROR){
+                    UIUtil.showToast(userLslResponse.msg);
+                    stopLoading();
+                }else{
+                    SMSSDK.submitVerificationCode(COUNTRY_CODE,phone,code);//验证验证码  引发回调
+                }
+            }
+        });
+
+
 
     }
 
@@ -212,10 +236,15 @@ public class ResetPwdActivity extends ActivityBase implements OnClickListener{
         }
     };
 
+    /**
+     * 开始注册
+     */
     private void startResetPwd() {
         stopLoading();
-        showCrouton("密码重置成功！");
-        finish();
+//                    showCrouton("密码重置成功！");
+        UIUtil.showToast("密码重置成功！");
+        ResetPwdActivity.this.finish();
+
     }
 
     @Override

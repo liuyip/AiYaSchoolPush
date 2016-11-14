@@ -14,6 +14,8 @@ import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AlertDialog.Builder;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +25,13 @@ import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
+import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.receiver.AvatarReceiver;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView;
@@ -43,6 +52,8 @@ import java.util.List;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import okhttp3.Call;
+import okhttp3.Response;
 
 public class PersonalInfoActivity extends ActivityBase {
 
@@ -51,6 +62,7 @@ public class PersonalInfoActivity extends ActivityBase {
     private LinearLayoutListItemView mItemName;
     private LinearLayoutListItemView mItemAddress;
     private LinearLayoutListItemView mItemPwd;
+    private static final String TAG = "PersonalInfoActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,24 +72,39 @@ public class PersonalInfoActivity extends ActivityBase {
         bindView();
     }
 
-    private void showCrouton(String desc){
-        Crouton.makeText(this,desc, Style.ALERT,R.id.personal_info_toast).show();
+    private void showCrouton(String desc) {
+        Crouton.makeText(this, desc, Style.ALERT, R.id.personal_info_toast).show();
     }
 
     private void bindView() {
         mTitleBar = (TitleView) findViewById(R.id.personal_info_title);
         mTitleBar.setTitle("个人信息");
         mTitleBar.setLeftButtonAsFinish(this);
+//        mTitleBar.setLeftButtonOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                IntentUtil.newIntent(PersonalInfoActivity.this,MainActivity.class);
+//                PersonalInfoActivity.this.finish();
+//            }
+//        });
 
         mUserInfo = (UserInfoView) findViewById(R.id.personal_info_image);
         mUserInfo.setHeight(60);
         mUserInfo.setHeadImageSize(50);
         mUserInfo.setBackgroundImage(R.drawable.background_linearlayout_listitem);
         mUserInfo.setUserNameText("我的头像");
+        if (AppService.getInstance().getCurrentUser() != null) {
+            String avatarUrl = AppService.getInstance().getCurrentUser().icon;
+            Log.e(TAG, "avatarUrl:" + avatarUrl);
+            if (!TextUtils.isEmpty(avatarUrl) && !avatarUrl.equals("null")) {
+                mUserInfo.setHeadImage(avatarUrl);
+            }
+        }
 
         mUserInfo.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick() {
+
                 selectPhoto();
             }
         });
@@ -86,7 +113,7 @@ public class PersonalInfoActivity extends ActivityBase {
         mItemName.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-                View view = LayoutInflater.from(PersonalInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
+                View view = LayoutInflater.from(PersonalInfoActivity.this).inflate(R.layout.view_dialog_edit, null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
                 final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(PersonalInfoActivity.this);
                 dialogBuilder.withTitle("设置你的昵称")                                  //.withTitle(null)  no title
@@ -96,7 +123,7 @@ public class PersonalInfoActivity extends ActivityBase {
                         .withEffect(Effectstype.RotateLeft)                                         //def Effectstype.Slidetop
                         .withButton1Text("确定")                                      //def gone
                         .withButton2Text("取消")                                  //def gone
-                        .setCustomView(view,mItemName.getContext())         //.setCustomView(View or ResId,context)
+                        .setCustomView(view, mItemName.getContext())         //.setCustomView(View or ResId,context)
                         .setButton1Click(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -119,7 +146,7 @@ public class PersonalInfoActivity extends ActivityBase {
         mItemAddress.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-                View view = LayoutInflater.from(PersonalInfoActivity.this).inflate(R.layout.view_dialog_edit,null);
+                View view = LayoutInflater.from(PersonalInfoActivity.this).inflate(R.layout.view_dialog_edit, null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
                 final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(PersonalInfoActivity.this);
                 dialogBuilder.withTitle("设置你的地址")                                  //.withTitle(null)  no title
@@ -129,7 +156,7 @@ public class PersonalInfoActivity extends ActivityBase {
                         .withEffect(Effectstype.Slideright)                                         //def Effectstype.Slidetop
                         .withButton1Text("确定")                                      //def gone
                         .withButton2Text("取消")                                  //def gone
-                        .setCustomView(view,mItemAddress.getContext())         //.setCustomView(View or ResId,context)
+                        .setCustomView(view, mItemAddress.getContext())         //.setCustomView(View or ResId,context)
                         .setButton1Click(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -181,7 +208,7 @@ public class PersonalInfoActivity extends ActivityBase {
 //                            }
 //                        })
 //                        .show();
-                IntentUtil.newIntent(PersonalInfoActivity.this,ResetPwdActivity.class);
+                IntentUtil.newIntent(PersonalInfoActivity.this, ResetPwdActivity.class);
             }
         });
     }
@@ -190,7 +217,7 @@ public class PersonalInfoActivity extends ActivityBase {
     private final int PHOTO_PICKED_FROM_FILE = 2; // 用来标识从相册获取头像
     private final int CROP_FROM_CAMERA = 3;
 
-    private void getIconFromPhoto(){
+    private void getIconFromPhoto() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/*");
         startActivityForResult(intent, PHOTO_PICKED_FROM_FILE);
@@ -203,7 +230,7 @@ public class PersonalInfoActivity extends ActivityBase {
         showDialog(new SelectDialogListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
                         getIconFromCamera();
                         break;
@@ -214,7 +241,7 @@ public class PersonalInfoActivity extends ActivityBase {
                         break;
                 }
             }
-        },list);
+        }, list);
 
     }
 
@@ -226,15 +253,15 @@ public class PersonalInfoActivity extends ActivityBase {
     private void getIconFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         imgUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
-                "avatar_"+String.valueOf(System.currentTimeMillis())+".png"));
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,imgUri);
-        startActivityForResult(intent,PHOTO_PICKED_FROM_CAMERA);
+                "avatar_" + String.valueOf(System.currentTimeMillis()) + ".png"));
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
+        startActivityForResult(intent, PHOTO_PICKED_FROM_CAMERA);
     }
 
-    private SelectDialog showDialog(SelectDialogListener listener, List<String> list){
+    private SelectDialog showDialog(SelectDialogListener listener, List<String> list) {
         SelectDialog dialog = new SelectDialog(this,
-                R.style.transparentFrameWindowStyle,listener,list);
-        if (canUpdateUI()){
+                R.style.transparentFrameWindowStyle, listener, list);
+        if (canUpdateUI()) {
             dialog.show();
         }
         return dialog;
@@ -244,46 +271,46 @@ public class PersonalInfoActivity extends ActivityBase {
     /**
      * 尝试裁剪图片
      */
-    private void doCrop(){
+    private void doCrop() {
         final ArrayList<CropOption> cropOptions = new ArrayList<>();
         final Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setType("image/*");
-        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent,0);
+        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent, 0);
         int size = list.size();
-        if (size == 0){
-            UIUtil.showToast(this,"当前不支持裁剪图片!");
+        if (size == 0) {
+            UIUtil.showToast(this, "当前不支持裁剪图片!");
             return;
         }
         intent.setData(imgUri);
-        intent.putExtra("outputX",300);
-        intent.putExtra("outputY",300);
-        intent.putExtra("aspectX",1);
-        intent.putExtra("aspectY",1);
-        intent.putExtra("scale",true);
-        intent.putExtra("return-data",true);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", true);
 
         // only one
-        if (size == 1){
+        if (size == 1) {
             Intent intent1 = new Intent(intent);
             ResolveInfo res = list.get(0);
-            intent1.setComponent(new ComponentName(res.activityInfo.packageName,res.activityInfo.name));
-            startActivityForResult(intent1,CROP_FROM_CAMERA);
-        }else {
+            intent1.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+            startActivityForResult(intent1, CROP_FROM_CAMERA);
+        } else {
             // 很多可支持裁剪的app
             for (ResolveInfo res : list) {
                 CropOption co = new CropOption();
                 co.title = getPackageManager().getApplicationLabel(res.activityInfo.applicationInfo);
                 co.icon = getPackageManager().getApplicationIcon(res.activityInfo.applicationInfo);
                 co.appIntent = new Intent(intent);
-                co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName,res.activityInfo.name));
+                co.appIntent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
                 cropOptions.add(co);
             }
 
-            CommonAdapter<CropOption> adapter = new CommonAdapter<CropOption>(this,cropOptions,R.layout.layout_crop_selector) {
+            CommonAdapter<CropOption> adapter = new CommonAdapter<CropOption>(this, cropOptions, R.layout.layout_crop_selector) {
                 @Override
                 public void convert(ViewHolder holder, CropOption item) {
-                    holder.setImageDrawable(R.id.iv_icon,item.icon);
-                    holder.setText(R.id.tv_name,item.title);
+                    holder.setImageDrawable(R.id.iv_icon, item.icon);
+                    holder.setText(R.id.tv_name, item.title);
                 }
             };
 
@@ -292,14 +319,14 @@ public class PersonalInfoActivity extends ActivityBase {
             builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    startActivityForResult(cropOptions.get(which).appIntent,CROP_FROM_CAMERA);
+                    startActivityForResult(cropOptions.get(which).appIntent, CROP_FROM_CAMERA);
                 }
             });
             builder.setOnCancelListener(new OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
-                    if (imgUri != null){
-                        getContentResolver().delete(imgUri,null,null);
+                    if (imgUri != null) {
+                        getContentResolver().delete(imgUri, null, null);
                         imgUri = null;
                     }
                 }
@@ -314,7 +341,7 @@ public class PersonalInfoActivity extends ActivityBase {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK){
+        if (resultCode != RESULT_OK) {
             return;
         }
         switch (requestCode) {
@@ -326,7 +353,7 @@ public class PersonalInfoActivity extends ActivityBase {
                 doCrop();
                 break;
             case CROP_FROM_CAMERA:
-                if (data != null){
+                if (data != null) {
                     setCropImg(data);
                 }
                 break;
@@ -335,35 +362,89 @@ public class PersonalInfoActivity extends ActivityBase {
         }
     }
 
-    private void setCropImg(Intent picData){
+    private void setCropImg(Intent picData) {
         Bundle bundle = picData.getExtras();
-        if (bundle != null){
+        if (bundle != null) {
             Bitmap mBitmap = bundle.getParcelable("data");
             mUserInfo.setHeadImage(mBitmap);
-            saveBitmap(Environment.getExternalStorageDirectory() + "/crop_"
-                    +System.currentTimeMillis() + ".png",mBitmap);
+            String fileName = Environment.getExternalStorageDirectory() + "/"
+                    + DemoHelper.getInstance().getCurrentUserName() + ".png";
+            saveBitmap(fileName, mBitmap);
         }
     }
 
-    private void saveBitmap(String fileName,Bitmap bitmap){
+
+    private void saveBitmap(String fileName, Bitmap bitmap) {
         File file = new File(fileName);
         FileOutputStream fout = null;
         try {
             file.createNewFile();
             fout = new FileOutputStream(file);
-            bitmap.compress(CompressFormat.PNG,100,fout);
+            bitmap.compress(CompressFormat.PNG, 100, fout);
             fout.flush();
+            uploadAvatar(file);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
                 assert fout != null;
                 fout.close();
-                UIUtil.showToast(PersonalInfoActivity.this,"保存成功！");
+                UIUtil.showToast(PersonalInfoActivity.this, "保存成功！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
+
+    /**
+     * 上传头像
+     *
+     * @param file
+     */
+    private void uploadAvatar(File file) {
+        showLoading(this);
+        AppService.getInstance().upLoadAvatarAsync(file, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code == LslResponse.RESPONSE_OK) {// 头像上传成功，还应该把头像的url设置到数据库中去
+                    updateAvatarUrl();
+
+                    /* 下面的会报空指针异常 可行性需要进一步研究，暂时关闭个人资料页的上传更改头像功能*/
+                    /* 目前采用另外一种方式，在跳转到这个页面的时候finish掉主页面，这里出去的时候重新start主页面*/
+                    // 发广播提示主页面更新头像
+                    sendBroadcast(new Intent(AvatarReceiver.AVATAR_ACTION));
+
+                    Log.e(TAG, "头像上传到本地成功！");
+                } else {
+                    UIUtil.showToast(userLslResponse.msg);
+                    Log.e(TAG, userLslResponse.msg);
+                    stopLoading();
+                }
+            }
+        });
+    }
+
+
+    /**
+     * 把头像的url加到数据库中去
+     */
+    private void updateAvatarUrl() {
+        final User user = AppService.getInstance().getCurrentUser();
+        if (TextUtils.isEmpty(user.icon)) { // 如果当前头像地址为null,所以数据库还未存有,则把此url插入到数据库中
+            final String iconUrl = Consts.API_SERVICE_HOST + "/user/avatar/" + user.username + ".png";
+            AppService.getInstance().updateAvatarUrlAsync(user.username, iconUrl, 0, new JsonCallback<LslResponse<User>>() {
+                @Override
+                public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                    UIUtil.showToast(userLslResponse.msg);
+                    user.icon = iconUrl;
+                    AppService.getInstance().setCurrentUser(user);
+                    stopLoading();
+                }
+            });
+        } else {// 否则不用插入，图片已经成功替换
+            UIUtil.showToast("图片替换成功！");
+            stopLoading();
+        }
+    }
 }
