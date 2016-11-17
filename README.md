@@ -15,10 +15,10 @@
     待上传gif图
     
 ##截图<br>
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg)    
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg)    
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen3.jpg)    
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen4.jpg)    
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg)  
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg)  
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen3.jpg)  
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen4.jpg)  
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen5.jpg) 
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen6.jpg) 
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen7.jpg) 
