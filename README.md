@@ -6,10 +6,10 @@
     我从一个一个的demo到从0开始做这个app，一路历经艰难险阻，期待你与我进行心灵交流。因为我也曾遇到各种棘手的问题，到处询问不到答案，
     那个时候的我，也许正如现在的你。而我，也还在这条道路上默默前行。
     
-###⊙开源不易，希望给个star或者fork奖励<br>
-###⊙项目地址：(https://github.com/nanchen2251/AiYaSchoolPush)<br>
-###⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)<br>
-###⊙有问题请联系邮箱：（503233512@qq.com）<br>
+####⊙开源不易，希望给个star或者fork奖励
+####⊙项目地址：(https://github.com/nanchen2251/AiYaSchoolPush)
+####⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
+####⊙有问题请联系邮箱：（503233512@qq.com）
     
 ##效果演示<br><br>
     待上传gif图
@@ -29,11 +29,11 @@
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen12.jpg)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen13.jpg)
     
-##关于作者<br><br>
+##关于作者
     南尘<br>
     四川成都<br>
     [博客园]（http://www.cnblogs.com/liushilin/）<br>
     
-##你也可以请我喝杯咖啡<br><br>
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png)
+##你也可以请我喝杯咖啡
+   ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png)
     
