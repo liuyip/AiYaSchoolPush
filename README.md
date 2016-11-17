@@ -11,10 +11,10 @@
     ###⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
     ###⊙有问题请联系邮箱：（503233512@qq.com）
     
-    ##效果演示
+    ##效果演示<br>
     待上传gif图
     
-    ##截图
+    ##截图<br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen3.jpg)
@@ -29,11 +29,11 @@
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen12.jpg)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen13.jpg)
     
-    ##关于作者
-    南尘
-    四川成都
-    [博客园]（http://www.cnblogs.com/liushilin/）
+    ##关于作者<br>
+    南尘<br>
+    四川成都<br>
+    [博客园]（http://www.cnblogs.com/liushilin/）<br>
     
-    ##你也可以请我喝杯咖啡
+    ##你也可以请我喝杯咖啡<br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png)
     
