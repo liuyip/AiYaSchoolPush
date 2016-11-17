@@ -15,24 +15,24 @@
     待上传gif图
     
 ##截图<br>
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen3.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen4.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen5.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen6.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen7.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen8.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen9.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen10.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen11.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen12.jpg)
-    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen13.jpg)
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg)                  
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen3.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen4.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen5.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen6.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen7.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen8.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen9.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen10.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen11.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen12.jpg)                 
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen13.jpg)                 
     
 ##关于作者
     南尘<br>
     四川成都<br>
-    [博客园]（http://www.cnblogs.com/liushilin/）<br>
+    [博客园](http://www.cnblogs.com/liushilin/)
     
 ##你也可以请我喝杯咖啡
    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png)
