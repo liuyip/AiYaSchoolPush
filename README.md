@@ -12,8 +12,8 @@
 ####⊙有问题请联系邮箱：（503233512@qq.com）
     
 ##效果演示<br><br>
-    待上传gif图
-    
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF2.gif)
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF3.gif)
 ##截图<br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen1.jpg) 
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/screen2.jpg) 
