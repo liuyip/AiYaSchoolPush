@@ -9,8 +9,8 @@
 ####⊙开源不易，希望给个star或者fork奖励
 ####⊙项目地址：(https://github.com/nanchen2251/AiYaSchoolPush)
 ####⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
-####⊙有问题请联系邮箱：（liushilin520@foxmail.com）
-    
+####⊙开发交流QQ群：（118116509）
+####⊙有问题请联系邮箱：（liushilin520@foxmail.com）    
 ##效果演示<br><br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF2.gif)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF3.gif)
