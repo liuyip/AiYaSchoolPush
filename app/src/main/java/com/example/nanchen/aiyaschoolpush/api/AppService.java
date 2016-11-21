@@ -167,12 +167,13 @@ public class AppService {
      * @param classId   班级id
      * @param username  用户名  用于返回用户是否赞了主贴
      * @param infoType  信息类型 1 公告 2 作业 3 动态
-     * @param count     信息起始数   这里一次获取10条  需要更多获取联系后台
+     * @param start     信息从第几行开始提取
+     * @param count     信息数目   这里一次获取10条  需要更多获取联系后台
      * @param callback  回调
      */
-    public void getNoticeAsync(int classId,String username, int infoType, int count, JsonCallback<LslResponse<List<InfoModel>>> callback){
+    public void getNoticeAsync(int classId,String username, int infoType,int start, int count, JsonCallback<LslResponse<List<InfoModel>>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/info_main.php?classId="+classId+
-                "&username="+username+"&infoType="+infoType+"&count="+count;
+                "&username="+username+"&infoType="+infoType+"&start="+start+"&count="+count;
         OkGo.get(url).execute(callback);
     }
 

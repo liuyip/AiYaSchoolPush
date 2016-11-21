@@ -19,10 +19,10 @@ $time = time();
 @$content = $_POST['content'];
 @$reply = $_POST['reply'];
 
-@$mainid = 101;
-@$username = 15680802251;
-@$content = '草拟吗的';
-@$reply = 18384988447;
+// @$mainid = 101;
+// @$username = 15680802251;
+// @$content = '草拟吗的';
+// @$reply = 18384988447;
 
 $query = "insert into ".TABLE_COMMENT." (mainid,username,
 		time,content,reply) values('".

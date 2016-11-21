@@ -5,10 +5,12 @@ require_once '../db.php';
 require_once '../table.php';
 
 
+@$username = $_GET['username'];// 用户名，用于返回是否赞了主贴
 @$classid = $_GET['classId'];//班级id，用于哪些人可见
 @$infotype = $_GET['infoType'];//信息类型，用于区分版块
-@$count = $_GET['count'];//从第几条开始取
-$end = $count + 10;
+@$start = $_GET['start'];//从第几条开始取
+@$count = $_GET['count'];//需要取多少条
+
 
 $link = DataBaseUtil::getInstance()->connect();
 mysqli_set_charset($link, "utf8"); // 设置编码为utf8
@@ -18,12 +20,13 @@ if ($link->errno != 0) { // 数据库连接失败
 	exit ();
 }
 
+// 取出数据，并做逆序处理
 $query = "select * from ".TABLE_MAIN." where classid = "
 		.$classid." and infotype = "
-				.$infotype." limit ".$count.",".$end;
+				.$infotype." order by time desc limit ".$start.",".$count;
 
 $result = mysqli_query($link, $query);
-
+$num = mysqli_affected_rows($link);
 $arr = array();
 $i = 0;
 while (@$row = mysqli_fetch_array($result)){
@@ -34,9 +37,12 @@ while (@$row = mysqli_fetch_array($result)){
 	$arr[$i]['infotype'] = $row['infotype']; 	
 	$arr[$i]['content'] = $row['content']; 
 	$arr[$i]['user'] = getUser($row['username']);
+	$arr[$i]['isIPraised'] = getPraiseInfo($username, $row['mainid']);
 	$arr[$i]['commentCount'] = getInfoCount($row['mainid'],TABLE_COMMENT);//获取评论数
 	$arr[$i]['praiseCount'] = getInfoCount($row['mainid'],TABLE_PRAISE);//获取赞数
 	$arr[$i]['commentInfo'] = getCommentInfo($row['mainid']);
+	$arr[$i]['lastid'] = getLastMainId($num-1);
+// 	$arr[$i]['num'] = $num;
 	$i++;
 }
 if ($i == 0){
@@ -46,6 +52,28 @@ if ($i == 0){
 }
 
 
+/**
+ * 获取用户是否点赞
+ * @param unknown $username	用户名
+ * @param unknown $mainid	主贴id
+ * @return boolean
+ */
+function getPraiseInfo($username,$mainId){
+	$link = DataBaseUtil::getInstance()->connect();
+	$query = "select * from " . TABLE_PRAISE . " where username = " . $username . " and mainid = " . $mainId;
+	mysqli_query($link, $query);
+	$num = mysqli_affected_rows($link);
+	if ($num == 0){
+		return false;
+	}
+	return true;
+}
+
+/**
+ * 获取主贴评论信息
+ * @param string $mainid	主贴id
+ * @return NULL|unknown[]|NULL
+ */
 function getCommentInfo($mainid = ''){
 	$link = DataBaseUtil::getInstance()->connect();
 	mysqli_set_charset($link, "utf8"); // 设置编码为utf8
@@ -107,5 +135,23 @@ function getInfoCount($mainid,$tableName){
 	return $row;
 }
 
+/**
+ * 获取最后一行的MainId
+ * @param unknown $limit
+ * @return unknown
+ */
+function getLastMainId($limit){
+	$link = DataBaseUtil::getInstance()->connect();
+	$query = "select mainid from ".TABLE_MAIN." limit ".$limit.",".$limit;
+	$result = mysqli_query($link, $query);
+	@$row = mysqli_fetch_array($result);
+	$mainid = $row['mainid'];
+	return $mainid;
+}
+
+function getStartLimit($mainid){
+	$link = DataBaseUtil::getInstance()->connect();
+	$query = "select * from ".TABLE_MAIN." where mainid = ".$mainid;
+}
 ?>
 

@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="de44daa9f3287b151e34f2a0d880a33a6d2e70ff">
+        sha1="4de73cd07598a6daab7ef5043f3b5a44d202ba60">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c653f946809fb21755e272db6a2b105140071869\classes.dex" />
     </item>
     <item
@@ -120,20 +120,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okserver\1.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="52151fa951a87ceddca00948526d72b7d05b0ed9">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okserver-1.1.0_1f429d6722c9e75c59d765741a6d3f10e5086255\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e6d31de4979e93352f2a11d5e20f34196d9fb890">
+        sha1="59e4c7df3b87ab9321068b7caa0d03e26e5741a6">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_51df9e5cc3ebd2696baed1333160f95802c846d8\classes.dex" />
     </item>
     <item
@@ -408,15 +399,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okgo\2.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="5f2619d79858edc2952acb9045d9fe11ebc9eba7">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okgo-2.0.0_d249204127064e5815b77f70f7d41a4e982c2214\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\libs\parse-android-1.13.0.jar"
         jumboMode="true"
         optimize="true"
@@ -498,6 +480,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okrx\0.1.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e549efd7ac4d8a6b5254bc16c26f5ba098b1f10a">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okrx-0.1.2_fb04c7a4d0aa357e42dca978fedd8165590fb807\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.android.support\support-v13\24.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -513,6 +504,15 @@
         revision="24.0.3"
         sha1="288913b440a3c61c30aa171095453a605432277a">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.rengwuxian.materialedittext-library-2.1.4_8f49c2f958c20c5cf17488a54ad735e96f718374\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okgo\2.1.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="33ba3b25b3762757b89f2a1f797161ad8b1bdef2">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okgo-2.1.2_93e2472b44f2e4061211e0cc319533b678e0de27\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -534,21 +534,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okserver\1.1.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b4916cac3714ab9ae4946dd5a2f78d21f0adeba2">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okserver-1.1.2_0992fd267082549973caf4ce6685fdf81fc78a88\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.5\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.daimajia.slider-library-1.1.5_2a0746251f0b16ac3999e653f10ef119e0e53aab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okrx\0.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="63fec977ca692f7a7624f00966e7ff8547306cc8">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okrx-0.1.0_ad812a18f250d385b17068d1b7e45f8d29d16ed0\classes.dex" />
     </item>
     <item
         is-multidex="true"

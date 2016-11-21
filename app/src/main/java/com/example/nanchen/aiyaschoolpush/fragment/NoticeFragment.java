@@ -46,7 +46,9 @@ public class NoticeFragment extends FragmentBase {
     private XRecyclerView mRecyclerView;
     private CommonRecyclerAdapter<InfoModel> mAdapter;
     private List<InfoModel> mInfoModels;
-    private int count = 0;
+    private int start = 0;
+    private int count = 3;//设置一次获取的条目数
+    private View footerView;
 
 
     @Nullable
@@ -85,9 +87,10 @@ public class NoticeFragment extends FragmentBase {
                 holder.setText(R.id.notice_item_comment, "评论 " + item.commentCount);
                 if (item.isIPraised){
                     holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.red));
+                }else{
+                    holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.gray));
                 }
-
-
+                Log.e(TAG,item.mainid+","+item.isIPraised);
                 holder.setOnRecyclerItemClickListener(R.id.notice_item_like, new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -130,8 +133,9 @@ public class NoticeFragment extends FragmentBase {
             }
         });
 
-        View footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
         mRecyclerView.addFootView(footerView);
+//        footerView.setVisibility(View.GONE);
 
         // 设置下拉图片为自己的图片
         mRecyclerView.setArrowImageView(R.mipmap.refresh_icon);
@@ -180,17 +184,19 @@ public class NoticeFragment extends FragmentBase {
      */
     private void loadData(final boolean isRefresh) {
         if (isRefresh) {
-            count = 0;
+            start = 0;
         } else {
-            count += 10;
+            start += count;
         }
+        Log.e(TAG+"1", start +"");
         if (AppService.getInstance().getCurrentUser() != null) {
             int classId = AppService.getInstance().getCurrentUser().classid;
             String username = AppService.getInstance().getCurrentUser().username;
-            AppService.getInstance().getNoticeAsync(classId, username,InfoType.NOTICE, count, new JsonCallback<LslResponse<List<InfoModel>>>() {
+            AppService.getInstance().getNoticeAsync(classId, username,InfoType.NOTICE, start,count, new JsonCallback<LslResponse<List<InfoModel>>>() {
                 @Override
                 public void onSuccess(LslResponse<List<InfoModel>> listLslResponse, Call call, Response response) {
                     if (listLslResponse.code == LslResponse.RESPONSE_OK) {
+                        mRecyclerView.setLoadingMoreEnabled(true);
                         if (isRefresh) {
                             mInfoModels.clear();
                             UIUtil.showToast("刷新成功！");
@@ -200,11 +206,12 @@ public class NoticeFragment extends FragmentBase {
                             mAdapter.notifyDataSetChanged();
                         }
                         mInfoModels.addAll(listLslResponse.data);
+                        footerView.setVisibility(View.GONE);
                     } else {
                         UIUtil.showToast(listLslResponse.msg);
+                        footerView.setVisibility(View.VISIBLE);
+                        mRecyclerView.setLoadingMoreEnabled(false);
                     }
-
-
                 }
             });
         }

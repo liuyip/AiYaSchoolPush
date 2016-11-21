@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="okserver-1.1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.lzy.net/okserver/1.1.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.lzy.net/okserver/1.1.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lzy.net/okserver/1.1.2/41dcea63a0e8606977645dd6a85caae2ded5eb79/okserver-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="NoticeFragment1" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
@@ -46,62 +47,17 @@
       <file leaf-file-name="AppService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
+            <state relative-caret-position="316">
+              <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="28" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReleaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ReleaseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
-              <folding>
-                <element signature="e#2075#2125#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/config/AddConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_release.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_release.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LookDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="456">
               <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -113,17 +69,66 @@
       <file leaf-file-name="NoticeFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="204" column="21" selection-start-line="204" selection-start-column="21" selection-end-line="204" selection-end-column="21" />
+            <state relative-caret-position="2327">
+              <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeworkFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_not_more.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_not_more.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_notice_item.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_notice_item.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_notice.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notice.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PraiseModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/PraiseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="209">
               <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -135,8 +140,8 @@
       <file leaf-file-name="InfoModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+            <state relative-caret-position="418">
+              <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -145,7 +150,7 @@
       <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
+            <state relative-caret-position="1102">
               <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
               <folding />
             </state>
@@ -414,6 +419,11 @@
                 <option name="name" value="assemble" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okrx:0.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComLzyNetOkrx012Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="compileReleaseUnitTestSources" />
               </ExternalTaskPojo>
@@ -675,11 +685,6 @@
                 <option name="name" value="generateReleaseResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okrx:0.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComLzyNetOkrx010Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="mergeDebugProguardFiles" />
               </ExternalTaskPojo>
@@ -799,6 +804,11 @@
                 <option name="name" value="testReleaseUnitTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okgo:2.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComLzyNetOkgo212Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.android.support:support-v13:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComAndroidSupportSupportV132411Library" />
@@ -879,11 +889,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareReleaseDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okserver:1.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComLzyNetOkserver110Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the insight into a specific dependency in root project 'AiYaSchoolPush'." />
@@ -977,6 +982,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="generateDebugSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okserver:1.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComLzyNetOkserver112Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1094,11 +1104,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okgo:2.0.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComLzyNetOkgo200Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
@@ -1318,6 +1323,11 @@
                 <option name="description" value="Assembles all variants of all applications and secondary packages." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okrx:0.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComLzyNetOkrx012Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1564,11 +1574,6 @@
                 <option name="name" value="generateReleaseResValues" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okrx:0.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComLzyNetOkrx010Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.github.armcha:SpaceNavigationView:1.4.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComGithubArmchaSpaceNavigationView141Library" />
@@ -1661,6 +1666,11 @@
                 <option name="name" value="testReleaseUnitTest" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okgo:2.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComLzyNetOkgo212Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Prepare com.android.support:support-v13:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComAndroidSupportSupportV132411Library" />
@@ -1732,11 +1742,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareReleaseDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okserver:1.1.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComLzyNetOkserver110Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the insight into a specific dependency in project ':app'." />
@@ -1825,6 +1830,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="generateDebugSources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.lzy.net:okserver:1.1.2" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComLzyNetOkserver112Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1943,11 +1953,6 @@
                 <option name="description" value="Deletes the build directory." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare com.lzy.net:okgo:2.0.0" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComLzyNetOkgo200Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
@@ -3136,14 +3141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3152,71 +3149,15 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aiyaschoolpush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AiYaSchoolPush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aiyaschoolpush" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+      <pane id="Scratches">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -3226,7 +3167,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk1/Sdk" />
     <property name="last_opened_file_path" value="F:/ischool_child/easemob-sdk-3.2.1/examples/ChatDemoUI3.0" />
     <property name="device.picker.selection" value="7074ace57d03" />
-    <property name="SearchEverywhereHistoryKey" value="notice&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.NoticeFragment&#10;noti&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.NoticeFragment&#10;appser&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;app&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;infom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java&#10;home&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;hom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;Appser&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;loo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java&#10;Dis&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment&#10;fragment_dis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/fragment_discover.xml&#10;no&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;msg&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MsgFragment.java&#10;login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;Appse&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;App&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;notic&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;info&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java&#10;Apps&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;time&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/utils/TimeUtils.java&#10;look&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java&#10;Ap&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;noticef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;re&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.RegisterActivity&#10;conver&#9;PSI&#9;JAVA://com.hyphenate.easeui.ui.EaseConversationListFragment&#10;ms&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MsgFragment&#10;min&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;q&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper&#10;Mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;regist&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;demohe&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/helper/DemoHelper.java&#10;Activity&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ActivityBase.java&#10;NO&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Spl&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.SplashActivity&#10;UiU&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.UIUtil&#10;Per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;m&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;fra&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/FragmentBase.java&#10;FragmentBa&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/FragmentBase.java&#10;minef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Min&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Re&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;Main&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/MainActivity.java&#10;lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;User&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/User.java&#10;ActivityBa&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ActivityBase.java&#10;Minef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/LoginUser.java" />
+    <property name="SearchEverywhereHistoryKey" value="Appser&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;home&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.HomeworkFragment&#10;notice&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.NoticeFragment&#10;noti&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.NoticeFragment&#10;appser&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;app&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;infom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java&#10;hom&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java&#10;loo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java&#10;Dis&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.DiscoverFragment&#10;fragment_dis&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/res/layout/fragment_discover.xml&#10;no&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;msg&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MsgFragment.java&#10;login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;Appse&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;App&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;notic&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;info&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java&#10;Apps&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;time&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/utils/TimeUtils.java&#10;look&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java&#10;Ap&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java&#10;noticef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Login&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;re&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.RegisterActivity&#10;conver&#9;PSI&#9;JAVA://com.hyphenate.easeui.ui.EaseConversationListFragment&#10;ms&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.fragment.MsgFragment&#10;min&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;q&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper&#10;Mine&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;regist&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;demohe&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/helper/DemoHelper.java&#10;Activity&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ActivityBase.java&#10;NO&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java&#10;Spl&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.activity.SplashActivity&#10;UiU&#9;PSI&#9;JAVA://com.example.nanchen.aiyaschoolpush.utils.UIUtil&#10;Per&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java&#10;m&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;fra&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/FragmentBase.java&#10;FragmentBa&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/FragmentBase.java&#10;minef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Min&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Re&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/RegisterActivity2.java&#10;Main&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/MainActivity.java&#10;lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LoginActivity.java&#10;User&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/User.java&#10;ActivityBa&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ActivityBase.java&#10;Minef&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/MineFragment.java&#10;Lo&#9;FILE&#9;file://F:/nanchen/AiYaSchoolPush/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/LoginUser.java" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.CaptureAnalysis.SHOW" value="false" />
     <property name="android.project.structure.last.selected" value="app" />
@@ -3556,13 +3497,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34913793" sideWeight="0.51007193" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8446043" sideWeight="0.48992807" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17697842" sideWeight="0.48992807" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3570,7 +3511,7 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49208632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.476259" sideWeight="0.4971223" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47482014" sideWeight="0.4971223" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3580,7 +3521,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33669063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.252518" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.176259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266187" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -3591,7 +3533,6 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266187" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3787,26 +3728,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/captures/com.example.nanchen.aiyaschoolpush_2016.11.16_10.54.hprof">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/PersonalInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="95" column="52" selection-start-line="95" selection-start-column="52" selection-end-line="95" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/Topic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/ActivityModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -3870,7 +3791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3878,18 +3798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_notice_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3900,7 +3808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3911,26 +3818,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1026">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.hdodenhof/circleimageview/2.1.0/f099f4aafdd665b05e0c31d59b900812a172e30f/circleimageview-2.1.0-sources.jar!/de/hdodenhof/circleimageview/CircleImageView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3938,7 +3843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3997,9 +3901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4007,7 +3908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4039,7 +3939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
           <caret line="86" column="60" selection-start-line="86" selection-start-column="60" selection-end-line="86" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4047,7 +3946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="43" column="52" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4055,10 +3953,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#617#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4066,7 +3960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4077,7 +3970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4093,7 +3985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4104,7 +3995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4112,7 +4002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-96">
           <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4137,7 +4026,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="513">
           <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding />
         </state>
@@ -4145,7 +4034,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_release.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="684">
           <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding />
         </state>
@@ -4164,17 +4053,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/ReleaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
+        <state relative-caret-position="1539">
           <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
-          <folding>
-            <element signature="e#2075#2125#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/activity/LookDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="456">
           <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -4184,23 +4071,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
+        <state relative-caret-position="1102">
           <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/PraiseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="209">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -4208,18 +4087,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notice.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_notice_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_not_more.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/HomeworkFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/model/info/InfoModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/api/AppService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
+        <state relative-caret-position="316">
+          <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/nanchen/aiyaschoolpush/fragment/NoticeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="204" column="21" selection-start-line="204" selection-start-column="21" selection-end-line="204" selection-end-column="21" />
+        <state relative-caret-position="2327">
+          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
           <folding />
         </state>
       </provider>
