@@ -8,9 +8,12 @@ require_once '../table.php';
 @$username = $_GET['username'];// 用户名，用于返回是否赞了主贴
 @$classid = $_GET['classId'];//班级id，用于哪些人可见
 @$infotype = $_GET['infoType'];//信息类型，用于区分版块
+@$lastId = $_GET['lastId']; //  获取最后一次获取数据的id
 @$start = $_GET['start'];//从第几条开始取
 @$count = $_GET['count'];//需要取多少条
-
+if ($start != 0){
+	$start = $count;
+}
 
 $link = DataBaseUtil::getInstance()->connect();
 mysqli_set_charset($link, "utf8"); // 设置编码为utf8
@@ -23,7 +26,7 @@ if ($link->errno != 0) { // 数据库连接失败
 // 取出数据，并做逆序处理
 $query = "select * from ".TABLE_MAIN." where classid = "
 		.$classid." and infotype = "
-				.$infotype." order by time desc limit ".$start.",".$count;
+				.$infotype." and mainid <= ".$lastId." order by time desc limit ".$start.",".$count;
 
 $result = mysqli_query($link, $query);
 $num = mysqli_affected_rows($link);
@@ -41,7 +44,7 @@ while (@$row = mysqli_fetch_array($result)){
 	$arr[$i]['commentCount'] = getInfoCount($row['mainid'],TABLE_COMMENT);//获取评论数
 	$arr[$i]['praiseCount'] = getInfoCount($row['mainid'],TABLE_PRAISE);//获取赞数
 	$arr[$i]['commentInfo'] = getCommentInfo($row['mainid']);
-	$arr[$i]['lastid'] = getLastMainId($num-1);
+// 	$arr[$i]['lastid'] = getLastMainId();  
 // 	$arr[$i]['num'] = $num;
 	$i++;
 }
@@ -136,22 +139,18 @@ function getInfoCount($mainid,$tableName){
 }
 
 /**
- * 获取最后一行的MainId
+ * 获取第一行的MainId
  * @param unknown $limit
  * @return unknown
  */
-function getLastMainId($limit){
+function getLastMainId(){
 	$link = DataBaseUtil::getInstance()->connect();
-	$query = "select mainid from ".TABLE_MAIN." limit ".$limit.",".$limit;
+	$query = "select mainid from ".TABLE_MAIN." order by time desc limit 0,1";
 	$result = mysqli_query($link, $query);
 	@$row = mysqli_fetch_array($result);
 	$mainid = $row['mainid'];
 	return $mainid;
 }
 
-function getStartLimit($mainid){
-	$link = DataBaseUtil::getInstance()->connect();
-	$query = "select * from ".TABLE_MAIN." where mainid = ".$mainid;
-}
 ?>
 

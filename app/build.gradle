@@ -153,7 +153,9 @@ dependencies {
 
     // 圆形image
     compile 'de.hdodenhof:circleimageview:2.1.0'
+
     compile project(':easeui')
+    compile 'org.greenrobot:eventbus:3.0.0'
 
 }
 repositories {
