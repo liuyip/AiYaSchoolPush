@@ -171,9 +171,9 @@ public class AppService {
      * @param count     信息数目   这里一次获取10条  需要更多获取联系后台
      * @param callback  回调
      */
-    public void getNoticeAsync(int classId,String username, int infoType,int start, int count, JsonCallback<LslResponse<List<InfoModel>>> callback){
+    public void getNoticeAsync(int classId,String username, int infoType,int start, int count,int lastId, JsonCallback<LslResponse<List<InfoModel>>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/info_main.php?classId="+classId+
-                "&username="+username+"&infoType="+infoType+"&start="+start+"&count="+count;
+                "&username="+username+"&infoType="+infoType+"&start="+start+"&count="+count+"&lastId="+lastId;
         OkGo.get(url).execute(callback);
     }
 
@@ -227,7 +227,7 @@ public class AppService {
      * @param content   发布内容
      * @param callback  回调
      */
-    public void addMainInfoAysnc(int classId,String username,int infoType,String content,JsonCallback<LslResponse<Object>> callback){
+    public void addMainInfoAysnc(int classId,String username,int infoType,String content,JsonCallback<LslResponse<InfoModel>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/add_main.php";
         HashMap<String,String> postParams = new HashMap<>();
         postParams.put("classId",classId+"");

@@ -281,7 +281,7 @@ public class LookDetailActivity extends ActivityBase {
                                 userModel.avatar = user.icon;
                                 userModel.nickname = user.nickname;
                                 commentInfoModel.commentUser = userModel;
-                                commentInfoModel.time = System.currentTimeMillis();
+                                commentInfoModel.time = System.currentTimeMillis()/1000;
                                 commentInfoModel.content = comment_ui;
                                 mCommentInfoModels.add(commentInfoModel);
                                 mAdapter.notifyDataSetChanged();
@@ -292,6 +292,11 @@ public class LookDetailActivity extends ActivityBase {
                         }
                     });
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
     }
 

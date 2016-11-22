@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+import com.example.nanchen.aiyaschoolpush.HomeworkEvent;
+import com.example.nanchen.aiyaschoolpush.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.api.AppService;
 import com.example.nanchen.aiyaschoolpush.config.AddConfig;
+import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoType;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
@@ -17,6 +20,8 @@ import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.example.nanchen.aiyaschoolpush.view.WavyLineView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -84,7 +89,7 @@ public class ReleaseActivity extends ActivityBase {
     }
 
     private void sendInfo() {
-        String content = mEditText.getText().toString().trim();
+        final String content = mEditText.getText().toString().trim();
         if (TextUtils.isEmpty(content)){
             UIUtil.showToast("发布内容不能为空！");
             return;
@@ -92,12 +97,24 @@ public class ReleaseActivity extends ActivityBase {
         showLoading(this);
         int classId = AppService.getInstance().getCurrentUser().classid;
         String username = AppService.getInstance().getCurrentUser().username;
-        AppService.getInstance().addMainInfoAysnc(classId, username, infoType, content, new JsonCallback<LslResponse<Object>>() {
+        AppService.getInstance().addMainInfoAysnc(classId, username, infoType, content, new JsonCallback<LslResponse<InfoModel>>() {
+
             @Override
-            public void onSuccess(LslResponse<Object> objectLslResponse, Call call, Response response) {
-                if (objectLslResponse.code == LslResponse.RESPONSE_OK){
+            public void onSuccess(LslResponse<InfoModel> infoModelLslResponse, Call call, Response response) {
+                if (infoModelLslResponse.code == LslResponse.RESPONSE_OK){
                     UIUtil.showToast("发布信息成功！");
                     stopLoading();
+                    Log.e(TAG,infoType+"");
+                    if (infoType == InfoType.NOTICE){
+                        EventBus.getDefault().post(new NoticeEvent(infoModelLslResponse.data));
+                        Log.e(TAG,"通知发起");
+                    } else if (infoType == InfoType.HOMEWORK){
+                        EventBus.getDefault().post(new HomeworkEvent(infoModelLslResponse.data));
+                        Log.e(TAG,"公告发起");
+                    } else {
+//                        EventBus.getDefault().post(new (infoModelLslResponse.data));
+                    }
+
                     ReleaseActivity.this.finish();
                 }else {
                     UIUtil.showToast("发布信息失败，请稍后再试！");

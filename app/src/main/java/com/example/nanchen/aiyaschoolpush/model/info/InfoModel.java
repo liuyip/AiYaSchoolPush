@@ -1,6 +1,6 @@
 package com.example.nanchen.aiyaschoolpush.model.info;
 
-import com.example.nanchen.aiyaschoolpush.json.IJsonModel;
+import com.example.nanchen.aiyaschoolpush.model.IJsonModel;
 
 import java.io.Serializable;
 import java.util.List;
@@ -57,5 +57,9 @@ public class InfoModel implements Serializable,IJsonModel{
      * 评论信息
      */
     public List<CommentInfoModel> commentInfo;
+    /**
+     * 最后获取的一条信息的id
+     */
+    public int lastid;
 
 }

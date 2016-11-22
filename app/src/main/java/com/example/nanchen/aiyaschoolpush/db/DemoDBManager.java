@@ -4,12 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.im.Constant;
 import com.example.nanchen.aiyaschoolpush.im.InviteMesageStatus;
 import com.example.nanchen.aiyaschoolpush.im.InviteMessage;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
+import com.example.nanchen.aiyaschoolpush.App;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,10 +19,10 @@ import java.util.Map;
 
 public class DemoDBManager {
     static private DemoDBManager dbMgr = new DemoDBManager();
-    private DbOpenHelper dbHelper;
+    private com.example.nanchen.aiyaschoolpush.db.DbOpenHelper dbHelper;
     
     private DemoDBManager(){
-        dbHelper = DbOpenHelper.getInstance(App.getInstance().getApplicationContext());
+        dbHelper = com.example.nanchen.aiyaschoolpush.db.DbOpenHelper.getInstance(App.getInstance().getApplicationContext());
     }
     
     public static synchronized DemoDBManager getInstance(){
@@ -40,15 +40,15 @@ public class DemoDBManager {
     synchronized public void saveContactList(List<EaseUser> contactList) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if (db.isOpen()) {
-            db.delete(UserDao.TABLE_NAME, null, null);
+            db.delete(com.example.nanchen.aiyaschoolpush.db.UserDao.TABLE_NAME, null, null);
             for (EaseUser user : contactList) {
                 ContentValues values = new ContentValues();
-                values.put(UserDao.COLUMN_NAME_ID, user.getUsername());
+                values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_ID, user.getUsername());
                 if(user.getNick() != null)
-                    values.put(UserDao.COLUMN_NAME_NICK, user.getNick());
+                    values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_NICK, user.getNick());
                 if(user.getAvatar() != null)
-                    values.put(UserDao.COLUMN_NAME_AVATAR, user.getAvatar());
-                db.replace(UserDao.TABLE_NAME, null, values);
+                    values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_AVATAR, user.getAvatar());
+                db.replace(com.example.nanchen.aiyaschoolpush.db.UserDao.TABLE_NAME, null, values);
             }
         }
     }
@@ -62,11 +62,11 @@ public class DemoDBManager {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Map<String, EaseUser> users = new Hashtable<String, EaseUser>();
         if (db.isOpen()) {
-            Cursor cursor = db.rawQuery("select * from " + UserDao.TABLE_NAME /* + " desc" */, null);
+            Cursor cursor = db.rawQuery("select * from " + com.example.nanchen.aiyaschoolpush.db.UserDao.TABLE_NAME /* + " desc" */, null);
             while (cursor.moveToNext()) {
-                String username = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_ID));
-                String nick = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_NICK));
-                String avatar = cursor.getString(cursor.getColumnIndex(UserDao.COLUMN_NAME_AVATAR));
+                String username = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_ID));
+                String nick = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_NICK));
+                String avatar = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_AVATAR));
                 EaseUser user = new EaseUser(username);
                 user.setNick(nick);
                 user.setAvatar(avatar);
@@ -90,7 +90,7 @@ public class DemoDBManager {
     synchronized public void deleteContact(String username){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if(db.isOpen()){
-            db.delete(UserDao.TABLE_NAME, UserDao.COLUMN_NAME_ID + " = ?", new String[]{username});
+            db.delete(com.example.nanchen.aiyaschoolpush.db.UserDao.TABLE_NAME, com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_ID + " = ?", new String[]{username});
         }
     }
     
@@ -101,30 +101,30 @@ public class DemoDBManager {
     synchronized public void saveContact(EaseUser user){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(UserDao.COLUMN_NAME_ID, user.getUsername());
+        values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_ID, user.getUsername());
         if(user.getNick() != null)
-            values.put(UserDao.COLUMN_NAME_NICK, user.getNick());
+            values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_NICK, user.getNick());
         if(user.getAvatar() != null)
-            values.put(UserDao.COLUMN_NAME_AVATAR, user.getAvatar());
+            values.put(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_AVATAR, user.getAvatar());
         if(db.isOpen()){
-            db.replace(UserDao.TABLE_NAME, null, values);
+            db.replace(com.example.nanchen.aiyaschoolpush.db.UserDao.TABLE_NAME, null, values);
         }
     }
     
     public void setDisabledGroups(List<String> groups){
-        setList(UserDao.COLUMN_NAME_DISABLED_GROUPS, groups);
+        setList(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_DISABLED_GROUPS, groups);
     }
     
     public List<String>  getDisabledGroups(){       
-        return getList(UserDao.COLUMN_NAME_DISABLED_GROUPS);
+        return getList(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_DISABLED_GROUPS);
     }
     
     public void setDisabledIds(List<String> ids){
-        setList(UserDao.COLUMN_NAME_DISABLED_IDS, ids);
+        setList(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_DISABLED_IDS, ids);
     }
     
     public List<String> getDisabledIds(){
-        return getList(UserDao.COLUMN_NAME_DISABLED_IDS);
+        return getList(com.example.nanchen.aiyaschoolpush.db.UserDao.COLUMN_NAME_DISABLED_IDS);
     }
     
     synchronized private void setList(String column, List<String> strList){
@@ -139,13 +139,13 @@ public class DemoDBManager {
             ContentValues values = new ContentValues();
             values.put(column, strBuilder.toString());
 
-            db.update(UserDao.PREF_TABLE_NAME, values, null,null);
+            db.update(com.example.nanchen.aiyaschoolpush.db.UserDao.PREF_TABLE_NAME, values, null,null);
         }
     }
     
     synchronized private List<String> getList(String column){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select " + column + " from " + UserDao.PREF_TABLE_NAME,null);
+        Cursor cursor = db.rawQuery("select " + column + " from " + com.example.nanchen.aiyaschoolpush.db.UserDao.PREF_TABLE_NAME,null);
         if (!cursor.moveToFirst()) {
             cursor.close();
             return null;
@@ -179,16 +179,16 @@ public class DemoDBManager {
         int id = -1;
         if(db.isOpen()){
             ContentValues values = new ContentValues();
-            values.put(InviteMessgeDao.COLUMN_NAME_FROM, message.getFrom());
-            values.put(InviteMessgeDao.COLUMN_NAME_GROUP_ID, message.getGroupId());
-            values.put(InviteMessgeDao.COLUMN_NAME_GROUP_Name, message.getGroupName());
-            values.put(InviteMessgeDao.COLUMN_NAME_REASON, message.getReason());
-            values.put(InviteMessgeDao.COLUMN_NAME_TIME, message.getTime());
-            values.put(InviteMessgeDao.COLUMN_NAME_STATUS, message.getStatus().ordinal());
-            values.put(InviteMessgeDao.COLUMN_NAME_GROUPINVITER, message.getGroupInviter());
-            db.insert(InviteMessgeDao.TABLE_NAME, null, values);
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_FROM, message.getFrom());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUP_ID, message.getGroupId());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUP_Name, message.getGroupName());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_REASON, message.getReason());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_TIME, message.getTime());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_STATUS, message.getStatus().ordinal());
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUPINVITER, message.getGroupInviter());
+            db.insert(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME, null, values);
             
-            Cursor cursor = db.rawQuery("select last_insert_rowid() from " + InviteMessgeDao.TABLE_NAME,null); 
+            Cursor cursor = db.rawQuery("select last_insert_rowid() from " + com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME,null);
             if(cursor.moveToFirst()){
                 id = cursor.getInt(0);
             }
@@ -206,7 +206,7 @@ public class DemoDBManager {
     synchronized public void updateMessage(int msgId,ContentValues values){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if(db.isOpen()){
-            db.update(InviteMessgeDao.TABLE_NAME, values, InviteMessgeDao.COLUMN_NAME_ID + " = ?", new String[]{String.valueOf(msgId)});
+            db.update(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME, values, com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_ID + " = ?", new String[]{String.valueOf(msgId)});
         }
     }
     
@@ -218,17 +218,17 @@ public class DemoDBManager {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         List<InviteMessage> msgs = new ArrayList<InviteMessage>();
         if(db.isOpen()){
-            Cursor cursor = db.rawQuery("select * from " + InviteMessgeDao.TABLE_NAME + " desc",null);
+            Cursor cursor = db.rawQuery("select * from " + com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME + " desc",null);
             while(cursor.moveToNext()){
                 InviteMessage msg = new InviteMessage();
-                int id = cursor.getInt(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_ID));
-                String from = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_FROM));
-                String groupid = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_GROUP_ID));
-                String groupname = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_GROUP_Name));
-                String reason = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_REASON));
-                long time = cursor.getLong(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_TIME));
-                int status = cursor.getInt(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_STATUS));
-                String groupInviter = cursor.getString(cursor.getColumnIndex(InviteMessgeDao.COLUMN_NAME_GROUPINVITER));
+                int id = cursor.getInt(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_ID));
+                String from = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_FROM));
+                String groupid = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUP_ID));
+                String groupname = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUP_Name));
+                String reason = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_REASON));
+                long time = cursor.getLong(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_TIME));
+                int status = cursor.getInt(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_STATUS));
+                String groupInviter = cursor.getString(cursor.getColumnIndex(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_GROUPINVITER));
                 
                 msg.setId(id);
                 msg.setFrom(from);
@@ -271,7 +271,7 @@ public class DemoDBManager {
     synchronized public void deleteMessage(String from){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if(db.isOpen()){
-            db.delete(InviteMessgeDao.TABLE_NAME, InviteMessgeDao.COLUMN_NAME_FROM + " = ?", new String[]{from});
+            db.delete(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME, com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_FROM + " = ?", new String[]{from});
         }
     }
     
@@ -279,7 +279,7 @@ public class DemoDBManager {
         int count = 0;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         if(db.isOpen()){
-            Cursor cursor = db.rawQuery("select " + InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT + " from " + InviteMessgeDao.TABLE_NAME, null);
+            Cursor cursor = db.rawQuery("select " + com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT + " from " + com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME, null);
             if(cursor.moveToFirst()){
                 count = cursor.getInt(0);
             }
@@ -292,9 +292,9 @@ public class DemoDBManager {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if(db.isOpen()){
             ContentValues values = new ContentValues();
-            values.put(InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT, count);
+            values.put(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.COLUMN_NAME_UNREAD_MSG_COUNT, count);
 
-            db.update(InviteMessgeDao.TABLE_NAME, values, null,null);
+            db.update(com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao.TABLE_NAME, values, null,null);
         }
     }
     

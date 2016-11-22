@@ -1,7 +1,5 @@
 package com.example.nanchen.aiyaschoolpush.model;
 
-import com.example.nanchen.aiyaschoolpush.json.IJsonModel;
-
 import java.io.Serializable;
 import java.util.List;
 

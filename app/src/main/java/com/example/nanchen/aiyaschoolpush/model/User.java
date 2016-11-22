@@ -1,6 +1,5 @@
 package com.example.nanchen.aiyaschoolpush.model;
 
-import com.example.nanchen.aiyaschoolpush.json.IJsonModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;

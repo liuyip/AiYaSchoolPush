@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.example.nanchen.aiyaschoolpush.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.activity.LookDetailActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerAdapter;
@@ -25,6 +26,10 @@ import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +59,54 @@ public class NoticeFragment extends FragmentBase {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.e(TAG,"onCreateView");
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
         initView(view);
         return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.e(TAG,"onCreate");
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onStart() {
+        Log.e(TAG,"onStart");
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+//        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    //定义处理接收方法
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(NoticeEvent event) {
+        Log.e(TAG,"通知收到:"+event.getInfoModel());
+        if (event.getInfoModel() != null){
+            mInfoModels.add(0,event.getInfoModel());
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private void initView(View view) {
@@ -67,6 +117,7 @@ public class NoticeFragment extends FragmentBase {
 
         // 获取一些假数据
 //        getSomeData();
+
 
         loadData(true);
 
@@ -179,12 +230,15 @@ public class NoticeFragment extends FragmentBase {
     }
 
 
+    private int lastMainId;
+
     /**
      * 加载数据
      */
     private void loadData(final boolean isRefresh) {
         if (isRefresh) {
             start = 0;
+            lastMainId = Integer.MAX_VALUE;
         } else {
             start += count;
         }
@@ -192,7 +246,7 @@ public class NoticeFragment extends FragmentBase {
         if (AppService.getInstance().getCurrentUser() != null) {
             int classId = AppService.getInstance().getCurrentUser().classid;
             String username = AppService.getInstance().getCurrentUser().username;
-            AppService.getInstance().getNoticeAsync(classId, username,InfoType.NOTICE, start,count, new JsonCallback<LslResponse<List<InfoModel>>>() {
+            AppService.getInstance().getNoticeAsync(classId, username,InfoType.NOTICE, start,count, lastMainId,new JsonCallback<LslResponse<List<InfoModel>>>() {
                 @Override
                 public void onSuccess(LslResponse<List<InfoModel>> listLslResponse, Call call, Response response) {
                     if (listLslResponse.code == LslResponse.RESPONSE_OK) {
@@ -201,13 +255,16 @@ public class NoticeFragment extends FragmentBase {
                             mInfoModels.clear();
                             UIUtil.showToast("刷新成功！");
                             mAdapter.notifyDataSetChanged();
+
                         } else {
                             UIUtil.showToast("加载成功！");
                             mAdapter.notifyDataSetChanged();
                         }
+                        lastMainId = listLslResponse.data.get(0).mainid;
                         mInfoModels.addAll(listLslResponse.data);
                         footerView.setVisibility(View.GONE);
                     } else {
+                        lastMainId = Integer.MAX_VALUE;
                         UIUtil.showToast(listLslResponse.msg);
                         footerView.setVisibility(View.VISIBLE);
                         mRecyclerView.setLoadingMoreEnabled(false);

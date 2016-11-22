@@ -336,6 +336,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_338198e230e883acd6c9c82ca46ba5fc3096755c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
         jumboMode="true"
         optimize="true"
@@ -351,6 +360,15 @@
         revision="24.0.3"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okgo\2.1.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5159dbd009eacae84cf29950ca49bc84fbcbb019">
+        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okgo-2.1.3_bc232aca204c559715b3105e7efefbfbe641dd60\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -504,15 +522,6 @@
         revision="24.0.3"
         sha1="288913b440a3c61c30aa171095453a605432277a">
         <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.rengwuxian.materialedittext-library-2.1.4_8f49c2f958c20c5cf17488a54ad735e96f718374\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="F:\nanchen\AiYaSchoolPush\app\build\intermediates\exploded-aar\com.lzy.net\okgo\2.1.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="33ba3b25b3762757b89f2a1f797161ad8b1bdef2">
-        <dex dex="F:\nanchen\AiYaSchoolPush\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.lzy.net-okgo-2.1.2_93e2472b44f2e4061211e0cc319533b678e0de27\classes.dex" />
     </item>
     <item
         is-multidex="true"
