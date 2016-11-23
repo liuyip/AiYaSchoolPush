@@ -117,6 +117,8 @@ public class MineFragment extends FragmentBase{
             if (!TextUtils.isEmpty(iconUrl) && !iconUrl.equals("null")){
                 // 设置picasso不允许缓存，以免头像更新后不能动态更新
                 Picasso.with(getActivity()).load(iconUrl)
+                        .placeholder(R.drawable.default_avatar)
+                        .error(R.drawable.default_avatar)
                         .memoryPolicy(MemoryPolicy.NO_CACHE)
                         .networkPolicy(NetworkPolicy.NO_CACHE)
                         .into(mHeadImage);

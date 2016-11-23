@@ -3,6 +3,7 @@
 require_once '../format.php';
 require_once '../db.php';
 require_once '../table.php';
+require_once 'util.php';
 
 
 @$username = $_GET['username'];// 用户名，用于返回是否赞了主贴
@@ -46,6 +47,7 @@ while (@$row = mysqli_fetch_array($result)){
 	$arr[$i]['commentInfo'] = getCommentInfo($row['mainid']);
 // 	$arr[$i]['lastid'] = getLastMainId();  
 // 	$arr[$i]['num'] = $num;
+	$arr[$i]['picUrls'] = Util::getPicInfo($row['mainid']);
 	$i++;
 }
 if ($i == 0){

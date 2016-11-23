@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lzy.ninegrid.NineGridView;
+import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -106,4 +108,14 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    /**
+     * 设置九宫格图片
+     * @param viewId        id
+     * @param clickAdapter  Adapter
+     */
+    public CommonRecyclerHolder setNineGridAdapter(int viewId,NineGridViewClickAdapter clickAdapter){
+        NineGridView nineGridView = getView(viewId);
+        nineGridView.setAdapter(clickAdapter);
+        return this;
+    }
 }

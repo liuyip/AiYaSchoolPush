@@ -19,6 +19,7 @@ import com.example.nanchen.aiyaschoolpush.api.AppService;
 import com.example.nanchen.aiyaschoolpush.model.PraiseModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoType;
+import com.example.nanchen.aiyaschoolpush.model.info.PicModel;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
@@ -26,6 +27,8 @@ import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener;
+import com.lzy.ninegrid.ImageInfo;
+import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,7 +55,7 @@ public class NoticeFragment extends FragmentBase {
     private CommonRecyclerAdapter<InfoModel> mAdapter;
     private List<InfoModel> mInfoModels;
     private int start = 0;
-    private int count = 3;//设置一次获取的条目数
+    private int count = 10;//设置一次获取的条目数
     private View footerView;
 
 
@@ -141,6 +144,20 @@ public class NoticeFragment extends FragmentBase {
                 }else{
                     holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.gray));
                 }
+
+                ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
+                List<PicModel> picModels = item.picUrls;
+                if (picModels != null && picModels.size() != 0){
+                    for (PicModel picModel:picModels) {
+                        ImageInfo imageInfo = new ImageInfo();
+                        imageInfo.setThumbnailUrl(picModel.imageUrl);
+                        imageInfo.setBigImageUrl(picModel.imageUrl);
+                        imageInfoList.add(imageInfo);
+                    }
+                }
+                holder.setNineGridAdapter(R.id.community_nineGrid,new NineGridViewClickAdapter(getActivity(), imageInfoList));
+
+
                 Log.e(TAG,item.mainid+","+item.isIPraised);
                 holder.setOnRecyclerItemClickListener(R.id.notice_item_like, new OnClickListener() {
                     @Override

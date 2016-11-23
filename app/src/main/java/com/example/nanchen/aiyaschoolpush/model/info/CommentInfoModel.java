@@ -5,6 +5,8 @@ import com.example.nanchen.aiyaschoolpush.model.IJsonModel;
 import java.io.Serializable;
 
 /**
+ * 评论信息
+ *
  * @author nanchen
  * @fileName AiYaSchoolPush
  * @packageName com.example.nanchen.aiyaschoolpush.model.info

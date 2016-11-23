@@ -9,6 +9,7 @@ import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.request.PostRequest;
 
 import java.io.File;
 import java.util.HashMap;
@@ -227,7 +228,7 @@ public class AppService {
      * @param content   发布内容
      * @param callback  回调
      */
-    public void addMainInfoAysnc(int classId,String username,int infoType,String content,JsonCallback<LslResponse<InfoModel>> callback){
+    public void addMainInfoAsync(int classId, String username, int infoType, String content, JsonCallback<LslResponse<InfoModel>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/add_main.php";
         HashMap<String,String> postParams = new HashMap<>();
         postParams.put("classId",classId+"");
@@ -238,7 +239,21 @@ public class AppService {
     }
 
 
-
+    /**
+     * 附件上传
+     * @param files     文件集合
+     * @param callback  回调
+    */
+    public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback){
+        String url = Consts.API_SERVICE_HOST + "/info/attachment.php";
+//        OkGo.post(url).params("size",files.size()).addFileParams("files",files).execute(callback);
+//        String url = Consts.API_SERVICE_HOST + "/user/avatar.php";
+        PostRequest postRequest = OkGo.post(url);
+        for (int i = 0; i < files.size(); i++) {
+            postRequest.params("file"+i,files.get(i));
+        }
+        postRequest.execute(callback);
+    }
 
 
     /***************    信息系統 End      ******************/

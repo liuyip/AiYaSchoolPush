@@ -140,12 +140,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_type_select_btn_nor.png"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_show_head_toast_bg.9.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_show_head_toast_bg.9.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_ic_launcher.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_ic_launcher.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_show_head_toast_bg.9.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_show_head_toast_bg.9.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_33.png",

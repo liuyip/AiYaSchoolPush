@@ -156,6 +156,9 @@ dependencies {
 
     compile project(':easeui')
     compile 'org.greenrobot:eventbus:3.0.0'
+    // 九宫格图片展示和仿微信图片选择
+    compile 'com.lzy.widget:ninegridview:0.2.0'
+    compile 'com.lzy.widget:imagepicker:+'      //最新版本
 
 }
 repositories {

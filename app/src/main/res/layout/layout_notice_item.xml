@@ -74,6 +74,13 @@
             android:textSize="15sp"
             android:ellipsize="end"/>
 
+        <com.lzy.ninegrid.NineGridView
+            android:id="@+id/community_nineGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            android:paddingTop="6dp"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"

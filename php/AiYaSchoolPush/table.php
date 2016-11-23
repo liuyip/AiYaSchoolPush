@@ -11,7 +11,12 @@ define('TABLE_COMMENT','aiya_comment');
 // 信息表  赞
 define('TABLE_PRAISE','aiya_praise');
 
+//图片信息
+define('TABLE_PIC', 'aiya_pic');
+
 // 班级表
 define('TABLE_CLASS', 'aiya_class');
+
+
 
 ?>

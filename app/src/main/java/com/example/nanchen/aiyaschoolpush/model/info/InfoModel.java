@@ -62,4 +62,9 @@ public class InfoModel implements Serializable,IJsonModel{
      */
     public int lastid;
 
+    /**
+     * 社区图片Url组
+     */
+    public List<PicModel> picUrls;
+
 }

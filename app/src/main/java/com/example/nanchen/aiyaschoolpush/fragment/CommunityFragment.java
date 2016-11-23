@@ -2,23 +2,29 @@ package com.example.nanchen.aiyaschoolpush.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.nanchen.aiyaschoolpush.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.activity.ReleaseCommunityActivity;
+import com.example.nanchen.aiyaschoolpush.activity.LookDetailActivity;
+import com.example.nanchen.aiyaschoolpush.activity.ReleaseActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerHolder;
-import com.example.nanchen.aiyaschoolpush.model.Topic;
-import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.api.AppService;
+import com.example.nanchen.aiyaschoolpush.model.PraiseModel;
+import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
+import com.example.nanchen.aiyaschoolpush.model.info.InfoType;
+import com.example.nanchen.aiyaschoolpush.model.info.PicModel;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
@@ -26,9 +32,18 @@ import com.example.nanchen.aiyaschoolpush.view.TitleView;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener;
+import com.lzy.ninegrid.ImageInfo;
+import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * @author nanchen
@@ -41,202 +56,222 @@ public class CommunityFragment extends FragmentBase {
 
     private static final String TAG = "CommunityFragment";
     private TitleView mTitleBar;
-    private XRecyclerView mRecyclerView;
     private FloatingActionButton mFab;
-    private CommonRecyclerAdapter<Topic> mAdapter;
-    private List<Topic> mTopics;
+    private XRecyclerView mRecyclerView;
+    private CommonRecyclerAdapter<InfoModel> mAdapter;
+    private List<InfoModel> mInfoModels;
+    private int start = 0;
+    private int count = 10;//设置一次获取的条目数
+    private View footerView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_community,null);
-//        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_test,null);
         bindView(view);
         return view;
     }
 
-    private void bindView(View view) {
-        mTitleBar = (TitleView) view.findViewById(R.id.community_titleBar);
-        mTitleBar.setTitle("社区");
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
+    }
 
-        mRecyclerView = (XRecyclerView) view.findViewById(R.id.community_recycler);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    //定义处理接收方法
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(NoticeEvent event) {
+        Log.e(TAG,"通知收到:"+event.getInfoModel());
+        if (event.getInfoModel() != null){
+            mInfoModels.add(0,event.getInfoModel());
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private void bindView(View view) {
+        mInfoModels = new ArrayList<>();
+
+        loadData(true);
+
+        mTitleBar = (TitleView) view.findViewById(R.id.community_titleBar);
         mFab = (FloatingActionButton) view.findViewById(R.id.community_fab);
+
+        mTitleBar.setTitle("社区");
 
         mFab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ReleaseCommunityActivity.class);
+                Intent intent = new Intent(getActivity(), ReleaseActivity.class);
                 CircularAnimUtil.startActivity(getActivity(), intent, mFab,
                         R.color.main_bg_color1);
             }
         });
 
-        mTopics = new ArrayList<>();
+        mRecyclerView = (XRecyclerView) view.findViewById(R.id.community_recycler);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
 
-        // 获取一些假数据
-        getSomeData();
+        mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);
+        // 设置下拉图片为自己的图片
+        mRecyclerView.setArrowImageView(R.mipmap.refresh_icon);
 
+        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more, (ViewGroup) getActivity().findViewById(android.R.id.content), false);
+        mRecyclerView.addFootView(footerView);
 
-        mAdapter = new CommonRecyclerAdapter<Topic>(getActivity(), mTopics, R.layout.layout_community_item) {
+        mAdapter = new CommonRecyclerAdapter<InfoModel>(getActivity(), mInfoModels, R.layout.layout_notice_item) {
             @Override
-            public void convert(final CommonRecyclerHolder holder, final Topic item, final int position, boolean isScrolling) {
-                if (item.author.icon == null){
-                    holder.setImageResource(R.id.community_item_avatar,R.drawable.default_avatar);
-                }else {
-                    holder.setImageByUrl(R.id.community_item_avatar,item.author.icon);
+            public void convert(final CommonRecyclerHolder holder, final InfoModel item, final int position, boolean isScrolling) {
+                if (TextUtils.isEmpty(item.user.avatar)) {
+                    holder.setImageResource(R.id.notice_item_avatar, R.drawable.default_avatar);
+                } else {
+                    Log.e(TAG, item.user.avatar);
+                    holder.setImageByUrl(R.id.notice_item_avatar, item.user.avatar);
                 }
-                holder.setText(R.id.community_item_name,item.author.username);
-                holder.setText(R.id.community_item_time, TimeUtils.longToDateTime(item.createTs));
-                holder.setText(R.id.community_item_content,item.content);
-                holder.setText(R.id.community_item_like,"赞 "+item.praiseCount);
-                holder.setText(R.id.community_item_comment,"评论 "+item.commentCount);
 
-                holder.setOnRecyclerItemClickListener(R.id.community_item_like, new OnClickListener() {
+                holder.setText(R.id.notice_item_name, item.user.nickname);
+                holder.setText(R.id.notice_item_time, TimeUtils.longToDateTime(item.time));
+                holder.setText(R.id.notice_item_content, item.content);
+                holder.setText(R.id.notice_item_like, "赞 " + item.praiseCount);
+                holder.setText(R.id.notice_item_comment, "评论 " + item.commentCount);
+                if (item.isIPraised){
+                    holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.red));
+                }else{
+                    holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.gray));
+                }
+                Log.e(TAG,item.mainid+","+item.isIPraised);
+
+                ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
+                List<PicModel> picModels = item.picUrls;
+                if (picModels != null && picModels.size() != 0){
+                    for (PicModel picModel:picModels) {
+                        ImageInfo imageInfo = new ImageInfo();
+                        imageInfo.setThumbnailUrl(picModel.imageUrl);
+                        imageInfo.setBigImageUrl(picModel.imageUrl);
+                        imageInfoList.add(imageInfo);
+                    }
+                }
+                holder.setNineGridAdapter(R.id.community_nineGrid,new NineGridViewClickAdapter(getActivity(), imageInfoList));
+
+                holder.setOnRecyclerItemClickListener(R.id.notice_item_like, new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int praiseCount = item.praiseCount;
-                        if (item.isIPraised){
-//                            praiseCount--;
-                            holder.setTextColor(R.id.community_item_like,getResources().getColor(R.color.gray));
-                            item.isIPraised = false;
-                        }else {
-                            praiseCount++;
-                            holder.setTextColor(R.id.community_item_like,getResources().getColor(R.color.red));
-                            item.isIPraised = true;
-                        }
-                        holder.setText(R.id.community_item_like,"赞 "+praiseCount);
+                        insertPraised(item,holder);
+
                     }
                 });
 
-                holder.setOnRecyclerItemClickListener(R.id.community_item_comment, new OnClickListener() {
+                holder.setOnRecyclerItemClickListener(R.id.notice_item_comment, new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity(),"你点击了评论，将进入详情页面！",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "你点击了评论，将进入详情页面！", Toast.LENGTH_SHORT).show();
+                        LookDetailActivity.start(getActivity(), mInfoModels.get(position));
                     }
                 });
             }
         };
 
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-
-        mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);
-
 
         mRecyclerView.setLoadingListener(new LoadingListener() {
             @Override
             public void onRefresh() {
-                mTopics.clear();
-                getSomeData();
-                mHandler.sendEmptyMessageDelayed(0x124,2000);
+                loadData(true);
+                mRecyclerView.refreshComplete();
             }
 
             @Override
             public void onLoadMore() {
-                getSomeData();
-                mHandler.sendEmptyMessageDelayed(0x123,4000);
+//                getSomeData();
+                loadData(false);
+                mRecyclerView.loadMoreComplete();
             }
         });
 
-//        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_not_more,(ViewGroup)getActivity().findViewById(android.R.id.content),false);
-//        mRecyclerView.addFootView(footerView);
-
-        // 设置下拉图片为自己的图片
-        mRecyclerView.setArrowImageView(R.mipmap.refresh_icon);
-
     }
 
-    private Handler mHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what){
-                case 0x123:
-                    mRecyclerView.loadMoreComplete();
-                    UIUtil.showToast("加载成功！");
-                    break;
-                case 0x124:
-                    mRecyclerView.refreshComplete();
-                    UIUtil.showToast("刷新成功！");
-                    break;
-            }
+
+    /**
+     * 把赞的信息提交到服务器
+     */
+    private void insertPraised(final InfoModel item, final CommonRecyclerHolder holder) {
+
+        if (AppService.getInstance().getCurrentUser() == null) {
+            return;
         }
-    };
-
-    private void getSomeData() {
-        Topic model = new Topic();
-        User author = new User();
-        author.username = "4班班主任";
-        model.author = author;
-        model.createTs = 1475899596;
-        model.content = "这是一条测试作业~";
-        model.praiseCount = 30;
-        model.commentCount = 51;
-        mTopics.add(model);
-
-
-        Topic model3 = new Topic();
-        User author3 = new User();
-        author3.username = "4班语文老师";
-        model3.author = author3;
-        model3.createTs = 1475906894;
-        model3.content = "今天的作业是：\n" +
-                "1、自命题作文一篇800字\n" +
-                "2、抄写唐诗三百首\n" +
-                "3、写100个成语\n";
-        model3.praiseCount = 22;
-        model3.commentCount = 87;
-        mTopics.add(model3);
-
-        Topic model2 = new Topic();
-        User author2 = new User();
-        author2.username = "4班数学老师";
-        model2.author = author2;
-        model2.createTs = 1475906894;
-        model2.content = "今天的数学作业是：\n" +
-                "1、错题\n" +
-                "2、卷子两张\n" +
-                "3、算术题\n"+
-                "4、10以内的加减法\n" +
-                "5、计算题100页\n";
-        model2.praiseCount = 24;
-        model2.commentCount = 25;
-        mTopics.add(model2);
-
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-//
-//        mTopics.add(model);
-//        mTopics.add(model2);
-//        mTopics.add(model3);
-
-
-
+        AppService.getInstance().updatePraiseAsync(item.mainid, AppService.getInstance().getCurrentUser().username
+                , new JsonCallback<LslResponse<PraiseModel>>() {
+                    @Override
+                    public void onSuccess(LslResponse<PraiseModel> praiseLslResponse, Call call, Response response) {
+                        if (praiseLslResponse.code == LslResponse.RESPONSE_OK){
+                            Log.e(TAG,"更新赞的信息成功！");
+                            int praiseCount = praiseLslResponse.data.praiseCount;
+                            boolean isInsert = praiseLslResponse.data.isInsert;
+                            if (!isInsert) {
+                                holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.gray));
+                            } else {
+                                holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.red));
+                            }
+                            holder.setText(R.id.notice_item_like, "赞 " + praiseCount);
+                        }else{
+                            Log.e(TAG,"更新赞的信息失败！");
+                            UIUtil.showToast("更新赞的信息失败！");
+                        }
+                    }
+                });
     }
+
+    private int lastMainId;
+
+    /**
+     * 加载数据
+     */
+    private void loadData(final boolean isRefresh) {
+        if (isRefresh) {
+            start = 0;
+            lastMainId = Integer.MAX_VALUE;
+        } else {
+            start += count;
+        }
+        Log.e(TAG+"1", start +"");
+        if (AppService.getInstance().getCurrentUser() != null) {
+            int classId = AppService.getInstance().getCurrentUser().classid;
+            String username = AppService.getInstance().getCurrentUser().username;
+            AppService.getInstance().getNoticeAsync(classId, username, InfoType.COMMUNITY, start,count, lastMainId,new JsonCallback<LslResponse<List<InfoModel>>>() {
+                @Override
+                public void onSuccess(LslResponse<List<InfoModel>> listLslResponse, Call call, Response response) {
+                    if (listLslResponse.code == LslResponse.RESPONSE_OK) {
+                        mRecyclerView.setLoadingMoreEnabled(true);
+                        if (isRefresh) {
+                            mInfoModels.clear();
+                            UIUtil.showToast("刷新成功！");
+                            mAdapter.notifyDataSetChanged();
+
+                        } else {
+                            UIUtil.showToast("加载成功！");
+                            mAdapter.notifyDataSetChanged();
+                        }
+                        lastMainId = listLslResponse.data.get(0).mainid;
+                        mInfoModels.addAll(listLslResponse.data);
+                        footerView.setVisibility(View.GONE);
+                    } else {
+                        lastMainId = Integer.MAX_VALUE;
+                        UIUtil.showToast(listLslResponse.msg);
+                        footerView.setVisibility(View.VISIBLE);
+                        mRecyclerView.setLoadingMoreEnabled(false);
+                    }
+                }
+            });
+        }
+    }
+
 }

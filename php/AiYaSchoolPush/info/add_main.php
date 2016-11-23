@@ -3,6 +3,7 @@
 require_once '../db.php';
 require_once '../format.php';
 require_once '../table.php';
+require_once 'util.php';
 
 file_get_contents("php://input");
 
@@ -50,7 +51,8 @@ function getMainInfo($username,$time,$infotype){
 			'time'=>$row['time'],
 			'infotype'=>$row['infotype'],
 			'content'=>$row['content'],
-			'user' => getUserInfo($row['username'])
+			'user' => getUserInfo($row['username']),
+			'picUrls' => Util::getPicInfo($row['mainid'])
 	);
 	return $arr;
 }
