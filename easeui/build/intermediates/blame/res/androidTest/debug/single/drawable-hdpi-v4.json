@@ -316,12 +316,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_input_bar_bg_active.9.png"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_search_clear_normal.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_search_clear_normal.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_default_image.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_default_image.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_search_clear_normal.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_search_clear_normal.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_settings_normal.png",

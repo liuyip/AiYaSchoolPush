@@ -114,4 +114,37 @@ class Util {
 		}
 		return $arr;
 	}
+	
+	/**
+	 * 获取mainId
+	 * @param unknown $username	用户名
+	 * @param unknown $time		发布时间
+	 * @param unknown $infotype	信息类型
+	 * @return unknown			返回mainId主键
+	 */
+	public static function getMainId($username,$time,$infotype){
+		$link = DataBaseUtil::getInstance()->connect();
+		$query = "select mainid from ".TABLE_MAIN." where username = "
+				.$username." and time = ".$time." and infotype = ".$infotype;
+		$result = mysqli_query($link, $query);
+		@$row = mysqli_fetch_array($result);
+		return $row['mainid'];
+	}
+	
+	/**
+	 * 插入图片的url
+	 * @param unknown $mainid
+	 * @param unknown $url
+	 * @return boolean
+	 */
+	public static function insertPicUrls($mainid,$url){
+		$link = DataBaseUtil::getInstance()->connect();
+		$query = "insert into ".TABLE_PIC." (mainid,url) values ('".$mainid."','".$url."')";
+		mysqli_query($link, $query);
+		$num = mysqli_affected_rows($link);
+		if($num == 0){
+			return false;
+		}
+		return true;
+	}
 }

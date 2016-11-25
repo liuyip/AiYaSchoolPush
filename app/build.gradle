@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         applicationId "com.example.nanchen.aiyaschoolpush"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
-        versionName "2.0.1"
+        versionName "2.0.2"
         multiDexEnabled true
     }
     buildTypes {
@@ -159,6 +159,9 @@ dependencies {
     // 九宫格图片展示和仿微信图片选择
     compile 'com.lzy.widget:ninegridview:0.2.0'
     compile 'com.lzy.widget:imagepicker:+'      //最新版本
+
+    // 图片压缩库
+    compile 'top.zibin:Luban:1.0.9'
 
 }
 repositories {

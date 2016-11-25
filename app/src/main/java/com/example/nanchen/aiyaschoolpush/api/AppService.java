@@ -222,19 +222,24 @@ public class AppService {
 
     /**
      * 异步发送消息给服务器
-     * @param classId   班级id
-     * @param username  发布人用户名
-     * @param infoType  信息类型  1 公告 2 作业  3 动态
-     * @param content   发布内容
-     * @param callback  回调
+     * @param classId       班级id
+     * @param username      发布人用户名
+     * @param infoType      信息类型  1 公告 2 作业  3 动态
+     * @param content       发布内容
+     * @param picUrls       图片地址
+     * @param callback      回调
      */
-    public void addMainInfoAsync(int classId, String username, int infoType, String content, JsonCallback<LslResponse<InfoModel>> callback){
+    public void addMainInfoAsync(int classId, String username, int infoType, String content, List<String> picUrls, JsonCallback<LslResponse<InfoModel>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/add_main.php";
         HashMap<String,String> postParams = new HashMap<>();
         postParams.put("classId",classId+"");
         postParams.put("username",username);
         postParams.put("infoType",infoType+"");
         postParams.put("content",content);
+        postParams.put("picCount",picUrls.size()+"");
+        for (int i = 0; i < picUrls.size(); i++) {
+            postParams.put("picUrl"+i,picUrls.get(i));
+        }
         OkGo.post(url).params(postParams).execute(callback);
     }
 
@@ -250,8 +255,9 @@ public class AppService {
 //        String url = Consts.API_SERVICE_HOST + "/user/avatar.php";
         PostRequest postRequest = OkGo.post(url);
         for (int i = 0; i < files.size(); i++) {
-            postRequest.params("file"+i,files.get(i));
+            postRequest.params("file"+i,files.get(i),files.get(i).getName());
         }
+        postRequest.params("size",files.size());
         postRequest.execute(callback);
     }
 

@@ -8,12 +8,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_conversation_normal.png"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_default_avatar.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_default_avatar.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_chatto_voice_playing.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_chatto_voice_playing.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_default_avatar.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_default_avatar.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ease_unread_count_bg.9.png",
@@ -68,12 +68,12 @@
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ease_chatting_setmode_keyboard_btn_pressed.png"
     },
     {
-        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_14.png",
-        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ee_14.png"
-    },
-    {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_17.png",
         "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ee_17.png"
+    },
+    {
+        "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_14.png",
+        "source": "F:\\nanchen\\AiYaSchoolPush\\easeui\\src\\main\\res\\drawable-hdpi\\ee_14.png"
     },
     {
         "merged": "F:\\nanchen\\AiYaSchoolPush\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ee_28.png",
