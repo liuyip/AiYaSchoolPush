@@ -3,6 +3,7 @@ package com.example.nanchen.aiyaschoolpush;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,6 +104,7 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
 
         @Override
         public void onClick(View v) {
+            Log.e("ReleaseActivity","缩略宽："+iv_img.getWidth()+",缩略高："+iv_img.getHeight());
             if (listener != null) listener.onItemClick(v, clickPosition);
         }
     }

@@ -74,14 +74,14 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
     // mob  message
     compile name: 'SMSSDK-2.1.1', ext: 'aar'
     compile files('libs/MobTools-2016.0714.1402.jar')
     compile files('libs/MobCommons-2016.0714.1402.jar')
     // material design
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
     // photo
     compile 'com.squareup.picasso:picasso:2.5.2'
     // rx
@@ -162,6 +162,7 @@ dependencies {
 
     // 图片压缩库
     compile 'top.zibin:Luban:1.0.9'
+
 
 }
 repositories {

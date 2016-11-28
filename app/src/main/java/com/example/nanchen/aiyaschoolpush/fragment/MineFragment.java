@@ -426,7 +426,7 @@ public class MineFragment extends FragmentBase{
         try {
             file.createNewFile();
             fout = new FileOutputStream(file);
-            bitmap.compress(CompressFormat.PNG,100,fout);
+            bitmap.compress(CompressFormat.PNG,60,fout);
             fout.flush();
             uploadAvatar(file);
         } catch (IOException e) {

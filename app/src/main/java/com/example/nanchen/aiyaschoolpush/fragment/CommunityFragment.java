@@ -86,6 +86,11 @@ public class CommunityFragment extends FragmentBase {
         if (EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().unregister(this);
         }
+
+        if (mInfoModels != null){
+            mInfoModels.clear();
+            mInfoModels = null;
+        }
     }
 
     //定义处理接收方法

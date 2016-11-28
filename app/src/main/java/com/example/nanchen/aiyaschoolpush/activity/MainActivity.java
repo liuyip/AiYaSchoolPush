@@ -43,6 +43,7 @@ public class MainActivity extends ActivityBase {
 //    private DataFragment mDataFragment;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

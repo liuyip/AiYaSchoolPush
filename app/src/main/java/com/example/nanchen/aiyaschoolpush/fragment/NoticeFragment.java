@@ -59,6 +59,8 @@ public class NoticeFragment extends FragmentBase {
     private View footerView;
 
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -100,6 +102,11 @@ public class NoticeFragment extends FragmentBase {
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+
+        if (mInfoModels != null){
+            mInfoModels.clear();
+            mInfoModels = null;
+        }
     }
 
     //定义处理接收方法

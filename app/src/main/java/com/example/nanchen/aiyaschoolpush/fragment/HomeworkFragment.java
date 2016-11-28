@@ -94,6 +94,11 @@ public class HomeworkFragment extends FragmentBase {
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+
+        if (mInfoModels != null){
+            mInfoModels.clear();
+            mInfoModels = null;
+        }
     }
 
     //定义处理接收方法

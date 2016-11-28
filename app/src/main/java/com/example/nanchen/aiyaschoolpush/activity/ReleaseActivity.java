@@ -2,8 +2,7 @@ package com.example.nanchen.aiyaschoolpush.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
-import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.CommunityEvent;
 import com.example.nanchen.aiyaschoolpush.HomeworkEvent;
 import com.example.nanchen.aiyaschoolpush.ImagePickerAdapter;
@@ -21,12 +19,12 @@ import com.example.nanchen.aiyaschoolpush.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.api.AppService;
 import com.example.nanchen.aiyaschoolpush.config.AddConfig;
-import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.model.User;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoType;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.utils.BitmapUtil;
 import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.view.TitleView;
@@ -45,8 +43,6 @@ import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;
-import top.zibin.luban.Luban;
-import top.zibin.luban.OnCompressListener;
 
 /**
  * 发布信息专用的Activity
@@ -60,7 +56,6 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
     private int maxImgCount = 9;               //允许选择图片最大数
 
-    private static final int SCALE_SIZE = 400;
 
     private static final String TAG = "ReleaseActivity";
     private TitleView mTitleBar;
@@ -69,27 +64,44 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     private EditText mEditText;
     private int infoType;
 
-    private List<File> mSmallFiles;
     private List<File> mFiles;
     private List<String> mSmallUrls;
+    private boolean isUploadPics;
+    private int reqWidth = 0;
+    private int reqHeight = 0;
+    private Point point;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_release);
-
+        updatePixel();
         bindView();
+    }
+
+    private void updatePixel() {
+        point = new Point();
+        getWindowManager().getDefaultDisplay().getSize(point);
+        Log.e(TAG,"宽:"+point.x+",高："+point.y);
+        reqWidth = point.x ;
+        reqHeight = point.y ;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mFiles != null){
+            mFiles.clear();
+            mFiles = null;
+        }
+        if (mSmallUrls != null){
+            mSmallUrls.clear();
+            mSmallUrls = null;
+        }
     }
 
     private void bindView() {
-        names = new ArrayList<>();
         mFiles = new ArrayList<>();
-        mSmallFiles = new ArrayList<>();
         mSmallUrls = new ArrayList<>();
 
         mFrom = getIntent().getStringExtra("name");
@@ -117,12 +129,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         mTitleBar.setRightButtonOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                showLoading(ReleaseActivity.this);
-                tryDecodeSmallImg(); // 先压缩尺寸
-                //鲁班压缩
-                compressWithLs(new File(selImageList.get(0).path));
-//                uploadPic();
+                tryDecodeSmallImg2();
             }
         });
 
@@ -139,7 +146,6 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
 
         mEditText = (EditText) findViewById(R.id.release_edit);
 
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
@@ -151,83 +157,52 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
 
     }
 
+    /**
+     * 压缩图片为小图片
+     */
+    private void tryDecodeSmallImg2() {
+        showLoading(this);
+        for (int i = 0; i < selImageList.size(); i++) {
+            Log.e(TAG,"第"+i+"个图片宽:"+selImageList.get(i).width);
+            Log.e(TAG,"第"+i+"个图片高:"+selImageList.get(i).height);
+            String filePath = selImageList.get(i).path;
+
+            /* 这里假设只对 200k 以上 并且 宽高小的像素 > 400的图片进行裁剪*/
+            reqHeight = selImageList.get(i).height;
+            reqWidth = selImageList.get(i).width;
+            int minSize = Math.min(reqHeight,reqWidth);
+            int size = (int) (selImageList.get(i).size/1024);//当前图片的大小
+            Log.e(TAG,"图片size:"+size+"KB");
+            while (minSize > 400 && size >= 200){
+                reqWidth /= 2;
+                reqHeight /= 2;
+                minSize = Math.min(reqHeight,reqWidth);
+            }
+
+            if (reqWidth == 0 || reqHeight == 0){ //拍照返回的宽高为0，这里避免异常
+                reqWidth = 390;
+                reqHeight = 520;
+            }
+            Log.e(TAG,"第"+i+"个图片压缩后宽："+reqWidth);
+            Log.e(TAG,"第"+i+"个图片压缩后高："+reqHeight);
+            // 对图片压缩尺寸为原来的八分之一
+            Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(filePath,reqWidth,reqHeight);
+            Log.e(TAG,"第"+i+"个图片大小:"+bitmap.getByteCount()/1024+"kb");
+            saveBitmapFile(bitmap,filePath);
+        }
+        uploadPic();  // 图片压缩完毕开始上传图片
+    }
+
 
     /**
-     * 压缩像素
+     * 把bitmap转换为file
+     * @param bitmap    bitmap源
+     * @param filePath  文件路径
      */
-    private void tryDecodeSmallImg() {
-        Log.e(TAG, "开始像素压缩:" + selImageList.size());
-        for (int i = 0; i < selImageList.size(); i++) {
-            String filePath = selImageList.get(i).path;
-//            BitmapFactory.Options localOptions = new BitmapFactory.Options();
-//            localOptions.inJustDecodeBounds = true;
-//            int simpleSize = localOptions.outHeight / SCALE_SIZE;
-//            if (simpleSize <= 0){
-//                simpleSize = 1;
-//            }
-//            localOptions.inSampleSize = simpleSize;
-            Bitmap bitmap = BitmapFactory.decodeFile(filePath, getBitmapOption());//将图片的长和宽缩小味原来的1/simpleSize
-            saveBitmapFile(bitmap, i,filePath);
-        }
-        Log.e(TAG, "当前需要压缩的图片数量:" + mFiles.size());
-    }
-
-    private Options getBitmapOption() {
-        System.gc();
-        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inJustDecodeBounds = true;
-        options.inPurgeable = true;
-//        int inSampleSize = options.outHeight / SCALE_SIZE;
-//        if (inSampleSize <= 0) {
-//            inSampleSize = 1;
-//        }
-        int inSampleSize = 2;
-        Log.e(TAG,"inSampleSize:"+inSampleSize);
-        options.inSampleSize = inSampleSize;
-        return options;
-    }
-    private static final int MIN_SAMPLE_SIZE = 2;
-    private static final int MAX_IN_SAMPLE_SIZE = 2*2*2*2*2*2;
-    private static final int MIN_LENGTH2 = 640;
-
-    private int calculateInSampleSize(BitmapFactory.Options options) {
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 0;
-        if (!checkBitmapNeedChange(width, height, MIN_LENGTH2)) {
-            return inSampleSize;
-        }
-        inSampleSize = MIN_SAMPLE_SIZE;
-        if (height > MIN_LENGTH2 || width > MIN_LENGTH2) {
-            final int heightRatio =  (int) Math.ceil((float) height/ (float) MIN_LENGTH2);
-            final int widthRatio = (int) Math.ceil((float) width / (float) MIN_LENGTH2);
-            int temp = (heightRatio < widthRatio ? heightRatio : widthRatio);
-
-            if (temp > inSampleSize) {
-                inSampleSize = temp;
-            }
-            if (temp > MAX_IN_SAMPLE_SIZE) {
-                inSampleSize = MAX_IN_SAMPLE_SIZE;
-            }
-        }
-        return inSampleSize;
-    }
-
-    private boolean checkBitmapNeedChange(int width,int height,int size){
-        if (width<size || height<size) {
-            return false;
-        }
-        return true;
-    }
-
-
-
-    public void saveBitmapFile(Bitmap bitmap, int i,String filePath) {
-
+    public void saveBitmapFile(Bitmap bitmap,String filePath) {
         if(bitmap==null){
-            return;//如果图片本身的大小已经小于这个大小了，就没必要进行压缩
+            return;
         }
-//        File file = new File(i + "_" + System.currentTimeMillis());//将要保存的文件名称
         Log.e(TAG,"文件路径:"+filePath);
         File file = new File(filePath);
         try {
@@ -242,76 +217,20 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         }
     }
 
-    private boolean isUploadPics;
-    private List<String> names;
-    private int index = 0;
-
-    /**
-     * 压缩单张图片 Listener 方式
-     */
-    private void compressWithLs(File file) {
-
-
-//        mSmallFiles.addAll(mFiles);
-//
-//        for (int i = 0; i < selImageList.size(); i++) {
-//            mSmallUrls.add(Consts.API_SERVICE_HOST + "/info/pic/" + mFiles.get(i).getName());
-//        }
-//        uploadPic();
-        Log.e(TAG, "鲁班压缩开始下标：" + index);
-        Luban.get(App.getAppContext())
-                .load(file)
-                .putGear(Luban.THIRD_GEAR)
-                .setFilename(index + "_" + System.currentTimeMillis())
-                .setCompressListener(new OnCompressListener() {
-                    @Override
-                    public void onStart() {
-                        Log.e(TAG, "鲁班onStart");
-                    }
-
-                    @Override
-                    public void onSuccess(File file) {
-                        Log.e(TAG, "鲁班onSuccess:" + file.getName());
-                        mSmallFiles.add(file);
-                        mSmallUrls.add(Consts.API_SERVICE_HOST + "/info/pic/" + file.getName());
-                        if (++index < mFiles.size()) {
-                            compressWithLs(mFiles.get(index));
-                        } else {
-                            uploadPic();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e(TAG, "鲁班onError:" + e.getMessage());
-                    }
-                }).launch();
-    }
 
 
     /**
      * 把图片上传上去
      */
-    private boolean uploadPic() {
-//        Log.e(TAG, "size:" + mFiles.size() + "  ****   ");
-//        names.clear();
-//        for (int i = 0; i < mFiles.size(); i++) {
-//            Log.e(TAG, "name:" + i + "_" + mFiles.get(i).getName());
-//        }
-
-//        showLoading(this);
-
-//        for (int i = 0; i < mSmallFiles.size(); i++) {
-//            mSmallUrls.add(mSmallFiles.get(i).getName());
-//        }
-//
-        Log.e(TAG, "size:" + mSmallUrls.size() + "  ****   ");
-        for (int i = 0; i < mSmallUrls.size(); i++) {
-            Log.e(TAG, "小图名字:" + mSmallUrls.get(i));
+    private void uploadPic() {
+        Log.e(TAG,"需要上传图片的集合size:"+mFiles.size());
+        final String content = mEditText.getText().toString().trim();
+        if (TextUtils.isEmpty(content)) {
+            UIUtil.showToast("发布内容不能为空！");
+            stopLoading();
+            return;
         }
-
-        AppService.getInstance().upLoadFileAsync(mSmallFiles, new JsonCallback<LslResponse<User>>() {
+        AppService.getInstance().upLoadFileAsync(mFiles, new JsonCallback<LslResponse<User>>() {
             @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {
@@ -324,26 +243,28 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
                     isUploadPics = false;
                 }
                 sendInfo();
-//                stopLoading();
             }
         });
-        return isUploadPics;
     }
 
+    /**
+     * 发送信息到服务器
+     */
     private void sendInfo() {
         final String content = mEditText.getText().toString().trim();
         if (TextUtils.isEmpty(content)) {
             UIUtil.showToast("发布内容不能为空！");
             return;
         }
+        // 把图片的地址上传上去
+        for (int i = 0; i < mFiles.size(); i++) {
+            mSmallUrls.add(mFiles.get(i).getName());
+            Log.e(TAG,"第"+(i+1)+"个图片名字:"+mFiles.get(i).getName());
+        }
+        Log.e(TAG,mSmallUrls.size()+" **** ");
         int classId = AppService.getInstance().getCurrentUser().classid;
         String username = AppService.getInstance().getCurrentUser().username;
-        if (isUploadPics) {
-            for (int i = 0; i < mFiles.size(); i++) {
-                names.add(Consts.API_SERVICE_HOST + "/info/pic/" + mSmallFiles.get(i).getName());
-            }
-        }
-        AppService.getInstance().addMainInfoAsync(classId, username, infoType, content, names, new JsonCallback<LslResponse<InfoModel>>() {
+        AppService.getInstance().addMainInfoAsync(classId, username, infoType, content, mSmallUrls, new JsonCallback<LslResponse<InfoModel>>() {
 
             @Override
             public void onSuccess(LslResponse<InfoModel> infoModelLslResponse, Call call, Response response) {
@@ -400,6 +321,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
             //添加图片返回
             if (data != null && requestCode == REQUEST_CODE_SELECT) {
                 ArrayList<ImageItem> images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                mFiles.clear();
                 selImageList.addAll(images);
 //                for (int i = 0; i < selImageList.size(); i++) {
 //                    mFiles.add(new File(selImageList.get(i).path));

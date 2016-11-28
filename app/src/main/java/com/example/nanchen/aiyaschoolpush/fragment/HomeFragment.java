@@ -42,6 +42,21 @@ public class HomeFragment extends FragmentBase {
     private TitleView mTitleBar;
     private String mName = AddConfig.NOTICE;
 
+    private List<String> nameList;
+    private List<Fragment> list;
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (nameList != null){
+            nameList.clear();
+            nameList = null;
+        }
+        if (list != null){
+            list.clear();
+            list = null;
+        }
+    }
 
     @Nullable
     @Override
@@ -71,13 +86,13 @@ public class HomeFragment extends FragmentBase {
             }
         });
 
-        List<String> nameList = new ArrayList<>();
+        nameList = new ArrayList<>();
         nameList.add("公告");
         nameList.add("作业");
         nameList.add("课表");
 //        nameList.add("社区");
 
-        List<Fragment> list = new ArrayList<>();
+        list = new ArrayList<>();
         list.add(new NoticeFragment());
         list.add(new HomeworkFragment());
         list.add(new TimeTableFragment());
