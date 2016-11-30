@@ -67,6 +67,7 @@ public class PersonalInfoActivity extends ActivityBase {
     private LinearLayoutListItemView mItemAddress;
     private LinearLayoutListItemView mItemPwd;
     private static final String TAG = "PersonalInfoActivity";
+    private NiftyDialogBuilder dialogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,10 @@ public class PersonalInfoActivity extends ActivityBase {
         if (mCrouton != null){
             mCrouton.cancel();
             mCrouton = null;
+        }
+        if (dialogBuilder != null){
+            dialogBuilder.cancel();
+            dialogBuilder = null;
         }
     }
 
@@ -141,7 +146,7 @@ public class PersonalInfoActivity extends ActivityBase {
             public void onLinearLayoutListItemClick(Object object) {
                 View view = LayoutInflater.from(getWeakContext()).inflate(R.layout.view_dialog_edit, null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
-                final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(getWeakContext());
+                dialogBuilder = NiftyDialogBuilder.getInstance(getWeakContext());
                 dialogBuilder.withTitle("设置你的昵称")                                  //.withTitle(null)  no title
                         .withMessage(null)
                         .withDialogColor(getResources().getColor(R.color.main_bg_color1))                               //def  | withDialogColor(int resid)                               //def
@@ -154,7 +159,7 @@ public class PersonalInfoActivity extends ActivityBase {
                             @Override
                             public void onClick(View v) {
                                 String value = mEditText.getText().toString().trim();
-                                updateUserInfo("nickname",value,dialogBuilder);
+                                updateUserInfo("nickname",value);
                             }
                         })
                         .setButton2Click(new View.OnClickListener() {
@@ -173,7 +178,7 @@ public class PersonalInfoActivity extends ActivityBase {
             public void onLinearLayoutListItemClick(Object object) {
                 View view = LayoutInflater.from(getWeakContext()).inflate(R.layout.view_dialog_edit, null);
                 final EditText mEditText = (EditText) view.findViewById(R.id.view_dialog_edit);
-                final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(getWeakContext());
+                dialogBuilder = NiftyDialogBuilder.getInstance(getWeakContext());
                 dialogBuilder.withTitle("设置你的地址")                                  //.withTitle(null)  no title
                         .withMessage(null)
                         .withDialogColor(getResources().getColor(R.color.main_bg_color1))                               //def  | withDialogColor(int resid)                               //def
@@ -186,7 +191,7 @@ public class PersonalInfoActivity extends ActivityBase {
                             @Override
                             public void onClick(View v) {
                                 String value = mEditText.getText().toString().trim();
-                                updateUserInfo("address",value,dialogBuilder);
+                                updateUserInfo("address",value);
                             }
                         })
                         .setButton2Click(new View.OnClickListener() {
@@ -247,9 +252,8 @@ public class PersonalInfoActivity extends ActivityBase {
      * 更新用户信息
      * @param action        需要更新的项
      * @param value         需要更新的值
-     * @param dialogBuilder 对话框
      */
-    private void updateUserInfo(final String action, final String value, final NiftyDialogBuilder dialogBuilder) {
+    private void updateUserInfo(final String action, final String value) {
         User user = AppService.getInstance().getCurrentUser();
         if (user != null){
             showLoading(this);
@@ -271,6 +275,8 @@ public class PersonalInfoActivity extends ActivityBase {
                     }
                     showCrouton(objectLslResponse.msg);
                     dialogBuilder.dismiss();
+                    dialogBuilder.cancel();
+                    dialogBuilder = null;
                     stopLoading();
                 }
             });

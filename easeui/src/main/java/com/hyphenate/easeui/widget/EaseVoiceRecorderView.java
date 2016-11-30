@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.os.Message;
 import android.os.PowerManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import com.hyphenate.easeui.model.EaseVoiceRecorder;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 import com.hyphenate.easeui.widget.chatrow.EaseChatRowVoicePlayClickListener;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Voice recorder view
  *
@@ -34,13 +37,25 @@ public class EaseVoiceRecorderView extends RelativeLayout {
     protected ImageView micImage;
     protected TextView recordingHint;
 
-    protected Handler micImageHandler = new Handler() {
-        @Override
-        public void handleMessage(android.os.Message msg) {
-            // change image
-            micImage.setImageDrawable(micImages[msg.what]);
+    protected Handler micImageHandler = new MyHandler(this);
+
+    private static class MyHandler extends Handler{
+        private final WeakReference<EaseVoiceRecorderView> mWeakReference;
+
+        public MyHandler(EaseVoiceRecorderView easeVoiceRecorderView){
+            this.mWeakReference = new WeakReference<EaseVoiceRecorderView>(easeVoiceRecorderView);
         }
-    };
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            EaseVoiceRecorderView recorderView = mWeakReference.get();
+            if (recorderView != null){
+                // change image
+                recorderView.micImage.setImageDrawable(recorderView.micImages[msg.what]);
+            }
+        }
+    }
 
     public EaseVoiceRecorderView(Context context) {
         super(context);

@@ -13,16 +13,6 @@
  */
 package com.hyphenate.easeui.widget.chatrow;
 
-import java.io.File;
-
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMMessage;
-import com.hyphenate.chat.EMMessage.ChatType;
-import com.hyphenate.chat.EMVoiceMessageBody;
-import com.hyphenate.easeui.R;
-import com.hyphenate.easeui.controller.EaseUI;
-import com.hyphenate.util.EMLog;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
@@ -33,6 +23,17 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMMessage.ChatType;
+import com.hyphenate.chat.EMVoiceMessageBody;
+import com.hyphenate.easeui.R;
+import com.hyphenate.easeui.controller.EaseUI;
+import com.hyphenate.util.EMLog;
+
+import java.io.File;
+import java.lang.ref.WeakReference;
 
 /**
  * 语音row播放点击事件监听
@@ -55,13 +56,23 @@ public class EaseChatRowVoicePlayClickListener implements View.OnClickListener {
 	public static EaseChatRowVoicePlayClickListener currentPlayListener = null;
 	public static String playMsgId;
 
-	public EaseChatRowVoicePlayClickListener(EMMessage message, ImageView v, ImageView iv_read_status, BaseAdapter adapter, Activity context) {
+
+	public EaseChatRowVoicePlayClickListener(EMMessage message, ImageView v,
+											 ImageView iv_read_status,
+											 BaseAdapter adapter,
+											 Activity context) {
+		WeakReference<Activity> activityWeakReference = new WeakReference<Activity>(context);
 		this.message = message;
 		voiceBody = (EMVoiceMessageBody) message.getBody();
 		this.iv_read_status = iv_read_status;
 		this.adapter = adapter;
 		voiceIconView = v;
-		this.activity = context;
+		Activity context1 = activityWeakReference.get();
+		if (context1 != null){
+			this.activity = context1;
+		}else{
+			this.activity = context;
+		}
 		this.chatType = message.getChatType();
 	}
 
@@ -140,6 +151,7 @@ public class EaseChatRowVoicePlayClickListener implements View.OnClickListener {
 	}
 
 	// show the voice playing animation
+	@SuppressWarnings("ResourceType")
 	private void showAnimation() {
 		// play voice, and start animation
 		if (message.direct() == EMMessage.Direct.RECEIVE) {

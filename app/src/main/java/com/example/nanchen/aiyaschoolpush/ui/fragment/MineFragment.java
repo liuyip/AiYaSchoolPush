@@ -204,7 +204,7 @@ public class MineFragment extends FragmentBase{
         mMenuMyBaby.setOnLinearLayoutListItemClickListener(new OnLinearLayoutListItemClickListener() {
             @Override
             public void onLinearLayoutListItemClick(Object object) {
-                showCrouton("你点击了我的宝贝");
+//                showCrouton("你点击了我的宝贝");
                 IntentUtil.newIntent(getActivity(), ChildInfoActivity.class);
             }
         });

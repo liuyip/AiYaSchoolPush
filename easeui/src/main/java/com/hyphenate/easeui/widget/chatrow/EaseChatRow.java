@@ -23,6 +23,7 @@ import com.hyphenate.easeui.widget.EaseChatMessageList;
 import com.hyphenate.easeui.widget.EaseChatMessageList.MessageListItemClickListener;
 import com.hyphenate.util.DateUtils;
 
+import java.lang.ref.WeakReference;
 import java.util.Date;
 
 public abstract class EaseChatRow extends LinearLayout {
@@ -55,7 +56,13 @@ public abstract class EaseChatRow extends LinearLayout {
     public EaseChatRow(Context context, EMMessage message, int position, BaseAdapter adapter) {
         super(context);
         this.context = context;
-        this.activity = (Activity) context;
+        WeakReference<Context> weakReference = new WeakReference<Context>(context);
+        Context context1 = weakReference.get();
+        if (context1 != null){
+            this.activity = (Activity) context1;
+        }else{
+            this.activity = (Activity)context;
+        }
         this.message = message;
         this.position = position;
         this.adapter = adapter;

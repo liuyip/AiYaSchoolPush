@@ -84,7 +84,11 @@ public class ActivityBase extends AppCompatActivity{
             mDialog.cancel();
             mDialog = null;
         }
+        if (inputMethodManager != null){
+            inputMethodManager = null;
+        }
     }
+
 
     @Override
     public boolean isDestroyed() {

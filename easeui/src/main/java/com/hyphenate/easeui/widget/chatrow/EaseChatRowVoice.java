@@ -1,17 +1,17 @@
 package com.hyphenate.easeui.widget.chatrow;
 
-import com.hyphenate.chat.EMFileMessageBody;
-import com.hyphenate.chat.EMMessage;
-import com.hyphenate.chat.EMVoiceMessageBody;
-import com.hyphenate.easeui.R;
-import com.hyphenate.util.EMLog;
-
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.hyphenate.chat.EMFileMessageBody;
+import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMVoiceMessageBody;
+import com.hyphenate.easeui.R;
+import com.hyphenate.util.EMLog;
 
 public class EaseChatRowVoice extends EaseChatRowFile{
 
@@ -36,6 +36,7 @@ public class EaseChatRowVoice extends EaseChatRowFile{
         readStatusView = (ImageView) findViewById(R.id.iv_unread_voice);
     }
 
+    @SuppressWarnings("ResourceType")
     @Override
     protected void onSetUpView() {
         EMVoiceMessageBody voiceBody = (EMVoiceMessageBody) message.getBody();

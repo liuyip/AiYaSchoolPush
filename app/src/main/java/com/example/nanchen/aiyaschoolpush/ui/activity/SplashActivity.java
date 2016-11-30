@@ -46,6 +46,10 @@ public class SplashActivity extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+//        ImageView imageView = (ImageView) findViewById(R.id.splash_image);
+//        imageView.setImageBitmap(BitmapUtil.decodeSampledBitmapFromResource(getResources(),R.drawable.splash_3,imageView.getWidth(),imageView.getHeight()));
+
         SharedPreferences sp = getSharedPreferences(GUIDE_FLAG,MODE_PRIVATE);
         isFirstIn = sp.getBoolean(IS_FIRST_IN,true);
         if (isFirstIn){
