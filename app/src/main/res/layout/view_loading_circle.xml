@@ -10,7 +10,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/hkcomm_progress_bg">
 
-        <com.example.nanchen.aiyaschoolpush.view.ProgressWheel
+        <com.example.nanchen.aiyaschoolpush.ui.view.ProgressWheel
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_centerVertical="true"

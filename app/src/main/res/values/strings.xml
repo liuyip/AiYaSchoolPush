@@ -356,4 +356,10 @@
     <string name="toast_updatephoto_success">更新头像成功!</string>
     <string name="toast_updatephoto_fail">更新头像失败!</string>
     <!--环信结束-->
+
+
+    <string-array name="release">
+        <item>相片</item>
+        <item>小视频</item>
+    </string-array>
 </resources>

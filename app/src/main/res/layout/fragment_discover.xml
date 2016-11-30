@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-        <com.example.nanchen.aiyaschoolpush.view.TitleView
+        <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/discover_titleBar"/>
@@ -15,13 +15,13 @@
             android:layout_height="200dp"
             android:id="@+id/discover_slider"/>
 
-        <com.example.nanchen.aiyaschoolpush.view.WavyLineView
+        <com.example.nanchen.aiyaschoolpush.ui.view.WavyLineView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorAccent"
             android:id="@+id/discover_wavyLine"/>
 
-        <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+        <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
             android:id="@+id/discover_item_weather"
             android:layout_width="match_parent"
             android:layout_height="44dp"

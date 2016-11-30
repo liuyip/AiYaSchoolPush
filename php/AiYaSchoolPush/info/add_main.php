@@ -1,4 +1,7 @@
 <?php
+header('content-type:text/html;charset=utf-8');
+
+
 require_once '../db.php';
 require_once '../format.php';
 require_once '../table.php';

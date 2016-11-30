@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.StrictMode;
 
-import com.example.nanchen.aiyaschoolpush.activity.ImageGridActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.ImageGridActivity;
 
 import java.util.Comparator;
 import java.util.List;

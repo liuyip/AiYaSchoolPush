@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/main_bg_color"
-    tools:context="com.example.nanchen.aiyaschoolpush.activity.NewFriendsMsgActivity">
+    tools:context="com.example.nanchen.aiyaschoolpush.ui.activity.NewFriendsMsgActivity">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_friends_titleBar"/>

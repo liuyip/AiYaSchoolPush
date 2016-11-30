@@ -23,7 +23,7 @@
             android:textColor="#fff"
             android:textSize="18sp" />
     </RelativeLayout>
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleBar"/>

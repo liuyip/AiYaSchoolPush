@@ -6,7 +6,7 @@
               android:background="@color/main_bg_color"
               android:orientation="vertical">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:id="@+id/mine_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -52,7 +52,7 @@
     </RelativeLayout>
 
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_revise_data"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -70,7 +70,7 @@
         app:text_right_fontcolor="@color/gray"
         app:text_right_fontsize="16"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_my_baby"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -89,7 +89,7 @@
         app:text_right_fontsize="16"/>
 
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_my_room"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -108,7 +108,7 @@
         app:text_right_fontcolor="@color/gray"
         app:text_right_fontsize="16"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_cloud_server"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -126,7 +126,7 @@
         app:text_right_fontcolor="@color/gray"
         app:text_right_fontsize="16"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_about"
         android:layout_width="match_parent"
         android:layout_height="44dp"

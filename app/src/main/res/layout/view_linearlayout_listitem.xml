@@ -8,7 +8,7 @@
               android:minHeight="50dp"
               android:orientation="vertical">
 
-    <com.example.nanchen.aiyaschoolpush.view.RippleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.RippleView
         android:id="@+id/mRV_Item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +43,7 @@
                 android:minHeight="50dp"
                 >
 
-                <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+                <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
                     android:id="@+id/mIv_LeftIconText"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -56,7 +56,7 @@
                     android:visibility="gone"
                     />
 
-                <com.example.nanchen.aiyaschoolpush.view.RoundImageView
+                <com.example.nanchen.aiyaschoolpush.ui.view.RoundImageView
                     android:id="@+id/mIv_LeftIcon"
                     style="@style/style_list_item_left_icon"
                     android:layout_alignParentLeft="true"
@@ -122,7 +122,7 @@
                     android:layout_marginRight="2dp"
                     android:layout_toLeftOf="@id/mView"/>
 
-                <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+                <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
                     android:id="@+id/mIv_RightIconText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                     android:visibility="gone"/>
 
 
-                <com.example.nanchen.aiyaschoolpush.view.RoundImageView
+                <com.example.nanchen.aiyaschoolpush.ui.view.RoundImageView
                     android:id="@+id/mIv_RightIcon2"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
@@ -237,6 +237,6 @@
                     android:background="@color/gray2"/>
             </LinearLayout>
         </LinearLayout>
-    </com.example.nanchen.aiyaschoolpush.view.RippleView>
+    </com.example.nanchen.aiyaschoolpush.ui.view.RippleView>
 
 </LinearLayout>

@@ -94,7 +94,7 @@
                     android:background="@mipmap/feed_more"/>
             </RelativeLayout>
 
-            <com.example.nanchen.aiyaschoolpush.view.ExpandListView
+            <com.example.nanchen.aiyaschoolpush.ui.view.ExpandListView
                 android:id="@+id/lv_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -199,7 +199,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+        <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"

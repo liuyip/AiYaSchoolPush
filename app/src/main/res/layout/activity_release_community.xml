@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.nanchen.aiyaschoolpush.activity.ReleaseCommunityActivity">
+    tools:context="com.example.nanchen.aiyaschoolpush.ui.activity.ReleaseCommunityActivity">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/release_community_title"/>

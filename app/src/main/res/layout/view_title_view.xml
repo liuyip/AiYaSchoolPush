@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="3dp" >
 
-            <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+            <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
                 android:id="@+id/titleview_left_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -75,7 +75,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp" >
 
-            <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+            <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
                 android:id="@+id/titleview_right_text"
                 style="@style/titleBarText"
                 android:layout_width="wrap_content"

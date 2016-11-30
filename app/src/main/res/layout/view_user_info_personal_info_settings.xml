@@ -22,7 +22,7 @@
             android:background="@drawable/grey6"/>
     </LinearLayout>
 
-    <com.example.nanchen.aiyaschoolpush.view.RippleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.RippleView
         android:id="@+id/mRV_Item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +30,7 @@
         widget:rv_type="simpleRipple"
         widget:rv_zoom="false">
 
-        <com.example.nanchen.aiyaschoolpush.view.RoundImageView
+        <com.example.nanchen.aiyaschoolpush.ui.view.RoundImageView
             android:id="@+id/mRIV_HeadImage"
             android:layout_width="86dp"
             android:layout_height="86dp"
@@ -61,7 +61,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="12dp"
             android:background="@mipmap/ic_arrow_right_16x26"/>
-    </com.example.nanchen.aiyaschoolpush.view.RippleView>
+    </com.example.nanchen.aiyaschoolpush.ui.view.RippleView>
 
     <LinearLayout
         android:id="@+id/mLL_BottomLine_Container"

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\nanchen\AiYaSchoolPush\SmallVideoLib\src\main\jniLibs"><file name="armeabi-v7a/libutility.so" path="F:\nanchen\AiYaSchoolPush\SmallVideoLib\src\main\jniLibs\armeabi-v7a\libutility.so"/></source></dataSet><dataSet config="release"><source path="F:\nanchen\AiYaSchoolPush\SmallVideoLib\src\release\jniLibs"/></dataSet></merger>

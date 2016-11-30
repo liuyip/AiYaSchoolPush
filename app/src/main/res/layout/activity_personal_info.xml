@@ -8,14 +8,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/main_bg_color"
-    tools:context="com.example.nanchen.aiyaschoolpush.activity.PersonalInfoActivity">
+    tools:context="com.example.nanchen.aiyaschoolpush.ui.activity.PersonalInfoActivity">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/personal_info_title"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.UserInfoView
+    <com.example.nanchen.aiyaschoolpush.ui.view.UserInfoView
         android:id="@+id/personal_info_image"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         widget:text_user_name="我的头像"
         widget:user_info_view_model="model_personal_info_settings"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/personal_info_name"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -45,7 +45,7 @@
         widget:text_right_fontcolor="@color/gray3"
         widget:text_right_fontsize="18"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/personal_info_address"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -65,7 +65,7 @@
         widget:text_right_fontcolor="@color/gray3"
         widget:text_right_fontsize="18"/>
 
-    <com.example.nanchen.aiyaschoolpush.view.LinearLayoutListItemView
+    <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/personal_info_pwd"
         android:layout_width="match_parent"
         android:layout_height="60dp"

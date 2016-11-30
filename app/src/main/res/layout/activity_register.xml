@@ -7,7 +7,7 @@
     android:background="#f1f1f1"
     android:orientation="vertical">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:id="@+id/register_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

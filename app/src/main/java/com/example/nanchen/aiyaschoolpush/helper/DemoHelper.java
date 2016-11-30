@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.activity.ChatActivity;
-import com.example.nanchen.aiyaschoolpush.activity.MainActivity;
-import com.example.nanchen.aiyaschoolpush.activity.VideoCallActivity;
-import com.example.nanchen.aiyaschoolpush.activity.VoiceCallActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.ChatActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.MainActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.VideoCallActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.VoiceCallActivity;
 import com.example.nanchen.aiyaschoolpush.db.DemoDBManager;
 import com.example.nanchen.aiyaschoolpush.db.InviteMessgeDao;
 import com.example.nanchen.aiyaschoolpush.db.UserDao;

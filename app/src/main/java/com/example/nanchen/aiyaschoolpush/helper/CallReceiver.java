@@ -18,8 +18,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.nanchen.aiyaschoolpush.activity.VideoCallActivity;
-import com.example.nanchen.aiyaschoolpush.activity.VoiceCallActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.VideoCallActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.VoiceCallActivity;
 import com.hyphenate.util.EMLog;
 
 public class CallReceiver extends BroadcastReceiver{

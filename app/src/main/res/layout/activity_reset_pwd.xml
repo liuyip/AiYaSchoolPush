@@ -5,12 +5,12 @@
               android:background="@color/white2"
               android:orientation="vertical">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:id="@+id/reset_pwd_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.nanchen.aiyaschoolpush.view.IcomoonTextView
+        <com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView
             android:tag="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:text="@string/icon_text_ok"
             android:id="@+id/reset_pwd_title_commit"/>
 
-    </com.example.nanchen.aiyaschoolpush.view.TitleView>
+    </com.example.nanchen.aiyaschoolpush.ui.view.TitleView>
 
     <LinearLayout
         android:id="@+id/mLL_Mobile"

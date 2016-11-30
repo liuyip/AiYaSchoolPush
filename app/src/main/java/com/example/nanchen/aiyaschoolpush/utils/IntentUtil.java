@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.example.nanchen.aiyaschoolpush.activity.PlayVideoActivity;
+import com.example.nanchen.aiyaschoolpush.ui.activity.PlayVideoActivity;
 
 import java.io.Serializable;
 import java.util.HashMap;

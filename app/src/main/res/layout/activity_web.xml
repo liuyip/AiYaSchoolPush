@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.example.nanchen.aiyaschoolpush.activity.WebActivity">
+    tools:context="com.example.nanchen.aiyaschoolpush.ui.activity.WebActivity">
 
-    <com.example.nanchen.aiyaschoolpush.view.TitleView
+    <com.example.nanchen.aiyaschoolpush.ui.view.TitleView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/web_titleBar"/>

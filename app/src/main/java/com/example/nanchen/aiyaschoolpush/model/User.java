@@ -48,10 +48,12 @@ public class User implements IJsonModel,Serializable{
     /**
      * 孩子名字
      */
+    @SerializedName("child_name")
     public String childName;
     /**
      * 孩子头像地址
      */
+    @SerializedName("child_avatar")
     public String childAvatar;
 
     @Override
