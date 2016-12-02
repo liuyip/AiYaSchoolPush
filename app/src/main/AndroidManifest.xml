@@ -471,6 +471,14 @@
             </intent-filter>
         </receiver>
 
+        <service android:name=".net.NetworkStateService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.text.service.NetworkStateService" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

@@ -29,32 +29,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nanchen.aiyaschoolpush.App;
+import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
+import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
+import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
+import com.example.nanchen.aiyaschoolpush.helper.event.UpdateUserEvent;
+import com.example.nanchen.aiyaschoolpush.helper.receiver.AvatarReceiver;
+import com.example.nanchen.aiyaschoolpush.helper.receiver.AvatarReceiver.AvatarCallback;
+import com.example.nanchen.aiyaschoolpush.model.User;
+import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
+import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
 import com.example.nanchen.aiyaschoolpush.ui.activity.AboutActivity;
 import com.example.nanchen.aiyaschoolpush.ui.activity.ActivityBase;
 import com.example.nanchen.aiyaschoolpush.ui.activity.ChildInfoActivity;
 import com.example.nanchen.aiyaschoolpush.ui.activity.LoginActivity;
 import com.example.nanchen.aiyaschoolpush.ui.activity.MainActivity;
 import com.example.nanchen.aiyaschoolpush.ui.activity.PersonalInfoActivity;
-import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
-import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
-import com.example.nanchen.aiyaschoolpush.AppService;
-import com.example.nanchen.aiyaschoolpush.config.Consts;
-import com.example.nanchen.aiyaschoolpush.helper.event.UpdateUserEvent;
-import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
-import com.example.nanchen.aiyaschoolpush.model.User;
-import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
-import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
-import com.example.nanchen.aiyaschoolpush.helper.receiver.AvatarReceiver;
-import com.example.nanchen.aiyaschoolpush.helper.receiver.AvatarReceiver.AvatarCallback;
-import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
-import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView;
 import com.example.nanchen.aiyaschoolpush.ui.view.OnLinearLayoutListItemClickListener;
 import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog;
 import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog.SelectDialogListener;
 import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
+import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
+import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 import com.hyphenate.EMCallBack;
 import com.qiyukf.unicorn.api.ConsultSource;
 import com.qiyukf.unicorn.api.Unicorn;
@@ -264,14 +264,15 @@ public class MineFragment extends FragmentBase{
                     public void run() {
 //                        stopLoading();
                         // show login screen
-                        startActivity(new Intent(getActivity(), LoginActivity.class));
-                        ((MainActivity) getActivity()).finish();
 
                         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user.temp",MODE_PRIVATE);
                         String classid = sharedPreferences.getString("classid","");
                         Log.e(TAG,classid);
                         MiPushClient.subscribe(App.getAppContext(),classid,null);//设置订阅标签为classid
                         MiPushClient.unsetAlias(App.getAppContext(),classid,null);//退出登录后取消接收classid
+
+                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                        getActivity().finish();
                     }
                 });
             }
@@ -296,7 +297,6 @@ public class MineFragment extends FragmentBase{
         });
 
 
-        updateUserInfo();
     }
 
 
@@ -527,12 +527,12 @@ public class MineFragment extends FragmentBase{
     private void updateAvatarUrl() {
         final User user = AppService.getInstance().getCurrentUser();
         if (TextUtils.isEmpty(user.icon)){ // 如果当前头像地址为null,所以数据库还未存有,则把此url插入到数据库中
-            final String iconUrl = Consts.API_SERVICE_HOST+"/user/avatar/"+user.username+".png";
+            final String iconUrl = "/user/avatar/"+user.username+".png";
             AppService.getInstance().updateAvatarUrlAsync(user.username, iconUrl, 0, new JsonCallback<LslResponse<User>>() {
                 @Override
                 public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
                     UIUtil.showToast(userLslResponse.msg);
-                    user.icon = iconUrl;
+                    user.icon = Consts.API_SERVICE_HOST+iconUrl;
                     AppService.getInstance().setCurrentUser(user);
                     ((MainActivity)getActivity()).stopLoading();
                 }

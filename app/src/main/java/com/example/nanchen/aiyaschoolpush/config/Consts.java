@@ -12,7 +12,9 @@ package com.example.nanchen.aiyaschoolpush.config;
 
 public final class Consts {
     /**
-     * API接口主机名
+     * 内网API接口主机名
      */
-    public final static String API_SERVICE_HOST = "http://10.1.1.119:80/AiYaSchoolPush";
+//    public final static String API_SERVICE_HOST = "http://10.1.1.119:80/AiYaSchoolPush";
+    public final static String API_SERVICE_HOST = "http://azhinj.ticp.io:10277/AiYaSchoolPush";
+
 }

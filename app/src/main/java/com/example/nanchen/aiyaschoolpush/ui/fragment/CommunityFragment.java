@@ -17,6 +17,7 @@ import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonRecyclerHolder;
 import com.example.nanchen.aiyaschoolpush.config.AddConfig;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.helper.event.CommunityEvent;
 import com.example.nanchen.aiyaschoolpush.model.PraiseModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
@@ -144,7 +145,7 @@ public class CommunityFragment extends FragmentBase {
                     holder.setImageResource(R.id.notice_item_avatar, R.drawable.default_avatar);
                 } else {
                     Log.e(TAG, item.user.avatar);
-                    holder.setImageByUrl(R.id.notice_item_avatar, item.user.avatar);
+                    holder.setImageByUrl(R.id.notice_item_avatar, Consts.API_SERVICE_HOST+item.user.avatar);
                 }
 
                 holder.setText(R.id.notice_item_name, item.user.nickname);

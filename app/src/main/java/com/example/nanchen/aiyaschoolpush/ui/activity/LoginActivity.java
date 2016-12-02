@@ -15,17 +15,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.nanchen.aiyaschoolpush.App;
-import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.AppService;
+import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.db.DemoDBManager;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.example.nanchen.aiyaschoolpush.model.User;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView;
 import com.example.nanchen.aiyaschoolpush.utils.IntentUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
@@ -47,9 +48,11 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
     private SharedPreferences sp;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         sp = getSharedPreferences("user.temp",MODE_PRIVATE);
         if (DemoHelper.getInstance().isLoggedIn()) {
             autoLogin = true;
@@ -122,7 +125,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
                 login();
                 break;
             case R.id.linear_layout_btn_register:
-                IntentUtil.newIntent(this, RegisterActivity2.class);
+                IntentUtil.newIntent(this, RegisterActivity.class);
                 break;
             case R.id.login_find_pwd:
 //                UIUtil.showToast(this,"你点击了找回密码！");
@@ -178,8 +181,14 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
         Log.e(TAG,"type："+data.type);
         Log.e(TAG,"classid："+data.classid);
         Log.e(TAG,"address："+data.address);
-        Log.e(TAG,"avatar："+data.icon);
         Log.e(TAG,"childName："+data.childName);
+        if (!TextUtils.isEmpty(data.icon)){
+            data.icon = Consts.API_SERVICE_HOST+data.icon;
+        }
+        Log.e(TAG,"avatar："+ data.icon);
+        if (!TextUtils.isEmpty(data.childAvatar)){
+            data.childAvatar = Consts.API_SERVICE_HOST+data.childAvatar;
+        }
         Log.e(TAG,"childAvatar："+data.childAvatar);
 
         AppService.getInstance().setCurrentUser(data);

@@ -400,9 +400,16 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
 
         private int tag;
         private RegisterActivity activity;
+        private WeakReference<RegisterActivity> mWeakReference;
 
-        public MyTextWatcher(RegisterActivity activity,int tag){
-            this.activity = activity;
+        MyTextWatcher(RegisterActivity activity, int tag){
+            mWeakReference = new WeakReference<RegisterActivity>(activity);
+            RegisterActivity activity1 = mWeakReference.get();
+            if (activity1 != null){
+                this.activity = activity1;
+            }else{
+                this.activity = activity;
+            }
             this.tag = tag;
         }
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.helper.event.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.ui.activity.LookDetailActivity;
@@ -139,7 +140,7 @@ public class NoticeFragment extends FragmentBase {
                     holder.setImageResource(R.id.notice_item_avatar, R.drawable.default_avatar);
                 } else {
                     Log.e(TAG, item.user.avatar);
-                    holder.setImageByUrl(R.id.notice_item_avatar, item.user.avatar);
+                    holder.setImageByUrl(R.id.notice_item_avatar, Consts.API_SERVICE_HOST+item.user.avatar);
                 }
                 holder.setText(R.id.notice_item_name, item.user.nickname);
                 holder.setText(R.id.notice_item_time, TimeUtils.longToDateTime(item.time));
@@ -157,8 +158,8 @@ public class NoticeFragment extends FragmentBase {
                 if (picModels != null && picModels.size() != 0){
                     for (PicModel picModel:picModels) {
                         ImageInfo imageInfo = new ImageInfo();
-                        imageInfo.setThumbnailUrl(picModel.imageUrl);
-                        imageInfo.setBigImageUrl(picModel.imageUrl);
+                        imageInfo.setThumbnailUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
+                        imageInfo.setBigImageUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
                         imageInfoList.add(imageInfo);
                     }
                 }

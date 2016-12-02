@@ -456,12 +456,12 @@ public class ChildInfoActivity extends ActivityBase {
     private void updateAvatarUrl() {
         final User user = AppService.getInstance().getCurrentUser();
         if (TextUtils.isEmpty(user.childAvatar)) { // 如果当前头像地址为null,所以数据库还未存有,则把此url插入到数据库中
-            final String iconUrl = Consts.API_SERVICE_HOST + "/user/avatar/" + user.username + "_child.png";
+            final String iconUrl = "/user/avatar/" + user.username + "_child.png";
             AppService.getInstance().updateAvatarUrlAsync(user.username, iconUrl, 1, new JsonCallback<LslResponse<User>>() {
                 @Override
                 public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
                     UIUtil.showToast(userLslResponse.msg);
-                    user.childAvatar = iconUrl;
+                    user.childAvatar = Consts.API_SERVICE_HOST+iconUrl;
                     AppService.getInstance().setCurrentUser(user);
                     stopLoading();
                 }

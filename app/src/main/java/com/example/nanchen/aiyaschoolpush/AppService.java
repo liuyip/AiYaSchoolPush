@@ -251,7 +251,7 @@ public class AppService {
         postParams.put("content",content);
         postParams.put("picCount",picUrls.size()+"");
         for (int i = 0; i < picUrls.size(); i++) {
-            postParams.put("picUrl"+i,Consts.API_SERVICE_HOST+"/info/pic/"+picUrls.get(i));
+            postParams.put("picUrl"+i,"/info/pic/"+picUrls.get(i));
         }
         OkGo.post(url).params(postParams).execute(callback);
     }

@@ -25,22 +25,23 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.CropOption;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
-import com.example.nanchen.aiyaschoolpush.AppService;
-import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.model.User;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog;
+import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog.SelectDialogListener;
+import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
 import com.example.nanchen.aiyaschoolpush.utils.SoftInputMethodUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog;
-import com.example.nanchen.aiyaschoolpush.ui.view.SelectDialog.SelectDialogListener;
-import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.philliphsu.bottomsheetpickers.date.BottomSheetDatePickerDialog;
 import com.philliphsu.bottomsheetpickers.date.DatePickerDialog;
 import com.philliphsu.bottomsheetpickers.date.DatePickerDialog.OnDateSetListener;
@@ -87,7 +88,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
         Intent intent = getIntent();
         phone = intent.getStringExtra("phone");
 
-        phone = "18482193101";
+//        phone = "18482193101";
         if (TextUtils.isEmpty(phone)) {
             finish();
         }
@@ -353,7 +354,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {
                     UIUtil.showToast("头像设置成功");
 //                    updateAvatarUrl();
-                    avatarUrl = Consts.API_SERVICE_HOST + "/user/avatar/" + phone + ".png";
+                    avatarUrl = "/user/avatar/" + phone + ".png";
                     stopLoading();
                 } else {
                     UIUtil.showToast("头像上传失败：" + userLslResponse.msg);
@@ -423,6 +424,13 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
 //        UIUtil.showToast(this,"正在尝试注册！");
         // 此处开始注册
         showLoading(this);
+        //注册失败会抛出HyphenateException
+        try {
+            EMClient.getInstance().createAccount(phone, pwd1);//同步方法
+        } catch (HyphenateException e) {
+            e.printStackTrace();
+        }
+
         AppService.getInstance().registerAsync(phone, pwd1, name, longDate, avatarUrl, new JsonCallback<LslResponse<User>>() {
             @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
