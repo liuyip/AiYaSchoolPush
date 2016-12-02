@@ -17,23 +17,24 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.adapter.CommonAdapter;
 import com.example.nanchen.aiyaschoolpush.adapter.ViewHolder;
-import com.example.nanchen.aiyaschoolpush.AppService;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.model.User;
 import com.example.nanchen.aiyaschoolpush.model.info.CommentInfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.UserModel;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView;
+import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
+import com.example.nanchen.aiyaschoolpush.ui.view.WavyLineView;
 import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
 import com.example.nanchen.aiyaschoolpush.utils.SoftInputMethodUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.example.nanchen.aiyaschoolpush.ui.view.IcomoonTextView;
-import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
-import com.example.nanchen.aiyaschoolpush.ui.view.WavyLineView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -126,7 +127,7 @@ public class LookDetailActivity extends ActivityBase {
                 if (TextUtils.isEmpty(item.commentUser.avatar)) {
                     holder.setImageDrawable(R.id.comment_image, getResources().getDrawable(R.drawable.default_avatar));
                 } else {
-                    holder.setImageByUrl(R.id.comment_image, item.commentUser.avatar);
+                    holder.setImageByUrl(R.id.comment_image, Consts.API_SERVICE_HOST+item.commentUser.avatar);
                 }
                 holder.setText(R.id.comment_name, item.commentUser.nickname);
                 holder.setText(R.id.comment_time, TimeUtils.longToDateTime(item.time));
@@ -211,7 +212,7 @@ public class LookDetailActivity extends ActivityBase {
         if (TextUtils.isEmpty(mInfoModel.user.avatar)) {
             Picasso.with(this).load(R.drawable.default_avatar).into(avatar);
         } else {
-            Picasso.with(this).load(mInfoModel.user.avatar).into(avatar);
+            Picasso.with(this).load(Consts.API_SERVICE_HOST+mInfoModel.user.avatar).into(avatar);
         }
         tv_name.setText(mInfoModel.user.nickname);
         tv_time.setText(TimeUtils.longToDateTime(mInfoModel.time));
@@ -278,7 +279,8 @@ public class LookDetailActivity extends ActivityBase {
                                 CommentInfoModel commentInfoModel = new CommentInfoModel();
                                 User user = AppService.getInstance().getCurrentUser();
                                 UserModel userModel = new UserModel();
-                                userModel.avatar = user.icon;
+                                int len = Consts.API_SERVICE_HOST.length();
+                                userModel.avatar = user.icon.substring(len);
                                 userModel.nickname = user.nickname;
                                 commentInfoModel.commentUser = userModel;
                                 commentInfoModel.time = System.currentTimeMillis()/1000;
