@@ -107,7 +107,7 @@ public class MainActivity extends ActivityBase {
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         Log.e(TAG, "onStart");
         super.onStart();
         if (!EventBus.getDefault().isRegistered(this)) {

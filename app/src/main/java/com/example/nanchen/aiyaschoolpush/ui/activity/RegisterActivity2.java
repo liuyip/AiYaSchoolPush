@@ -40,8 +40,6 @@ import com.example.nanchen.aiyaschoolpush.utils.SoftInputMethodUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TextUtil;
 import com.example.nanchen.aiyaschoolpush.utils.TimeUtils;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
 import com.philliphsu.bottomsheetpickers.date.BottomSheetDatePickerDialog;
 import com.philliphsu.bottomsheetpickers.date.DatePickerDialog;
 import com.philliphsu.bottomsheetpickers.date.DatePickerDialog.OnDateSetListener;
@@ -88,7 +86,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
         Intent intent = getIntent();
         phone = intent.getStringExtra("phone");
 
-//        phone = "18482193101";
+//        phone = "15600000924";
         if (TextUtils.isEmpty(phone)) {
             finish();
         }
@@ -378,7 +376,7 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
                 if (userLslResponse.code == LslResponse.RESPONSE_OK){
                     UIUtil.showToast("注册成功！");
                 }else{
-                    UIUtil.showToast("注册成功！但头像设置失败，可进到app中进行设置!");
+                    UIUtil.showToast("注册成功！但没有设置头像，可进到app中进行设置!");
                 }
                 stopLoading();
                 RegisterActivity2.this.finish();
@@ -424,12 +422,6 @@ public class RegisterActivity2 extends ActivityBase implements OnClickListener, 
 //        UIUtil.showToast(this,"正在尝试注册！");
         // 此处开始注册
         showLoading(this);
-        //注册失败会抛出HyphenateException
-        try {
-            EMClient.getInstance().createAccount(phone, pwd1);//同步方法
-        } catch (HyphenateException e) {
-            e.printStackTrace();
-        }
 
         AppService.getInstance().registerAsync(phone, pwd1, name, longDate, avatarUrl, new JsonCallback<LslResponse<User>>() {
             @Override

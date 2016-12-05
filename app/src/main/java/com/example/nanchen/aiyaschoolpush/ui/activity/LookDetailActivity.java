@@ -280,7 +280,10 @@ public class LookDetailActivity extends ActivityBase {
                                 User user = AppService.getInstance().getCurrentUser();
                                 UserModel userModel = new UserModel();
                                 int len = Consts.API_SERVICE_HOST.length();
-                                userModel.avatar = user.icon.substring(len);
+                                Log.e(TAG,"API长度:"+len+"");
+                                if (user.icon.length()>len){
+                                    userModel.avatar = user.icon.substring(len);
+                                }
                                 userModel.nickname = user.nickname;
                                 commentInfoModel.commentUser = userModel;
                                 commentInfoModel.time = System.currentTimeMillis()/1000;

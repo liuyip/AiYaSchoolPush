@@ -16,10 +16,8 @@ mysqli_set_charset($link, "utf8");
 @$username = $_POST ['username'];
 @$password = $_POST ['password'];
 
-// $username = '15680802251';
-// $password = '123456';
 
-$sql = "select * from " . TABLE_USER . " where username = " . $username . " and password = " . $password;
+$sql = "select * from " . TABLE_USER . " where username = '" . $username . "' and password = '" . $password."'";
 
 $result = mysqli_query ( $link, $sql );
 

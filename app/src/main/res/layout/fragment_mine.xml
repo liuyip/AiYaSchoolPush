@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -55,8 +56,8 @@
     <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_revise_data"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         app:icon_lefttext="@string/mine_data"
         app:list_item_bottom_line_height_size="1"
         app:list_item_bottom_line_width_size="0"
@@ -73,8 +74,8 @@
     <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_my_baby"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         app:icon_lefttext="@string/mine_my_baby"
         app:list_item_bottom_line_height_size="1"
         app:list_item_bottom_line_width_size="0"
@@ -92,7 +93,7 @@
     <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_my_room"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginTop="2dp"
         android:visibility="gone"
         app:icon_lefttext="@string/mine_my_room"
@@ -111,7 +112,7 @@
     <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_cloud_server"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginTop="2dp"
         app:icon_lefttext="@string/mine_server"
         app:list_item_bottom_line_height_size="1"
@@ -129,8 +130,8 @@
     <com.example.nanchen.aiyaschoolpush.ui.view.LinearLayoutListItemView
         android:id="@+id/mine_about"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         app:icon_lefttext="@string/mine_about"
         app:list_item_bottom_line_height_size="1"
         app:list_item_bottom_line_width_size="0"
@@ -148,14 +149,13 @@
     <Button
         android:id="@+id/mine_exit_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="44dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/exit_btn_new"
         android:text="退出登录"
         android:textColor="@android:color/white"
         android:textSize="20sp"/>
-
 
 </LinearLayout>

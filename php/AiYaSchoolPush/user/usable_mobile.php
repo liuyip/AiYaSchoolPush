@@ -21,7 +21,7 @@ if ($link->errno != 0){ // 数据库连接失败
 }
 
 // sql语句  select * from aiya_user where username = $mobile
-$query = "select * from ".TABLE_USER." where username = ".$mobile;
+$query = "select * from ".TABLE_USER." where username = '".$mobile."'";
 // echo $query;
 // echo '<br/>';
 

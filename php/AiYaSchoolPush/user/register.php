@@ -2,6 +2,7 @@
 require_once '../db.php';
 require_once '../format.php';
 require_once '../table.php';
+require_once '../emchat-server-php/easemobtest.php';
 file_get_contents("php://input");
 
 $link = DataBaseUtil::getInstance()->connect();
@@ -19,6 +20,22 @@ mysqli_set_charset($link, "utf8");
 @$birthday = $_POST['birthday'] ? $_POST['birthday']:null;
 @$avatar = $_POST['avatar'] ? $_POST['avatar']:null;
 
+// $username = '1201';
+// $password = '123';
+// $nickname = '哈哈';
+// $birthday = time();
+
+
+$result = createUser($username, $password);
+
+// 如果注册出现了错误
+if (array_key_exists('error', $result)){
+	Response::json_response(-1,"注册IM失败".$result['error'],$result);
+	exit();
+}
+
+// 注册环信成功
+
 $sql = "insert into ".TABLE_USER." 
 		(username,password,nickname,birthday,avatar) values ('"
 		.$username."','".$password."','".$nickname."','".$birthday."','".$avatar."')";
@@ -34,6 +51,7 @@ mysqli_query($link, $sql);
 $num = $link->affected_rows;
 
 // echo $num;
+
 
 if ($num == 1){
 	Response::json_response(0,"注册成功！",null);	

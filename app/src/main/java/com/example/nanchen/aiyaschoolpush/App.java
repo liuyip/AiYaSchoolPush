@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.util.Log;

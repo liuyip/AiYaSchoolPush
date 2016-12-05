@@ -17,7 +17,7 @@ $time = time ();
 @$mainId = $_GET ['mainId'];
 @$username = $_GET ['username'];
 
-$query = "select * from " . TABLE_PRAISE . " where username = " . $username . " and mainid = " . $mainId;
+$query = "select * from " . TABLE_PRAISE . " where username = '".$username."' and mainid = " . $mainId;
 $result = mysqli_query ( $link, $query );
 $num = mysqli_affected_rows ( $link );
 
@@ -25,7 +25,7 @@ if ($num == 0) {
 	$query = "insert into " . TABLE_PRAISE . " (mainid,username) values('" . $mainId . "','" . $username . "')";
 	$isInsert = true;
 } else {
-	$query = "delete from " . TABLE_PRAISE . " where mainid = " . $mainId . " and username = " . $username;
+	$query = "delete from " . TABLE_PRAISE . " where mainid = " . $mainId . " and username = '".$username."'";
 	$isInsert = false;
 }
 

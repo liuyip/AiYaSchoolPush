@@ -21,7 +21,7 @@ mysqli_set_charset($link, "utf8");
 
 switch ($type){
 	case 0:// 设置自己的头像
-		$query = "update ".TABLE_USER." set avatar = '".$avatar."' where username = ".$username;
+		$query = "update ".TABLE_USER." set avatar = '".$avatar."' where username = '".$username."'";
 		mysqli_query($link, $query);
 		$num = mysqli_affected_rows($link);
 // 		echo $query.'<br/>'.$num;
@@ -32,7 +32,7 @@ switch ($type){
 		}
 		break;
 	case 1:// 设置孩子的头像
-		$query = "update ".TABLE_USER." set child_avatar = '".$avatar."' where username = ".$username;
+		$query = "update ".TABLE_USER." set child_avatar = '".$avatar."' where username = '".$username."'";
 		mysqli_query($link, $query);
 		
 		$num = mysqli_affected_rows($link);

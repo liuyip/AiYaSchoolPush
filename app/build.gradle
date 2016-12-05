@@ -34,15 +34,14 @@ android {
         }
     }
 
-    productFlavors {
-        android.applicationVariants.all { variant ->
-            variant.outputs.each { output ->
-                output.outputFile = new File("AiYa-SchoolPush" + "-v" +
-                        defaultConfig.versionName + ".apk");
-            }
-        }
-
-    }
+//    productFlavors {
+//        android.applicationVariants.all { variant ->
+//            variant.outputs.each { output ->
+//                output.outputFile = new File("AiYa-SchoolPush" + "-v" +
+//                        defaultConfig.versionName + ".apk");
+//            }
+//        }
+//    }
 
     // 移除lint检查的error
     lintOptions {
@@ -153,7 +152,6 @@ dependencies {
 
     // 圆形image
     compile 'de.hdodenhof:circleimageview:2.1.0'
-    compile project(':easeui')
     compile 'org.greenrobot:eventbus:3.0.0'
     // 九宫格图片展示和仿微信图片选择
     compile 'com.lzy.widget:ninegridview:0.2.0'
@@ -163,6 +161,7 @@ dependencies {
     // material dialog
     compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
+    compile project(':easeUI_CN')
 }
 repositories {
     maven {

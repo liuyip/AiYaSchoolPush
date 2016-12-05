@@ -15,7 +15,7 @@ mysqli_set_charset($link, "utf8");
 @$value = $_GET['value'];
 @$username = $_GET['username'];
 
-$query = "update ".TABLE_USER." set ".$action." = '".$value."' where username = ".$username;
+$query = "update ".TABLE_USER." set ".$action." = '".$value."' where username = '".$username."'";
 $result = mysqli_query($link, $query);
 $num = mysqli_affected_rows($link);
 

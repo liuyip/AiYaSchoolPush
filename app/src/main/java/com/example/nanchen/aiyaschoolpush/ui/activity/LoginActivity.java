@@ -126,6 +126,10 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
                 break;
             case R.id.linear_layout_btn_register:
                 IntentUtil.newIntent(this, RegisterActivity.class);
+//                String phone1 = mEditUserName.getText().toString().trim();
+//                Intent intent1 = new Intent(this,RegisterActivity2.class);
+//                intent1.putExtra("phone",phone1);
+//                startActivity(intent1);
                 break;
             case R.id.login_find_pwd:
 //                UIUtil.showToast(this,"你点击了找回密码！");
@@ -146,6 +150,8 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
         final String currentUsername = mEditUserName.getText().toString().trim();
         final String currentPassword = mEditPwd.getText().toString().trim();
 
+        Log.e(TAG,"得到的用户名和密码："+currentUsername+" ---  "+currentPassword);
+
         if (TextUtils.isEmpty(currentUsername)) {
             UIUtil.showToast("用户名不能为空!");
             return;
@@ -163,6 +169,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
                     stopLoading();
                 }else{
                     setUserInfo(userLslResponse.data);
+                    Log.e(TAG,"登陆爱吖服务器成功！");
                     loginXin(currentUsername,currentPassword);
                 }
             }
@@ -260,7 +267,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
                     @Override
                     public void run() {
                         stopLoading();
-                        UIUtil.showToast("登陆失败:"+message+",code:"+code);
+                        UIUtil.showToast("登陆IM失败:"+message+",code:"+code);
                     }
                 });
             }
