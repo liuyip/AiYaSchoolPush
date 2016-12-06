@@ -36,6 +36,6 @@
     [博客园](http://www.cnblogs.com/liushilin/)
     
 ##你也可以请我喝杯咖啡
-               **支付宝扫一扫 向我付款**<br>               **你也可以微信 向我付款**<br>
+               **支付宝扫一扫 向我付款**<br>                 **你也可以微信 向我付款**<br>
    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png) 
    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/wxpay.png)
