@@ -35,6 +35,7 @@ import com.hyphenate.media.EMOppositeSurfaceView;
 import com.hyphenate.util.EMLog;
 import com.superrtc.sdk.VideoView;
 
+import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -76,7 +77,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
     private BrightnessDataProcess dataProcessor = new BrightnessDataProcess();
 
     // dynamic adjust brightness
-    class BrightnessDataProcess implements EMCameraDataProcessor {
+    private static class BrightnessDataProcess implements EMCameraDataProcessor {
         byte yDelta = 0;
         synchronized void setYDelta(byte yDelta) {
             Log.d("VideoCallActivity", "brigntness uDelta:" + yDelta);
@@ -150,7 +151,7 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
         switchCameraBtn.setOnClickListener(this);
         captureImageBtn.setOnClickListener(this);
 
-        YDeltaSeekBar.setOnSeekBarChangeListener(new YDeltaSeekBarListener());
+        YDeltaSeekBar.setOnSeekBarChangeListener(new YDeltaSeekBarListener(this));
 
         msgid = UUID.randomUUID().toString();
         isInComingCall = getIntent().getBooleanExtra("isComingCall", false);
@@ -215,11 +216,22 @@ public class VideoCallActivity extends CallActivity implements OnClickListener {
         EMClient.getInstance().callManager().setCameraDataProcessor(dataProcessor);
     }
 
-    class YDeltaSeekBarListener implements SeekBar.OnSeekBarChangeListener {
+    private static class YDeltaSeekBarListener implements SeekBar.OnSeekBarChangeListener {
+        private WeakReference<VideoCallActivity> mWeakReference;
+        private VideoCallActivity mActivity;
+
+        public YDeltaSeekBarListener(VideoCallActivity activity){
+            mWeakReference = new WeakReference<VideoCallActivity>(activity);
+            if (mWeakReference.get() != null){
+                mActivity = mWeakReference.get();
+            }else{
+                mActivity = activity;
+            }
+        }
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            dataProcessor.setYDelta((byte)(20.0f * (progress - 50) / 50.0f));
+            mActivity.dataProcessor.setYDelta((byte)(20.0f * (progress - 50) / 50.0f));
         }
 
         @Override

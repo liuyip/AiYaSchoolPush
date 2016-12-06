@@ -65,7 +65,7 @@ if ($i == 0){
  */
 function getPraiseInfo($username,$mainId){
 	$link = DataBaseUtil::getInstance()->connect();
-	$query = "select * from " . TABLE_PRAISE . " where username = " . $username . " and mainid = " . $mainId;
+	$query = "select * from " . TABLE_PRAISE . " where username = '".$username. "' and mainid = " . $mainId;
 	mysqli_query($link, $query);
 	$num = mysqli_affected_rows($link);
 	if ($num == 0){
@@ -112,7 +112,7 @@ function getCommentInfo($mainid = ''){
 function getUser($username = ''){
 	$link = DataBaseUtil::getInstance()->connect();
 	mysqli_set_charset($link, "utf8"); // 设置编码为utf8
-	$query = "select * from ".TABLE_USER." where username = ".$username;
+	$query = "select * from ".TABLE_USER." where username = '".$username."'";
 	$result = mysqli_query($link, $query);
 	@$row = mysqli_fetch_array($result);
 	if ($row){

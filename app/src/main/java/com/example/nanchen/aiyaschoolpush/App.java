@@ -8,6 +8,7 @@ import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.lzy.imagepicker.ImagePicker;
@@ -85,6 +86,9 @@ public class App extends Application {
         // NineGridView的图片加载方式初始化
         NineGridView.setImageLoader(new PicassoImageLoader());
         initImagePicker(); // 初始化ImagePicker
+
+        // 初始化百度地图SDK
+        SDKInitializer.initialize(this);
 
     }
 

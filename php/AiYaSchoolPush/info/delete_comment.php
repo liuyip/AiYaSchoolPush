@@ -17,7 +17,7 @@ $time = time();
 @$username = $_GET['username'];
 
 
-$query = "delete from ".TABLE_COMMENT." where infoid = ".$praiseId." and username = ".$username;
+$query = "delete from ".TABLE_COMMENT." where infoid = ".$praiseId." and username = '".$username."'";
 		$result = mysqli_query($link, $query);
 		$num = mysqli_affected_rows($link);
 		if($num == 1){

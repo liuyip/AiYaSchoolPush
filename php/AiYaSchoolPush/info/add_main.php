@@ -33,6 +33,9 @@ for($i = 0; $i < $picCount; $i ++) {
 }
 
 if ($num == 1) {
+// 	if ($infotype == 1 || $infotype == 2){
+// 		XmPushUtil::pushMainInfo($classid, $content,$infotype);
+// 	}
 	Response::json_response ( 0, "提交数据到服务器成功！", getMainInfo ( $username, $time, $infotype ) );
 } else {
 	Response::json_response ( - 1, "提交数据到服务器失败", null );

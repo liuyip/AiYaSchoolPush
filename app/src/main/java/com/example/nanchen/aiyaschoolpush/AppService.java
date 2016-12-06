@@ -258,11 +258,14 @@ public class AppService {
 
     /**
      * 异步提醒服务器推送相关消息给他人
+     *
+     *
      * @param classId   班级id
+     * @param infoType  信息类型
      * @param callback  回调
      */
-    public void sendMsgToOthersAsync(int classId,JsonCallback<LslResponse<Object>> callback){
-        String url = Consts.API_SERVICE_HOST+"/android_example.php?classId="+classId;
+    public void sendMsgToOthersAsync(int classId,int infoType,JsonCallback<LslResponse<Object>> callback){
+        String url = Consts.API_SERVICE_HOST+"/android_example.php?classId="+classId+"&infoType="+infoType;
         OkGo.get(url).execute(callback);
     }
 

@@ -14,7 +14,10 @@ public final class Consts {
     /**
      * 内网API接口主机名
      */
-//    public final static String API_SERVICE_HOST = "http://10.1.1.119:80/AiYaSchoolPush";
-    public final static String API_SERVICE_HOST = "http://azhinj.ticp.io:10277/AiYaSchoolPush";
+    public final static String API_SERVICE_HOST = "http://10.1.1.119:80/AiYaSchoolPush";
+    /**
+     * 外网API接口主机名
+     */
+//    public final static String API_SERVICE_HOST = "http://azhinj.ticp.io:10277/AiYaSchoolPush";
 
 }

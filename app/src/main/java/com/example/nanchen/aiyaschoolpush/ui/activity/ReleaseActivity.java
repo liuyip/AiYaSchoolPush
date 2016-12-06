@@ -236,11 +236,9 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {
                     UIUtil.showToast("图片上传成功");
                     Log.e(TAG, "图片上传成功");
-                    isUploadPics = true;
                 } else {
                     UIUtil.showToast("图片上传失败");
                     Log.e(TAG, "图片上传失败");
-                    isUploadPics = false;
                 }
                 sendInfo();
             }
@@ -254,6 +252,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         final String content = mEditText.getText().toString().trim();
         if (TextUtils.isEmpty(content)) {
             UIUtil.showToast("发布内容不能为空！");
+            stopLoading();
             return;
         }
         // 把图片的地址上传上去
@@ -264,6 +263,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         Log.e(TAG,mSmallUrls.size()+" **** ");
         if(AppService.getInstance().getCurrentUser() == null){
             UIUtil.showToast("未知错误，请重新登录后操作");
+            stopLoading();
             return;
         }
         final int classId = AppService.getInstance().getCurrentUser().classid;
@@ -275,7 +275,10 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
                 if (infoModelLslResponse.code == LslResponse.RESPONSE_OK) {
                     UIUtil.showToast("发布信息成功！");
 
-                    sendMsgToOthers(classId);
+                    // 只有公告和作业才发布推送
+                    if (infoType == 1 || infoType == 2){
+                        sendMsgToOthers(classId,infoType);
+                    }
 
                     stopLoading();
                     Log.e(TAG, infoType + "");
@@ -303,8 +306,8 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         });
     }
 
-    private void sendMsgToOthers(int classId) {
-        AppService.getInstance().sendMsgToOthersAsync(classId, new JsonCallback<LslResponse<Object>>() {
+    private void sendMsgToOthers(int classId,int infoType) {
+        AppService.getInstance().sendMsgToOthersAsync(classId,infoType, new JsonCallback<LslResponse<Object>>() {
             @Override
             public void onSuccess(LslResponse<Object> objectLslResponse, Call call, Response response) {
                 Log.e(TAG,objectLslResponse.msg);

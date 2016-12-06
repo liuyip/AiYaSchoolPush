@@ -14,7 +14,7 @@ if ($link->errno != 0) { // 数据库连接失败
 
 @$username = $_GET['username'];
 
-$query = "select * from ".TABLE_USER." where username = ".$username;
+$query = "select * from ".TABLE_USER." where username = '".$username."'";
 
 $result = mysqli_query($link, $query);
 

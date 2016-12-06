@@ -12,38 +12,75 @@ use xmpush\TargetedMessage;
 include_once(dirname(__FILE__).'/autoload.php');
 require_once 'format.php';
 
-$secret = '/eC85bejfRVHaQPN7akfHQ==';
-$package = 'com.example.nanchen.aiyaschoolpush';
 
-// 常量设置必须在new Sender()方法之前调用
-Constants::setPackage($package);
-Constants::setSecret($secret);
 @$classId = $_GET['classId'];
+@$type = $_GET['infoType'];
 
-$aliasList = array('alias1', 'alias2');
-$title = '爱吖校推';
-$description = '您好，您有一条新的公告信息！';
-$payload = '{"test":1,"ok":"It\'s a string"}';
+XmPushUtil::pushMainInfo($classId,$type);
 
-$sender = new Sender();
 
-// 推送消息给相应的classid的用户
-$message = new Builder();
-$message->title($title);
-$message->description($description);
-$message->passThrough(0);
-//对于预定义点击行为，payload会通过点击进入的界面的intent中的extra字段获取，而不会调用到onReceiveMessage方法
-$message->payload($payload);
-$message->extra(Builder::notifyEffect, 1);//此处预定义点击行为，1为打开app
-$message->extra(Builder::notifyForeground, 1);
-$message->notifyId(0);
-$message->build();
-$targetMessage2 = new TargetedMessage();
-$targetMessage2->setTarget($classId, TargetedMessage::TARGET_TYPE_ALIAS);
-$targetMessage2->setMessage($message);
-$targetMessageList = array($targetMessage2);
-$sender->multiSend($targetMessageList, TargetedMessage::TARGET_TYPE_ALIAS);
-Response::json_response(0,"推送成功",null);
+/**
+ * 小米推送相关服务类
+ * @author Administrator
+ *
+ */
+class XmPushUtil{
+	
+// 	private static $_instance;
+// 	private $secret = '/eC85bejfRVHaQPN7akfHQ==';
+// 	private $package = 'com.example.nanchen.aiyaschoolpush';
+// 	private function _construct(){
+// 		// 常量设置必须在new Sender()方法之前调用
+// 		Constants::setPackage($package);
+// 		Constants::setSecret($secret);
+// 	}
+	
+// 	static public function getInstance(){
+// 		if (!(self::$_instance instanceof self)){
+// 			self::$_instance = new self();
+// 		}
+// 		return self::$_instance;
+// 	}
+	
+	public static function pushMainInfo($classId,$type){
+		$secret = '/eC85bejfRVHaQPN7akfHQ==';
+		$package = 'com.example.nanchen.aiyaschoolpush';
+		// 常量设置必须在new Sender()方法之前调用
+		Constants::setPackage($package);
+		Constants::setSecret($secret);
+		$description = '您收到一条新消息';
+		switch ($type){
+			case 1:
+				$description = '您收到一条新的公告信息！';
+				break;
+			case 2:
+				$description = '您收到一条新的作业信息！';
+				break;
+		}
+		$aliasList = array('alias1', 'alias2');
+		$title = '爱吖校推';
+		$payload = '{"test":1,"ok":"It\'s a string"}';
+		$sender = new Sender();
+		
+		// 推送消息给相应的classid的用户
+		$message = new Builder();
+		$message->title($title);
+		$message->description($description);
+		$message->passThrough(0);
+		//对于预定义点击行为，payload会通过点击进入的界面的intent中的extra字段获取，而不会调用到onReceiveMessage方法
+		$message->payload($payload);
+		$message->extra(Builder::notifyEffect, 1);//此处预定义点击行为，1为打开app
+		$message->extra(Builder::notifyForeground, 1);
+		$message->notifyId(0);
+		$message->build();
+		$targetMessage2 = new TargetedMessage();
+		$targetMessage2->setTarget($classId, TargetedMessage::TARGET_TYPE_ALIAS);
+		$targetMessage2->setMessage($message);
+		$targetMessageList = array($targetMessage2);
+		$sender->multiSend($targetMessageList, TargetedMessage::TARGET_TYPE_ALIAS);
+	}
+}
+
 
 
 
