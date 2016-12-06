@@ -11,7 +11,7 @@
 ####⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
 ####⊙开发交流QQ群：（118116509）
 ####⊙有问题请联系邮箱：（liushilin520@foxmail.com）
-####⊙app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.0.2.apk)
+####⊙app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.1.0.apk)
 ##效果演示<br><br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF2.gif)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF3.gif)
@@ -36,7 +36,6 @@
     [博客园](http://www.cnblogs.com/liushilin/)
     
 ##你也可以请我喝杯咖啡
-               **支付宝扫一扫 向我付款**<br>
+               **支付宝扫一扫 向我付款**<br>              **你也可以微信 向我付款**<br>
    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/apay.png)<br>
-               **你也可以微信 向我付款**<br>
    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/wxpay.png)
