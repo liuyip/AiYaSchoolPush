@@ -464,21 +464,27 @@
             android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
             android:theme="@style/ImagePickerThemeFullScreen"/>
 
-
         <receiver android:name=".helper.receiver.AvatarReceiver">
             <intent-filter>
                 <action android:name="com.nanchen.android.AVATAR_ACTION"/>
             </intent-filter>
         </receiver>
 
-        <service android:name=".net.NetworkStateService"
+        <service
+            android:name=".net.NetworkStateService"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="1000">
-                <action android:name="com.text.service.NetworkStateService" />
+                <action android:name="com.text.service.NetworkStateService"/>
             </intent-filter>
         </service>
 
+
+        <activity android:name="mabeijianxi.camera.MediaRecorderActivity"/>
+
+        <activity android:name=".SendSmallVideoActivity"/>
+
+        <activity android:name=".VideoPlayerActivity"/>
     </application>
 
 </manifest>

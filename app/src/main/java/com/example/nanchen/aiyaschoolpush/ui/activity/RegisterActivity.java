@@ -437,6 +437,7 @@ public class RegisterActivity extends ActivityBase implements OnClickListener {
                     }else {
                         activity.mInputUsername.getEditText().setError(null);
 //                        activity.mInputUsername.setErrorEnabled(false);
+
                     }
                     break;
                 case TAG_PWD1:

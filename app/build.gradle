@@ -8,9 +8,10 @@ android {
         applicationId "com.example.nanchen.aiyaschoolpush"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "2.1.0"
+        versionCode 21
+        versionName "2.1.1"
         multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
 
@@ -74,6 +75,9 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.0.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     // mob  message
     compile name: 'SMSSDK-2.1.1', ext: 'aar'
     compile files('libs/MobTools-2016.0714.1402.jar')
@@ -94,8 +98,6 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     // bottom tab
     compile 'com.github.armcha:SpaceNavigationView:1.4.1'
-    // 自带加载更多和下拉刷新的万能Adapter
-    compile 'me.xiaopan:assemblyadapter:2.2.0'
     // 字母导航栏
     compile 'com.bigkoo:quicksidebar:1.0.3'
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
@@ -145,10 +147,6 @@ dependencies {
     // 网络访问框架okgo 封装okhttp
     compile 'com.lzy.net:okgo:+'
     //版本号使用 + 可以自动引用最新版
-    compile 'com.lzy.net:okrx:+'
-    //版本号使用 + 可以自动引用最新版
-    compile 'com.lzy.net:okserver:+'
-    //版本号使用 + 可以自动引用最新版
 
     // 圆形image
     compile 'de.hdodenhof:circleimageview:2.1.0'
@@ -162,6 +160,10 @@ dependencies {
     compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
     compile project(':easeUI_CN')
+
+    compile 'com.mabeijianxi:small-video-record:1.0.7'
+
+    compile 'com.baoyz.pullrefreshlayout:library:1.2.0'
 }
 repositories {
     maven {

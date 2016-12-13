@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
 import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.util.Log;
@@ -21,9 +22,12 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.io.File;
 import java.util.List;
 
 import cn.smssdk.SMSSDK;
+import mabeijianxi.camera.VCamera;
+import mabeijianxi.camera.util.DeviceUtils;
 
 
 /**
@@ -55,6 +59,9 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
+
+        // 不知道小视频为什么不可用
+//        initSmallVideo(this);
 
         // LeakCanary
         if (LeakCanary.isInAnalyzerProcess(this)) {
@@ -90,6 +97,27 @@ public class App extends Application {
         // 初始化百度地图SDK
         SDKInitializer.initialize(this);
 
+        // 小视频
+
+    }
+
+    public static void initSmallVideo(Context context) {
+        // 设置拍摄视频缓存路径
+        File dcim = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+        if (DeviceUtils.isZte()) {
+            if (dcim.exists()) {
+                VCamera.setVideoCachePath(dcim + "/mabeijianxi/");
+            } else {
+                VCamera.setVideoCachePath(dcim.getPath().replace("/sdcard/",
+                        "/sdcard-ext/")
+                        + "/mabeijianxi/");
+            }
+        } else {
+            VCamera.setVideoCachePath(dcim + "/mabeijianxi/");
+        }
+        VCamera.setDebugMode(true);
+        VCamera.initialize(context);
     }
 
     private void initImagePicker() {

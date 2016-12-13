@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="small-video-record-1.0.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mabeijianxi/small-video-record/1.0.7/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mabeijianxi/small-video-record/1.0.7/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mabeijianxi/small-video-record/1.0.7/4f2d11bbfd1f33d0928a95eff0b1199cd8601e83/small-video-record-1.0.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -12,23 +12,23 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+import com.example.nanchen.aiyaschoolpush.AppService;
+import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.adapter.ImagePickerAdapter;
+import com.example.nanchen.aiyaschoolpush.config.AddConfig;
 import com.example.nanchen.aiyaschoolpush.helper.event.CommunityEvent;
 import com.example.nanchen.aiyaschoolpush.helper.event.HomeworkEvent;
-import com.example.nanchen.aiyaschoolpush.adapter.ImagePickerAdapter;
 import com.example.nanchen.aiyaschoolpush.helper.event.NoticeEvent;
-import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.AppService;
-import com.example.nanchen.aiyaschoolpush.config.AddConfig;
 import com.example.nanchen.aiyaschoolpush.model.User;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoModel;
 import com.example.nanchen.aiyaschoolpush.model.info.InfoType;
 import com.example.nanchen.aiyaschoolpush.net.okgo.JsonCallback;
 import com.example.nanchen.aiyaschoolpush.net.okgo.LslResponse;
+import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
+import com.example.nanchen.aiyaschoolpush.ui.view.WavyLineView;
 import com.example.nanchen.aiyaschoolpush.utils.BitmapUtil;
 import com.example.nanchen.aiyaschoolpush.utils.ScreenUtil;
 import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
-import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
-import com.example.nanchen.aiyaschoolpush.ui.view.WavyLineView;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
@@ -75,9 +75,12 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_release);
+
         updatePixel();
         bindView();
     }
+
+
 
     private void updatePixel() {
         point = new Point();
@@ -318,7 +321,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     @Override
     public void onItemClick(View view, int position) {
         switch (position) {
-            case IMAGE_ITEM_ADD:
+           case IMAGE_ITEM_ADD:
 //                new MaterialDialog.Builder(this)
 //                        .items(R.array.release)
 //                        .itemsCallback(new ListCallback() {
@@ -342,12 +345,10 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
 //                            }
 //                        }).show();
 
-                //打开选择,本次允许选择的数量
-                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_SELECT);
-
-
+               //打开选择,本次允许选择的数量
+               ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+               Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
+               startActivityForResult(intent, REQUEST_CODE_SELECT);
                 break;
             default:
                 //打开预览
