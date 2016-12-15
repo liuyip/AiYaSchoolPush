@@ -18,6 +18,7 @@ V2.2.1<br>
  * [新增]图片上传和九宫格查看
  * [新增]仿微信小视频进入微视频时代
  * [优化]减小apk大小
+ 
 ##效果演示<br><br>
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF.gif)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF2.gif)
