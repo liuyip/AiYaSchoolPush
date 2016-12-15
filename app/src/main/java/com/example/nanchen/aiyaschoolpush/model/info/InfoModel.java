@@ -67,4 +67,9 @@ public class InfoModel implements Serializable,IJsonModel{
      */
     public List<PicModel> picUrls;
 
+    /**
+     * 社区视频Url
+     */
+    public List<VideoModel> videoUrl;
+
 }

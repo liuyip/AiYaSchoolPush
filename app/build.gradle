@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "com.example.nanchen.aiyaschoolpush"
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 21
-        versionName "2.1.1"
+        targetSdkVersion 22
+        versionCode 22
+        versionName "2.2.1"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -35,14 +35,14 @@ android {
         }
     }
 
-//    productFlavors {
-//        android.applicationVariants.all { variant ->
-//            variant.outputs.each { output ->
-//                output.outputFile = new File("AiYa-SchoolPush" + "-v" +
-//                        defaultConfig.versionName + ".apk");
-//            }
-//        }
-//    }
+    productFlavors {
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                output.outputFile = new File("AiYa-SchoolPush" + "-v" +
+                        defaultConfig.versionName + ".apk");
+            }
+        }
+    }
 
     // 移除lint检查的error
     lintOptions {
@@ -53,11 +53,16 @@ android {
         javaMaxHeapSize "4g"
     }
 
-
     // 使用百度定位需要
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi', 'x86'
         }
     }
 }
@@ -161,7 +166,7 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.1.0'
     compile project(':easeUI_CN')
 
-    compile 'com.mabeijianxi:small-video-record:1.0.7'
+    compile 'com.mabeijianxi:small-video-record:1.0.8'
 
     compile 'com.baoyz.pullrefreshlayout:library:1.2.0'
 }

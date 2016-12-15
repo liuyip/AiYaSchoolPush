@@ -1,5 +1,6 @@
 package com.example.nanchen.aiyaschoolpush.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.example.nanchen.aiyaschoolpush.VideoPlayerActivity;
 import com.example.nanchen.aiyaschoolpush.config.Consts;
 import com.example.nanchen.aiyaschoolpush.helper.event.NoticeEvent;
 import com.example.nanchen.aiyaschoolpush.R;
@@ -153,17 +155,39 @@ public class NoticeFragment extends FragmentBase {
                     holder.setTextColor(R.id.notice_item_like, getResources().getColor(R.color.gray));
                 }
 
-                ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
-                List<PicModel> picModels = item.picUrls;
-                if (picModels != null && picModels.size() != 0){
-                    for (PicModel picModel:picModels) {
-                        ImageInfo imageInfo = new ImageInfo();
-                        imageInfo.setThumbnailUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
-                        imageInfo.setBigImageUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
-                        imageInfoList.add(imageInfo);
+
+                Log.e(TAG, "convert: videoUrls："+item.videoUrl.size()+","+item.videoUrl );
+
+                // 如果是视频
+                if (item.videoUrl != null && item.videoUrl.size() != 0){
+                    holder.setVisibility(R.id.videoImage,View.VISIBLE);
+                    holder.setVisibility(R.id.community_nineGrid,View.GONE);
+                    String imgUrl = Consts.API_SERVICE_HOST+item.picUrls.get(0).imageUrl;
+                    Log.e(TAG, "convert: imgUrl:"+imgUrl );
+                    holder.setImageByUrl(R.id.videoImage,imgUrl);
+                    final String videoUrl = Consts.API_SERVICE_HOST+item.videoUrl.get(0).videoUrl;
+                    Log.e(TAG, "convert: videoUrl:"+videoUrl );
+                    holder.setOnClckListener(R.id.videoImage, new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getActivity(), VideoPlayerActivity.class).putExtra(
+                                    "path", videoUrl));
+                        }
+                    });
+                }else{
+                    ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
+                    List<PicModel> picModels = item.picUrls;
+                    if (picModels != null && picModels.size() != 0){
+                        for (PicModel picModel:picModels) {
+                            ImageInfo imageInfo = new ImageInfo();
+                            imageInfo.setThumbnailUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
+                            imageInfo.setBigImageUrl(Consts.API_SERVICE_HOST+picModel.imageUrl);
+                            imageInfoList.add(imageInfo);
+                        }
                     }
+                    holder.setNineGridAdapter(R.id.community_nineGrid,new NineGridViewClickAdapter(getActivity(), imageInfoList));
                 }
-                holder.setNineGridAdapter(R.id.community_nineGrid,new NineGridViewClickAdapter(getActivity(), imageInfoList));
+
 
 
                 Log.e(TAG,item.mainid+","+item.isIPraised);

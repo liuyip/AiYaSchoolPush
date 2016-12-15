@@ -22,14 +22,23 @@ $time = time ();
 @$infotype = $_POST ['infoType'];
 @$content = $_POST ['content'];
 @$picCount = $_POST ['picCount'];
+@$type = $_POST['type'];
 
 $query = "insert into " . TABLE_MAIN . " (classid,username,time,infotype,content) values('" . $classid . "','" . $username . "','" . $time . "','" . $infotype . "','" . $content . "')";
 mysqli_query ( $link, $query );
 $num = mysqli_affected_rows ( $link );
 
 $mainid = Util::getMainId ( $username, $time, $infotype );
-for($i = 0; $i < $picCount; $i ++) {
-	Util::insertPicUrls ( $mainid, $_POST ['picUrl' . $i] );
+
+
+if ($type == 'video' && $picCount == 2){ // 这样代表是微视频,第一个文件是预览图
+	Util::insertPicUrls($mainid, $_POST['picUrl0']);
+	@$picid = Util::getPicId($mainid, $_POST['picUrl0']);
+	Util::insertVideoUrls($mainid, $picid,$_POST['picUrl1']);
+}else{
+	for($i = 0; $i < $picCount; $i ++) {
+		Util::insertPicUrls ( $mainid, $_POST ['picUrl' . $i] );
+	}
 }
 
 if ($num == 1) {
@@ -62,7 +71,8 @@ function getMainInfo($username, $time, $infotype) {
 			'infotype' => $row ['infotype'],
 			'content' => $row ['content'],
 			'user' => getUserInfo ( $row ['username'] ),
-			'picUrls' => Util::getPicInfo ( $row ['mainid'] ) 
+			'picUrls' => Util::getPicInfo ( $row ['mainid'] ),
+			'videoUrl' => Util::getVideoInfo($row ['mainid'])
 	);
 	return $arr;
 }

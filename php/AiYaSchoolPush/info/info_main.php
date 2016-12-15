@@ -48,6 +48,7 @@ while (@$row = mysqli_fetch_array($result)){
 // 	$arr[$i]['lastid'] = getLastMainId();  
 // 	$arr[$i]['num'] = $num;
 	$arr[$i]['picUrls'] = Util::getPicInfo($row['mainid']);
+	$arr[$i]['videoUrl'] = Util::getVideoInfo($row['mainid']);
 	$i++;
 }
 if ($i == 0){

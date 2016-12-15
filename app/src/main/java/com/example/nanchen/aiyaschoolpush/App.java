@@ -61,7 +61,7 @@ public class App extends Application {
         app = this;
 
         // 不知道小视频为什么不可用
-//        initSmallVideo(this);
+        initSmallVideo(this);
 
         // LeakCanary
         if (LeakCanary.isInAnalyzerProcess(this)) {

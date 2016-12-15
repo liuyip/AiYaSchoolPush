@@ -83,6 +83,13 @@
             app:ngv_gridSpacing="6dp"
             android:paddingTop="6dp"/>
 
+        <ImageView
+            android:id="@+id/videoImage"
+            android:visibility="gone"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"

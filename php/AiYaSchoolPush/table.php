@@ -17,6 +17,11 @@ define('TABLE_PIC', 'aiya_pic');
 // 班级表
 define('TABLE_CLASS', 'aiya_class');
 
+// 视频表
+define('TABLE_VIDEO', 'aiya_video');
+
+
+
 
 
 ?>

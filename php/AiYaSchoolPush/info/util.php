@@ -115,6 +115,22 @@ class Util {
 		return $arr;
 	}
 	
+	public static function getVideoInfo($mainid) {
+		$link = DataBaseUtil::getInstance ()->connect ();
+		mysqli_set_charset ( $link, "utf8" );
+		$query = "select * from " . TABLE_VIDEO . " where mainid = " . $mainid;
+		$result = mysqli_query ( $link, $query );
+		$arr = array ();
+		$i = 0;
+		while ( @$row = mysqli_fetch_array ( $result ) ) {
+			$arr [$i] ['videoid'] = $row ['videoid'];
+			$arr [$i] ['picid'] = $row ['picid'];
+			$arr [$i] ['videoUrl'] = $row ['url'];
+			$i ++;
+		}
+		return $arr;
+	}
+	
 	/**
 	 * 获取mainId
 	 * @param unknown $username	用户名
@@ -146,5 +162,33 @@ class Util {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * 插入视频url到视频表
+	 */
+	public static function insertVideoUrls($mainid,$picid,$url){
+		$link = DataBaseUtil::getInstance()->connect();
+		$query = "insert into ".TABLE_VIDEO." (mainid,picid,url) values ('".$mainid."','".$picid."','".$url."')";
+		mysqli_query($link, $query);
+		$num = mysqli_affected_rows($link);
+		if($num == 0){
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 获取picid用于插入视频表
+	 * @param unknown $mainid
+	 * @param unknown $picUrl
+	 * @return unknown
+	 */
+	public static function getPicId($mainid,$picUrl){
+		$link = DataBaseUtil::getInstance()->connect();
+		$query = "select picid from ".TABLE_PIC." where mainid = '".$mainid."' and url = '".$picUrl."'";
+		$result = mysqli_query($link, $query);
+		@$row = mysqli_fetch_array($result);
+		return $row['picid'];
 	}
 }

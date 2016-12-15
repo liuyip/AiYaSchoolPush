@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.MaterialDialog.ListCallback;
 import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.R;
+import com.example.nanchen.aiyaschoolpush.SendSmallVideoActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.ImagePickerAdapter;
 import com.example.nanchen.aiyaschoolpush.config.AddConfig;
 import com.example.nanchen.aiyaschoolpush.helper.event.CommunityEvent;
@@ -41,6 +44,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import mabeijianxi.camera.MediaRecorderActivity;
+import mabeijianxi.camera.model.MediaRecorderConfig;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -70,6 +75,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     private int reqWidth = 0;
     private int reqHeight = 0;
     private Point point;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +117,9 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         mTitleBar = (TitleView) findViewById(R.id.release_title);
         mTitleBar.setLeftButtonAsFinish(this);
         Log.e(TAG, mFrom);
+
+
+
         switch (mFrom) {
             case AddConfig.NOTICE:
                 mTitleBar.setTitle("发布公告");
@@ -233,7 +242,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
             stopLoading();
             return;
         }
-        AppService.getInstance().upLoadFileAsync(mFiles, new JsonCallback<LslResponse<User>>() {
+        AppService.getInstance().upLoadFileAsync(mFiles ,new JsonCallback<LslResponse<User>>() {
             @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {
@@ -271,7 +280,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
         }
         final int classId = AppService.getInstance().getCurrentUser().classid;
         String username = AppService.getInstance().getCurrentUser().username;
-        AppService.getInstance().addMainInfoAsync(classId, username, infoType, content, mSmallUrls, new JsonCallback<LslResponse<InfoModel>>() {
+        AppService.getInstance().addMainInfoAsync(classId, username, infoType, content, mSmallUrls,false,new JsonCallback<LslResponse<InfoModel>>() {
 
             @Override
             public void onSuccess(LslResponse<InfoModel> infoModelLslResponse, Call call, Response response) {
@@ -290,7 +299,7 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
                         Log.e(TAG, "通知发起");
                     } else if (infoType == InfoType.HOMEWORK) {
                         EventBus.getDefault().post(new HomeworkEvent(infoModelLslResponse.data));
-                        Log.e(TAG, "公告发起");
+                        Log.e(TAG, "作业发起");
                     } else {
                         EventBus.getDefault().post(new CommunityEvent(infoModelLslResponse.data));
                         Log.e(TAG, "社区发起");
@@ -322,33 +331,40 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
     public void onItemClick(View view, int position) {
         switch (position) {
            case IMAGE_ITEM_ADD:
-//                new MaterialDialog.Builder(this)
-//                        .items(R.array.release)
-//                        .itemsCallback(new ListCallback() {
-//                            @Override
-//                            public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
-//                                if (text.equals("相片")){
-//
-//                                }else{ // 打开微视频
-//                                    MediaRecorderConfig config = new MediaRecorderConfig.Buidler()
-//                                            .doH264Compress(true)
-//                                            .smallVideoWidth(480)
-//                                            .smallVideoHeight(360)
-//                                            .recordTimeMax(6 * 1000)
-//                                            .maxFrameRate(20)
-//                                            .minFrameRate(8)
-//                                            .captureThumbnailsTime(1)
-//                                            .recordTimeMin((int) (1.5 * 1000))
-//                                            .build();
-//                                    MediaRecorderActivity.goSmallVideoRecorder(ReleaseActivity.this, SendSmallVideoActivity.class.getName(), config);
-//                                }
-//                            }
-//                        }).show();
+                new MaterialDialog.Builder(this)
+                        .items(R.array.release)
+                        .itemsCallback(new ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                                if (text.equals("相片")){
+                                    ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+                                    Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
+                                    startActivityForResult(intent, REQUEST_CODE_SELECT);
+                                }else{ // 打开微视频
+                                    // 存一个文件，以便于让后面发微视频知道发到哪里
+                                    getSharedPreferences("send.tmp",MODE_PRIVATE).edit().putString("infoType",mFrom)
+                                            .putString("content",mEditText.getText().toString().trim()).apply();
+
+                                    MediaRecorderConfig config = new MediaRecorderConfig.Buidler()
+                                            .doH264Compress(true)
+                                            .smallVideoWidth(480)
+                                            .smallVideoHeight(360)
+                                            .recordTimeMax(6 * 1000)
+                                            .maxFrameRate(20)
+                                            .minFrameRate(8)
+                                            .captureThumbnailsTime(1)
+                                            .recordTimeMin((int) (1.5 * 1000))
+                                            .build();
+                                    MediaRecorderActivity.goSmallVideoRecorder(ReleaseActivity.this, SendSmallVideoActivity.class.getName(), config);
+                                    ReleaseActivity.this.finish();
+                                }
+                            }
+                        }).show();
 
                //打开选择,本次允许选择的数量
-               ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-               Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
-               startActivityForResult(intent, REQUEST_CODE_SELECT);
+//               ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+//               Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
+//               startActivityForResult(intent, REQUEST_CODE_SELECT);
                 break;
             default:
                 //打开预览

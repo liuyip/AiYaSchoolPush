@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nanchen.aiyaschoolpush.R;
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.squareup.picasso.Picasso;
@@ -96,7 +97,10 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder {
      * 设置图片
      */
     public CommonRecyclerHolder setImageByUrl(int viewId, String url){
-        Picasso.with(context).load(url).into((ImageView) getView(viewId));
+        Picasso.with(context).load(url)
+                .placeholder(context.getResources().getDrawable(R.drawable.ic_default_image))
+                .error(context.getResources().getDrawable(R.drawable.ic_default_image))
+                .into((ImageView) getView(viewId));
         return this;
     }
 
@@ -116,6 +120,24 @@ public class CommonRecyclerHolder extends RecyclerView.ViewHolder {
     public CommonRecyclerHolder setNineGridAdapter(int viewId,NineGridViewClickAdapter clickAdapter){
         NineGridView nineGridView = getView(viewId);
         nineGridView.setAdapter(clickAdapter);
+        return this;
+    }
+
+    /**
+     * 设置一个控件是否可见
+     * @param viewId        id
+     * @param visibility    可见性
+     * @return
+     */
+    public CommonRecyclerHolder setVisibility(int viewId,int visibility){
+        View view = getView(viewId);
+        view.setVisibility(visibility);
+        return this;
+    }
+
+    public CommonRecyclerHolder setOnClckListener(int viewId,OnClickListener listener){
+        View view = getView(viewId);
+        view.setOnClickListener(listener);
         return this;
     }
 }

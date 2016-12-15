@@ -242,7 +242,7 @@ public class AppService {
      * @param picUrls       图片地址
      * @param callback      回调
      */
-    public void addMainInfoAsync(int classId, String username, int infoType, String content, List<String> picUrls, JsonCallback<LslResponse<InfoModel>> callback){
+    public void addMainInfoAsync(int classId, String username, int infoType, String content, List<String> picUrls,boolean isVideo, JsonCallback<LslResponse<InfoModel>> callback){
         String url = Consts.API_SERVICE_HOST+"/info/add_main.php";
         HashMap<String,String> postParams = new HashMap<>();
         postParams.put("classId",classId+"");
@@ -250,8 +250,15 @@ public class AppService {
         postParams.put("infoType",infoType+"");
         postParams.put("content",content);
         postParams.put("picCount",picUrls.size()+"");
-        for (int i = 0; i < picUrls.size(); i++) {
-            postParams.put("picUrl"+i,"/info/pic/"+picUrls.get(i));
+        if (isVideo){
+            postParams.put("type","video");
+            postParams.put("picUrl0","/info/pic/"+picUrls.get(0));
+            postParams.put("picUrl1","/info/video/"+picUrls.get(1));
+        }else{
+            postParams.put("type","pic");
+            for (int i = 0; i < picUrls.size(); i++) {
+                postParams.put("picUrl"+i,"/info/pic/"+picUrls.get(i));
+            }
         }
         OkGo.post(url).params(postParams).execute(callback);
     }
@@ -275,7 +282,7 @@ public class AppService {
      * @param files     文件集合
      * @param callback  回调
     */
-    public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback){
+    public void upLoadFileAsync(List<File> files,JsonCallback<LslResponse<User>> callback){
         String url = Consts.API_SERVICE_HOST + "/info/attachment.php";
 //        OkGo.post(url).params("size",files.size()).addFileParams("files",files).execute(callback);
 //        String url = Consts.API_SERVICE_HOST + "/user/avatar.php";
