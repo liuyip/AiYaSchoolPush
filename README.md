@@ -11,8 +11,15 @@
 ####⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
 ####⊙开发交流QQ群：（118116509）
 ####⊙有问题请联系邮箱：（liushilin520@foxmail.com）
-####⊙app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.1.0.apk)
+####⊙app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.2.1.apk)
+
+##版本更新日志
+V2.2.1<br>
+ * [新增]图片上传和九宫格查看
+ * [新增]仿微信小视频进入微视频时代
+ * [优化]减小apk大小
 ##效果演示<br><br>
+    ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF.gif)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF2.gif)
     ![](https://github.com/nanchen2251/AiYaSchoolPush/blob/master/photo/GIF3.gif)
 ##截图<br>
