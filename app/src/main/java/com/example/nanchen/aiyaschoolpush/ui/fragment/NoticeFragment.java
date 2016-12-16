@@ -175,6 +175,8 @@ public class NoticeFragment extends FragmentBase {
                         }
                     });
                 }else{
+                    holder.setVisibility(R.id.videoImage,View.VISIBLE);
+                    holder.setVisibility(R.id.community_nineGrid,View.GONE);
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
                     List<PicModel> picModels = item.picUrls;
                     if (picModels != null && picModels.size() != 0){

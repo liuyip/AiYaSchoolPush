@@ -162,6 +162,8 @@ public class HomeworkFragment extends FragmentBase {
                         }
                     });
                 }else{
+                    holder.setVisibility(R.id.videoImage,View.GONE);
+                    holder.setVisibility(R.id.community_nineGrid,View.VISIBLE);
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
                     List<PicModel> picModels = item.picUrls;
                     if (picModels != null && picModels.size() != 0){

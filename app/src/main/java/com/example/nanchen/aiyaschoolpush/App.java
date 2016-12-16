@@ -60,8 +60,7 @@ public class App extends Application {
         super.onCreate();
         app = this;
 
-        // 不知道小视频为什么不可用
-        initSmallVideo(this);
+
 
         // LeakCanary
         if (LeakCanary.isInAnalyzerProcess(this)) {
@@ -98,6 +97,13 @@ public class App extends Application {
         SDKInitializer.initialize(this);
 
         // 小视频
+        try{
+            // 不知道小视频为什么不可用
+            initSmallVideo(this);
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new VideoException("当前手机暂不支持微视频");
+        }
 
     }
 

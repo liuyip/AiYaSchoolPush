@@ -28,6 +28,7 @@ public class AppService {
     private static AppService instance;
     private User mCurrentUser;
 
+
     private AppService(){
     }
 
