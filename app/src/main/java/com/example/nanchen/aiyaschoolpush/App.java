@@ -50,7 +50,7 @@ public class App extends Application {
 
     private static App app;
 
-    public static App getInstance(){
+    public static App getInstance() {
         return app;
     }
 
@@ -59,7 +59,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-
 
 
         // LeakCanary
@@ -97,17 +96,17 @@ public class App extends Application {
         SDKInitializer.initialize(this);
 
         // 小视频
-        try{
+        try {
             // 不知道小视频为什么不可用
             initSmallVideo(this);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new VideoException("当前手机暂不支持微视频");
         }
 
     }
 
-    public static void initSmallVideo(Context context) {
+    public static void initSmallVideo(Context context){
         // 设置拍摄视频缓存路径
         File dcim = Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
@@ -123,7 +122,12 @@ public class App extends Application {
             VCamera.setVideoCachePath(dcim + "/mabeijianxi/");
         }
         VCamera.setDebugMode(true);
-        VCamera.initialize(context);
+        try{
+            VCamera.initialize(context);
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new VideoException("当前手机暂不支持微视频");
+        }
     }
 
     private void initImagePicker() {
@@ -146,7 +150,7 @@ public class App extends Application {
      */
     private void initMiPush() {
         //初始化push推送服务
-        if(shouldInit()) {
+        if (shouldInit()) {
             MiPushClient.registerPush(this, MIPUSH_APP_ID, MIPUSH_APP_KEY);
         }
 
@@ -155,10 +159,12 @@ public class App extends Application {
             public void setTag(String tag) {
                 // ignore
             }
+
             @Override
             public void log(String content, Throwable t) {
                 Log.d(TAG, content, t);
             }
+
             @Override
             public void log(String content) {
                 Log.d(TAG, content);
@@ -184,7 +190,7 @@ public class App extends Application {
 
     /**
      * 获取Application Context
-     * */
+     */
     public static Context getAppContext() {
         return app != null ? app.getApplicationContext() : null;
     }
