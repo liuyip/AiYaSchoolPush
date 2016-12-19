@@ -32,6 +32,8 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.util.List;
+
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -52,6 +54,13 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        List<String> stringList = MiPushClient.getAllAlias(App.getAppContext());
+        Log.e("pushtest", "run: size:"+stringList.size() );
+        for (int i = 0; i < stringList.size(); i++) {
+            Log.e("pushtest", "stringList,"+i +"=> "+stringList.get(i) );
+        }
 
         sp = getSharedPreferences("user.temp",MODE_PRIVATE);
         if (DemoHelper.getInstance().isLoggedIn()) {
@@ -180,6 +189,7 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
      * 把信息存储起来
      * @param data
      */
+    @SuppressWarnings("ConstantConditions")
     private void setUserInfo(User data) {
         Log.e(TAG,"username："+data.username);
         Log.e(TAG,"password："+data.password);
@@ -202,7 +212,6 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
 
         MiPushClient.subscribe(App.getAppContext(),data.classid+"",null);
         MiPushClient.setAlias(App.getAppContext(),data.classid+"",null);
-
 
         Editor editor = sp.edit();
         editor.putString("username",data.username);

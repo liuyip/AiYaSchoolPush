@@ -26,6 +26,15 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="200dp"
+        android:id="@+id/no_content"
+        android:src="@drawable/no_content"/>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/community_fab"

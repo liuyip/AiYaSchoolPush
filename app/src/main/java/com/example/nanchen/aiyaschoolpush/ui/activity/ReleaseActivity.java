@@ -242,6 +242,11 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
             stopLoading();
             return;
         }
+
+        if (mFiles.size() == 0){
+            sendInfo();
+            return;
+        }
         AppService.getInstance().upLoadFileAsync(mFiles ,new JsonCallback<LslResponse<User>>() {
             @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {

@@ -87,8 +87,8 @@
             android:id="@+id/videoImage"
             android:visibility="gone"
             android:src="@mipmap/ic_launcher"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
+            android:layout_width="220dp"
+            android:layout_height="220dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

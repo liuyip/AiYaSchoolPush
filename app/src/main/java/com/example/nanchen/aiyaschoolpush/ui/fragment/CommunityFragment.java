@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.R;
@@ -66,6 +67,7 @@ public class CommunityFragment extends FragmentBase {
     private int start = 0;
     private int count = 10;//设置一次获取的条目数
     private View footerView;
+    private ImageView mImageView;
 
     @Nullable
     @Override
@@ -114,6 +116,7 @@ public class CommunityFragment extends FragmentBase {
         loadData(true);
 
         mTitleBar = (TitleView) view.findViewById(R.id.community_titleBar);
+        mImageView = (ImageView) view.findViewById(R.id.no_content);
         mFab = (FloatingActionButton) view.findViewById(R.id.community_fab);
 
         mTitleBar.setTitle("社区");
@@ -298,6 +301,12 @@ public class CommunityFragment extends FragmentBase {
                         UIUtil.showToast(listLslResponse.msg);
                         footerView.setVisibility(View.VISIBLE);
                         mRecyclerView.setLoadingMoreEnabled(false);
+                    }
+
+                    if (isRefresh && mInfoModels.size() == 0){// 没有数据的话，显示图片
+                        mImageView.setVisibility(View.VISIBLE);
+                    } else {
+                        mImageView.setVisibility(View.GONE);
                     }
                 }
             });

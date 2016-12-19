@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.example.nanchen.aiyaschoolpush.helper.event.NetStateEvent;
@@ -28,12 +29,14 @@ import com.hyphenate.chat.EMConversation.EMConversationType;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 /**
  * 主页面
@@ -56,6 +59,8 @@ public class MainActivity extends ActivityBase {
 //    private DataFragment mDataFragment;
 
     private Intent intent;
+
+
 
     @Override
     protected void onDestroy() {
@@ -109,6 +114,15 @@ public class MainActivity extends ActivityBase {
     @Override
     protected void onStart() {
         Log.e(TAG, "onStart");
+
+
+        List<String> stringList =  MiPushClient.getAllAlias(App.getAppContext());
+        Log.e("pushtest", "login：allAlias:size:"+ stringList.size());
+        for (int i = 0; i < stringList.size(); i++) {
+            Log.e("pushtest", "login：allAlias:"+i+" => "+stringList.get(i) );
+        }
+
+
         super.onStart();
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);

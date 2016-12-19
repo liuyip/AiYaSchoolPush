@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.nanchen.aiyaschoolpush.VideoPlayerActivity;
 import com.example.nanchen.aiyaschoolpush.config.Consts;
@@ -58,6 +59,7 @@ public class HomeworkFragment extends FragmentBase {
     private int start = 0;
     private int count = 10;//设置一次获取的条目数
     private View footerView;
+    private ImageView mImageView;
 
 
     @Nullable
@@ -115,6 +117,7 @@ public class HomeworkFragment extends FragmentBase {
 
     private void initView(View view) {
         mRecyclerView = (XRecyclerView) view.findViewById(R.id.homework_recycler);
+        mImageView = (ImageView) view.findViewById(R.id.no_content);
 
 //        mNoticeModelList = new ArrayList<>();
         mInfoModels = new ArrayList<>();
@@ -293,10 +296,16 @@ public class HomeworkFragment extends FragmentBase {
                         mInfoModels.addAll(listLslResponse.data);
                         footerView.setVisibility(View.GONE);
                     } else {
+                        Log.e(TAG, "onSuccess: size =>"+mInfoModels.size() );
                         lastMainId = Integer.MAX_VALUE;
                         UIUtil.showToast(listLslResponse.msg);
                         footerView.setVisibility(View.VISIBLE);
                         mRecyclerView.setLoadingMoreEnabled(false);
+                    }
+                    if (isRefresh && mInfoModels.size() == 0){// 没有数据的话，显示图片
+                        mImageView.setVisibility(View.VISIBLE);
+                    } else {
+                        mImageView.setVisibility(View.GONE);
                     }
                 }
             });

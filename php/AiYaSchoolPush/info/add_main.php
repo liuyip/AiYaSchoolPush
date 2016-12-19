@@ -32,9 +32,9 @@ $mainid = Util::getMainId ( $username, $time, $infotype );
 
 
 if ($type == 'video' && $picCount == 2){ // 这样代表是微视频,第一个文件是预览图
-	Util::insertPicUrls($mainid, $_POST['picUrl0']);
-	@$picid = Util::getPicId($mainid, $_POST['picUrl0']);
-	Util::insertVideoUrls($mainid, $picid,$_POST['picUrl1']);
+	Util::insertPicUrls($mainid, $_POST['picUrl1']);
+	@$picid = Util::getPicId($mainid, $_POST['picUrl1']);
+	Util::insertVideoUrls($mainid, $picid,$_POST['picUrl0']);
 }else{
 	for($i = 0; $i < $picCount; $i ++) {
 		Util::insertPicUrls ( $mainid, $_POST ['picUrl' . $i] );

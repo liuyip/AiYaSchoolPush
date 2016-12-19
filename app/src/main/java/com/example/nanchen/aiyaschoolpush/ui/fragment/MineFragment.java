@@ -261,6 +261,7 @@ public class MineFragment extends FragmentBase{
             @Override
             public void onSuccess() {
                 getActivity().runOnUiThread(new Runnable() {
+                    @SuppressWarnings("ConstantConditions")
                     public void run() {
 //                        stopLoading();
                         // show login screen
@@ -270,6 +271,8 @@ public class MineFragment extends FragmentBase{
                         Log.e(TAG,classid);
                         MiPushClient.subscribe(App.getAppContext(),classid,null);//设置订阅标签为classid
                         MiPushClient.unsetAlias(App.getAppContext(),classid,null);//退出登录后取消接收classid
+
+
 
                         startActivity(new Intent(getActivity(), LoginActivity.class));
                         getActivity().finish();

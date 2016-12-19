@@ -253,8 +253,8 @@ public class AppService {
         postParams.put("picCount",picUrls.size()+"");
         if (isVideo){
             postParams.put("type","video");
-            postParams.put("picUrl0","/info/pic/"+picUrls.get(0));
-            postParams.put("picUrl1","/info/video/"+picUrls.get(1));
+            postParams.put("picUrl0","/info/video/"+picUrls.get(0));
+            postParams.put("picUrl1","/info/pic/"+picUrls.get(1));
         }else{
             postParams.put("type","pic");
             for (int i = 0; i < picUrls.size(); i++) {

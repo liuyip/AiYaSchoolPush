@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.nanchen.aiyaschoolpush.VideoPlayerActivity;
 import com.example.nanchen.aiyaschoolpush.config.Consts;
@@ -60,8 +61,7 @@ public class NoticeFragment extends FragmentBase {
     private int start = 0;
     private int count = 10;//设置一次获取的条目数
     private View footerView;
-
-
+    private ImageView mImageView;
 
 
     @Nullable
@@ -124,6 +124,7 @@ public class NoticeFragment extends FragmentBase {
 
     private void initView(View view) {
         mRecyclerView = (XRecyclerView) view.findViewById(R.id.notice_recycler);
+        mImageView = (ImageView) view.findViewById(R.id.no_content);
 
 //        mNoticeModelList = new ArrayList<>();
         mInfoModels = new ArrayList<>();
@@ -156,17 +157,17 @@ public class NoticeFragment extends FragmentBase {
                 }
 
 
-                Log.e(TAG, "convert: videoUrls："+item.videoUrl.size()+","+item.videoUrl );
+                Log.i("video", "convert: videoUrls："+item.videoUrl.size()+","+item.videoUrl );
 
                 // 如果是视频
                 if (item.videoUrl != null && item.videoUrl.size() != 0){
                     holder.setVisibility(R.id.videoImage,View.VISIBLE);
                     holder.setVisibility(R.id.community_nineGrid,View.GONE);
                     String imgUrl = Consts.API_SERVICE_HOST+item.picUrls.get(0).imageUrl;
-                    Log.e(TAG, "convert: imgUrl:"+imgUrl );
+                    Log.i("video", "convert: imgUrl:"+imgUrl );
                     holder.setImageByUrl(R.id.videoImage,imgUrl);
                     final String videoUrl = Consts.API_SERVICE_HOST+item.videoUrl.get(0).videoUrl;
-                    Log.e(TAG, "convert: videoUrl:"+videoUrl );
+                    Log.i("video", "convert: videoUrl:"+videoUrl );
                     holder.setOnClckListener(R.id.videoImage, new OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -175,8 +176,9 @@ public class NoticeFragment extends FragmentBase {
                         }
                     });
                 }else{
-                    holder.setVisibility(R.id.videoImage,View.VISIBLE);
-                    holder.setVisibility(R.id.community_nineGrid,View.GONE);
+                    Log.i("video", "convert: 不是视频");
+                    holder.setVisibility(R.id.videoImage,View.GONE);
+                    holder.setVisibility(R.id.community_nineGrid,View.VISIBLE);
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
                     List<PicModel> picModels = item.picUrls;
                     if (picModels != null && picModels.size() != 0){
@@ -319,6 +321,12 @@ public class NoticeFragment extends FragmentBase {
                         UIUtil.showToast(listLslResponse.msg);
                         footerView.setVisibility(View.VISIBLE);
                         mRecyclerView.setLoadingMoreEnabled(false);
+                    }
+
+                    if (isRefresh && mInfoModels.size() == 0){// 没有数据的话，显示图片
+                        mImageView.setVisibility(View.VISIBLE);
+                    } else {
+                        mImageView.setVisibility(View.GONE);
                     }
                 }
             });

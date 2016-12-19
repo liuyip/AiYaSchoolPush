@@ -171,8 +171,8 @@ public class SendSmallVideoActivity extends ActivityBase implements View.OnClick
         }
         File file = new File(videoUri);
         File file1 = new File(videoScreenshot);
-        mFiles.add(file1);
         mFiles.add(file);
+        mFiles.add(file1);
         showLoading(this);
         AppService.getInstance().upLoadFileAsync(mFiles,new JsonCallback<LslResponse<User>>() {
             @Override
