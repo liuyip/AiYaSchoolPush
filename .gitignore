@@ -46,8 +46,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# ========下面全部为自己添加========
-# 忽略build/目录下的所有文件
+
 build/
 .gradle/
 app/build/

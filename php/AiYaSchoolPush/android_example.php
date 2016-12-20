@@ -60,7 +60,7 @@ class XmPushUtil{
 		$aliasList = array('alias1', 'alias2');
 		$title = '爱吖校推';
 		$payload = '{"test":1,"ok":"It\'s a string"}';
-		$sender = new Sender();
+		$sender = new Sender();	
 		
 		// 推送消息给相应的classid的用户
 		$message = new Builder();
@@ -72,12 +72,16 @@ class XmPushUtil{
 		$message->extra(Builder::notifyEffect, 1);//此处预定义点击行为，1为打开app
 		$message->extra(Builder::notifyForeground, 1);
 		$message->notifyId(0);
-		$message->build();
-		$targetMessage2 = new TargetedMessage();
-		$targetMessage2->setTarget($classId, TargetedMessage::TARGET_TYPE_ALIAS);
-		$targetMessage2->setMessage($message);
-		$targetMessageList = array($targetMessage2);
-		$sender->multiSend($targetMessageList, TargetedMessage::TARGET_TYPE_ALIAS);
+		$message->build();	
+		
+		$sender->broadcast($message, $classId,3);  // 发送订阅主题，这里将设置为班级classId设置为topic
+		
+		
+// 		$targetMessage2 = new TargetedMessage();
+// 		$targetMessage2->setTarget($classId, TargetedMessage::TARGET_TYPE_ALIAS);  // 采用Alias标签
+// 		$targetMessage2->setMessage($message);
+// 		$targetMessageList = array($targetMessage2);
+// 		$sender->multiSend($targetMessageList, TargetedMessage::TARGET_TYPE_ALIAS);
 	}
 }
 

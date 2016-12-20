@@ -110,8 +110,11 @@ public class CommunityFragment extends FragmentBase {
         }
     }
 
+
     private void bindView(View view) {
         mInfoModels = new ArrayList<>();
+
+
 
         loadData(true);
 

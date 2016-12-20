@@ -211,7 +211,10 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
         AppService.getInstance().setCurrentUser(data);
 
         MiPushClient.subscribe(App.getAppContext(),data.classid+"",null);
+
+
         MiPushClient.setAlias(App.getAppContext(),data.classid+"",null);
+
 
         Editor editor = sp.edit();
         editor.putString("username",data.username);
