@@ -6,12 +6,12 @@
     我从一个一个的demo到从0开始做这个app，一路历经艰难险阻，期待你与我进行心灵交流。因为我也曾遇到各种棘手的问题，到处询问不到答案，
     那个时候的我，也许正如现在的你。而我，也还在这条道路上默默前行。
     
-####⊙开源不易，希望给个star或者fork奖励
-####⊙项目地址：(https://github.com/nanchen2251/AiYaSchoolPush)
-####⊙博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
-####⊙开发交流QQ群：（118116509）
-####⊙有问题请联系邮箱：（liushilin520@foxmail.com）
-####⊙app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.2.1.apk)
+####*开源不易，希望给个star或者fork奖励
+####*项目地址：(https://github.com/nanchen2251/AiYaSchoolPush)
+####*博客主页：(http://www.cnblogs.com/liushilin/p/5999246.html)
+####*开发交流QQ群：（118116509）
+####*有问题请联系邮箱：（liushilin520@foxmail.com）
+####*app体验下载：（https://github.com/nanchen2251/AiYaSchoolPush/blob/master/AiYa-SchoolPush-v2.2.1.apk)
 
 ##版本更新日志
 V2.2.1<br>
