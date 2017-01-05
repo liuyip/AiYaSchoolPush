@@ -14,12 +14,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.R;
-import com.example.nanchen.aiyaschoolpush.ui.activity.ReleaseActivity;
 import com.example.nanchen.aiyaschoolpush.adapter.MyPagerAdapter;
 import com.example.nanchen.aiyaschoolpush.config.AddConfig;
-import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
+import com.example.nanchen.aiyaschoolpush.config.Consts;
+import com.example.nanchen.aiyaschoolpush.ui.activity.ReleaseActivity;
 import com.example.nanchen.aiyaschoolpush.ui.view.TitleView;
+import com.example.nanchen.aiyaschoolpush.utils.CircularAnimUtil;
+import com.example.nanchen.aiyaschoolpush.utils.UIUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +78,20 @@ public class HomeFragment extends FragmentBase {
 
         mFab = (FloatingActionButton) view.findViewById(R.id.home_fab);
 
+        int type = AppService.getInstance().getCurrentUser().type;
+        Log.e(TAG, "bindView: type:"+type );
+        if (type == Consts.USER_TYPE_TEACHER){
+            mFab.setVisibility(View.VISIBLE);
+        }
+
         mFab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (AppService.getInstance().getCurrentUser().type != Consts.USER_TYPE_TEACHER){
+                    UIUtil.showToast("非相关人员暂时不允许发公告作业！");
+                    return;
+                }
+
                 Intent intent = new Intent(getActivity(), ReleaseActivity.class);
                 intent.putExtra("name", mName);
                 Log.e(TAG,mName);
@@ -108,11 +122,14 @@ public class HomeFragment extends FragmentBase {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0){
+                int type = AppService.getInstance().getCurrentUser().type;
+                Log.e(TAG, "onPageSelected: type:"+ type);
+                mFab.setVisibility(View.GONE);
+                if (position == 0 && type == Consts.USER_TYPE_TEACHER){
                     mFab.setVisibility(View.VISIBLE);
                     mName = AddConfig.NOTICE;
                 }
-                if (position == 1){
+                if (position == 1 && type == Consts.USER_TYPE_TEACHER){
                     mFab.setVisibility(View.VISIBLE);
                     mName = AddConfig.HOMEWORK;
                 }

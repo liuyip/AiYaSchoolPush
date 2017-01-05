@@ -20,4 +20,12 @@ public final class Consts {
      */
     public final static String API_SERVICE_HOST = "http://azhinj.ticp.io:10277/AiYaSchoolPush";
 
+    /**
+     * 用户是教师
+     */
+    public final static int USER_TYPE_TEACHER = 2;
+    /**
+     * 用户是学生或家长
+     */
+    public final static int USER_TYPE_STUDENT = 1;
 }

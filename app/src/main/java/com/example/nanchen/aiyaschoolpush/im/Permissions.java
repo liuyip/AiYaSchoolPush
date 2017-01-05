@@ -20,6 +20,6 @@ package com.example.nanchen.aiyaschoolpush.im;
  */
 enum Permissions {
   GRANTED,
-  DENIED,
-  NOT_FOUND
+  NOT_FOUND,
+  DENIED
 }

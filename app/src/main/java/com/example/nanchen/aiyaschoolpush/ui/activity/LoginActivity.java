@@ -237,6 +237,13 @@ public class LoginActivity extends ActivityBase implements OnClickListener {
         // reset current user name before login
         DemoHelper.getInstance().setCurrentUserName(currentUsername);
 
+        boolean flag = EMClient.getInstance().isLoggedInBefore();
+        Log.e(TAG, flag + "  --------");
+
+        if (flag) { //  如果已经有登录用户，先调用登出
+            EMClient.getInstance().logout(false);
+        }
+
         // go login 环信
         EMClient.getInstance().login(currentUsername, currentPassword, new EMCallBack() {
             @Override

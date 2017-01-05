@@ -33,6 +33,7 @@ public class MiMessageReceiver extends PushMessageReceiver {
     private String mEndTime;
     @Override
     public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
+
         mMessage = message.getContent();
         if(!TextUtils.isEmpty(message.getTopic())) {
             mTopic=message.getTopic();

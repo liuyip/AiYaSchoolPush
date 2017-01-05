@@ -9,7 +9,6 @@ import android.os.Process;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.example.nanchen.aiyaschoolpush.helper.DemoHelper;
 import com.example.nanchen.aiyaschoolpush.helper.QiYuCloudServerHelper;
 import com.lzy.imagepicker.ImagePicker;
@@ -92,17 +91,15 @@ public class App extends Application {
         NineGridView.setImageLoader(new PicassoImageLoader());
         initImagePicker(); // 初始化ImagePicker
 
-        // 初始化百度地图SDK
-        SDKInitializer.initialize(this);
 
         // 小视频
-        try {
-            // 不知道小视频为什么不可用
-            initSmallVideo(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new VideoException("当前手机暂不支持微视频");
-        }
+//        try {
+//            // 不知道小视频为什么不可用
+//            initSmallVideo(this);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw new VideoException("当前手机暂不支持微视频");
+//        }
 
     }
 

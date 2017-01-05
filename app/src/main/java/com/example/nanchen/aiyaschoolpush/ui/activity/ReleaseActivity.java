@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.ListCallback;
+import com.example.nanchen.aiyaschoolpush.App;
 import com.example.nanchen.aiyaschoolpush.AppService;
 import com.example.nanchen.aiyaschoolpush.R;
 import com.example.nanchen.aiyaschoolpush.SendSmallVideoActivity;
@@ -346,6 +347,9 @@ public class ReleaseActivity extends ActivityBase implements ImagePickerAdapter.
                                     Intent intent = new Intent(ReleaseActivity.this, com.lzy.imagepicker.ui.ImageGridActivity.class);
                                     startActivityForResult(intent, REQUEST_CODE_SELECT);
                                 }else{ // 打开微视频
+
+                                    App.initSmallVideo(ReleaseActivity.this.getApplicationContext());
+
                                     // 存一个文件，以便于让后面发微视频知道发到哪里
                                     getSharedPreferences("send.tmp",MODE_PRIVATE).edit().putString("infoType",mFrom)
                                             .putString("content",mEditText.getText().toString().trim()).apply();
