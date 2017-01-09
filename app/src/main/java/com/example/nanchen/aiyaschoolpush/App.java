@@ -15,6 +15,7 @@ import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.view.CropImageView;
 import com.lzy.ninegrid.NineGridView;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.mob.mobapi.MobAPI;
 import com.squareup.leakcanary.LeakCanary;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
@@ -23,6 +24,7 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.io.File;
 import java.util.List;
+import java.util.logging.Level;
 
 import cn.smssdk.SMSSDK;
 import mabeijianxi.camera.VCamera;
@@ -86,6 +88,11 @@ public class App extends Application {
 
         // OkGo初始化
         OkGo.init(this);
+        OkGo.getInstance().debug("okgo", Level.WARNING,true)
+                .setConnectTimeout(20000)  //全局的连接超时时间
+                .setReadTimeOut(20000)     //全局的读取超时时间
+                .setWriteTimeOut(20000)    //全局的写入超时时间
+                .setCookieStore(new PersistentCookieStore());
 
         // NineGridView的图片加载方式初始化
         NineGridView.setImageLoader(new PicassoImageLoader());

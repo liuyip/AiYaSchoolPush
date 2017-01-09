@@ -37,6 +37,7 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
         Type genType = getClass().getGenericSuperclass();
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 
+
         JsonConvert<T> convert = new JsonConvert<>();
         convert.setType(params[0]);
         T t = convert.convertSuccess(response);

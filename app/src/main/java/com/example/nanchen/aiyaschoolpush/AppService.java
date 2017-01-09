@@ -58,6 +58,8 @@ public class AppService {
         this.mCurrentUser = user;
     }
 
+    
+
     /***************    用户系统 Begin    ******************/
 
 

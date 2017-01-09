@@ -38,11 +38,14 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener;
 import com.lzy.ninegrid.ImageInfo;
 import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
+import com.lzy.okgo.exception.OkGoException;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -301,7 +304,7 @@ public class CommunityFragment extends FragmentBase {
                         footerView.setVisibility(View.GONE);
                     } else {
                         lastMainId = Integer.MAX_VALUE;
-                        UIUtil.showToast(listLslResponse.msg);
+                        UIUtil.showToast("获取数据失败："+listLslResponse.msg);
                         footerView.setVisibility(View.VISIBLE);
                         mRecyclerView.setLoadingMoreEnabled(false);
                     }
@@ -310,6 +313,23 @@ public class CommunityFragment extends FragmentBase {
                         mImageView.setVisibility(View.VISIBLE);
                     } else {
                         mImageView.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onError(Call call, Response response, Exception e) {
+                    super.onError(call, response, e);
+                    if (e != null){
+                        Log.e(TAG, "onError: "+e.getMessage() );
+                        e.printStackTrace();
+                        UIUtil.showToast(e.getMessage());
+                    }
+                    if (e instanceof OkGoException){
+                        UIUtil.showToast("抱歉，发生了未知错误！");
+                    } else if (e instanceof SocketTimeoutException){
+                        UIUtil.showToast("你的手机网络太慢！");
+                    } else if (e instanceof ConnectException){
+                        UIUtil.showToast("对不起，你的手机没有联网！");
                     }
                 }
             });
